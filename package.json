@@ -1,0 +1,35 @@
+{
+	"private": true,
+	"name": "preact-bulma-components",
+	"version": "0.1.2",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"description": "Bulma Components for Preact",
+	"repository": "https://github.com/strootje/preact-bulma-components",
+	"author": "Bas Stroosnijder",
+	"license": "MIT",
+	"scripts": {
+		"test": "mocha",
+		"build": "tsx",
+		"prepack": "npm run build"
+	},
+	"dependencies": {
+		"classnames": "*"
+	},
+	"peerDependencies": {
+		"bulma": "0.*",
+		"preact": "8.*"
+	},
+	"devDependencies": {
+		"@types/chai": "^4.1.7",
+		"@types/classnames": "*",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^11.10.4",
+		"chai": "^4.2.0",
+		"mocha": "^6.0.2",
+		"preact": "*",
+		"preact-jsx-chai": "^2.2.1",
+		"ts-node": "^8.0.2",
+		"typescript": "*"
+	}
+}

@@ -1,0 +1,43 @@
+{
+	"compilerOptions": {
+		 "module": "commonjs",
+		 "target": "es6",
+		 "declaration": true,
+		 "outDir": "./dist",
+
+		 "jsx": "react",
+		 "jsxFactory": "h",
+
+		 "noImplicitAny": true,
+		 "noUnusedLocals": true,
+		 "noUnusedParameters": true,
+		 "strictNullChecks": true,
+		 "allowUnreachableCode": false,
+		 "removeComments": true,
+		 "preserveConstEnums": true,
+		 "sourceMap": true,
+		 "emitDecoratorMetadata": true,
+		 "experimentalDecorators": true,
+
+		 "baseUrl": ".",
+
+		 "paths": {
+			"@Columns/*": ["./src/Columns/*"],
+			"@Components/*": ["./src/Components/*"],
+			"@Elements/*": ["./src/Elements/*"],
+			"@Form/*": ["./src/Columns/*"],
+			"@Layout/*": ["./src/Layout/*"],
+			"@stories/*": ["./stories/*"]
+		 }
+	},
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.tsx",
+		"test/**/*.ts",
+		"test/**/*.tsx",
+		"types/**/*.d.ts"
+	],
+	"exclude": [
+		"node_modules"
+	]
+}
