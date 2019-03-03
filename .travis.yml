@@ -9,3 +9,6 @@ install:
 
 script:
 - pnpm test
+
+after_success:
+- pnpm run coverage
