@@ -17,18 +17,7 @@
 		 "preserveConstEnums": true,
 		 "sourceMap": true,
 		 "emitDecoratorMetadata": true,
-		 "experimentalDecorators": true,
-
-		 "baseUrl": ".",
-
-		 "paths": {
-			"@Columns/*": ["./src/Columns/*"],
-			"@Components/*": ["./src/Components/*"],
-			"@Elements/*": ["./src/Elements/*"],
-			"@Form/*": ["./src/Columns/*"],
-			"@Layout/*": ["./src/Layout/*"],
-			"@stories/*": ["./stories/*"]
-		 }
+		 "experimentalDecorators": true
 	},
 	"include": [
 		"src/**/*.ts",

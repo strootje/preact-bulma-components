@@ -2,7 +2,7 @@ import ClassNames from 'classnames';
 import { h, RenderableProps } from 'preact';
 
 interface NavbarBurgerProps {
-	active?: boolean
+	active?: boolean;
 }
 
 const defaults: NavbarBurgerProps = {

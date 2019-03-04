@@ -2,7 +2,7 @@ import { h, RenderableProps } from 'preact';
 import { CssBaseClasses, NavbarItemProps } from './Item';
 
 interface NavbarLinkItemProps extends NavbarItemProps {
-	href?: string
+	href?: string;
 }
 
 export default function NavbarLinkItem(props: RenderableProps<NavbarLinkItemProps>) {

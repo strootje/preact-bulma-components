@@ -2,7 +2,6 @@ import { expect, use } from 'chai';
 import { h } from 'preact';
 import Columns from '../../src/Columns/Columns';
 
-
 describe('The <Columns> Component', () => {
 	use(require('preact-jsx-chai').default);
 

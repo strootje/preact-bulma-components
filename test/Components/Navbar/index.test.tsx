@@ -13,10 +13,6 @@ describe('The <Navbar> Component', () => {
 		);
 	});
 
-
-
-
-
 	it('should render a complete navbar', () => {
 		expect(
 			<Navbar>

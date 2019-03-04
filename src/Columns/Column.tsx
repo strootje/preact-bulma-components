@@ -1,5 +1,5 @@
 import ClassNames from 'classnames';
-import { h, RenderableProps } from "preact";
+import { h, RenderableProps } from 'preact';
 import { Breakpoints, Sizes } from '../Bulma';
 
 type BreakpointsWithFallback = 'fallback' | Breakpoints;
@@ -14,9 +14,9 @@ type ColumnNarrow = boolean;
 type ColumnNarrows = { [_ in BreakpointsWithFallback]?: ColumnNarrow };
 
 interface ColumnProps {
-	size?: ColumnSize | ColumnSizes
-	offset?: ColumnOffset | ColumnOffsets
-	narrow?: ColumnNarrow | ColumnNarrows
+	size?: ColumnSize | ColumnSizes;
+	offset?: ColumnOffset | ColumnOffsets;
+	narrow?: ColumnNarrow | ColumnNarrows;
 }
 
 export default function Column(props: RenderableProps<ColumnProps>) {

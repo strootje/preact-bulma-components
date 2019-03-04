@@ -1,0 +1,11 @@
+{
+	"extends": "tslint:recommended",
+	"rules": {
+		"indent": [ true, "tabs" ],
+		"interface-name": [ true, "never-prefix" ],
+		"max-line-length": [ true, 180 ],
+		"no-empty-interface": false,
+		"quotemark": [ true, "single" ],
+		"trailing-comma": [ true, { "multiline": "never", "singleline": "never", "esSpecCompliant": true } ]
+	}
+}

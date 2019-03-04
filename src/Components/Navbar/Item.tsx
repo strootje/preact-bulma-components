@@ -2,8 +2,8 @@ import ClassNames from 'classnames';
 import { h, RenderableProps } from 'preact';
 
 export interface NavbarItemProps {
-	expanded?: boolean
-	tab?: boolean
+	expanded?: boolean;
+	tab?: boolean;
 }
 
 export function CssBaseClasses(props: NavbarItemProps, classesToAdd?: { [_: string]: boolean }): string {

@@ -11,16 +11,16 @@ import NavbarMenu from './Menu';
 import NavbarStart from './Start';
 
 interface NavbarProps {
-	'aria-label'?: string
-	role?: string
-	color?: Colors
-	transparent?: boolean
-	fixed?: 'top' | 'bottom'
+	'aria-label'?: string;
+	role?: string;
+	color?: Colors;
+	transparent?: boolean;
+	fixed?: 'top' | 'bottom';
 }
 
 const defaults: NavbarProps = {
 	'aria-label': 'main navigation',
-	role: 'navigation'
+	'role': 'navigation'
 };
 
 export default function Navbar(props: RenderableProps<NavbarProps>): JSX.Element {
@@ -33,7 +33,7 @@ export default function Navbar(props: RenderableProps<NavbarProps>): JSX.Element
 	});
 
 	return (
-		<nav class={className} role={props.role} aria-label={props["aria-label"]}>
+		<nav class={className} role={props.role} aria-label={props['aria-label']}>
 			{props.children}
 		</nav>
 	);

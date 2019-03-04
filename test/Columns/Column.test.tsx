@@ -79,7 +79,8 @@ describe('The <Column> Component', () => {
 		);
 	});
 
-	it('should render to a <div> with added classname `.is-offset-half-desktop` and `.is-offset-one-third` when the size attribute is set to `{ desktop: half, fallback: one-third }`', () => {
+	it('should render to a <div> with added classname `.is-offset-half-desktop` and `.is-offset-one-third`'
+		+ 'when the size attribute is set to `{ desktop: half, fallback: one-third }`', () => {
 		expect(
 			<Column offset={{ desktop: 'half', fallback: 'one-third' }} />
 		).to.eql(

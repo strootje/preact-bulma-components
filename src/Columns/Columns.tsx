@@ -1,13 +1,13 @@
 import ClassNames from 'classnames';
-import { h, RenderableProps } from "preact";
+import { h, RenderableProps } from 'preact';
 import { Directions } from '../Bulma';
 
 type GapSize = 'gapless' | '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8';
 
 export interface ColumnsProps {
-	centered?: Directions
-	gap?: GapSize
-	multiline?: boolean
+	centered?: Directions;
+	gap?: GapSize;
+	multiline?: boolean;
 }
 
 export default function Column(props: RenderableProps<ColumnsProps>) {

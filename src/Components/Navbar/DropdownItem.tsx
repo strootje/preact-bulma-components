@@ -2,9 +2,9 @@ import { h, RenderableProps } from 'preact';
 import { CssBaseClasses, NavbarItemProps } from './Item';
 
 interface NavbarDropdownItemProps extends NavbarItemProps {
-	label: string | JSX.Element
-	hoverable?: boolean
-	active?: boolean
+	label: string | JSX.Element;
+	hoverable?: boolean;
+	active?: boolean;
 }
 
 export default function NavbarDropdownItem(props: RenderableProps<NavbarDropdownItemProps>) {

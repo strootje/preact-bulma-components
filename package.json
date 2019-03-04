@@ -9,9 +9,15 @@
 	"author": "Bas Stroosnijder",
 	"license": "MIT",
 	"scripts": {
+		"lint": "tslint -p ./tslint.json",
+
+		"pretest": "pnpm run lint",
 		"test": "mocha",
-		"test:cover": "nyc --require ts-node/register mocha",
+		"test:cover": "nyc --require ts-node/register pnpm test",
+
+		"prebuild": "pnpm run lint",
 		"build": "tsx",
+
 		"prepack": "npm run build",
 		"coverage": "nyc report --reporter=text-lcov | coveralls"
 	},
@@ -35,6 +41,7 @@
 		"preact-jsx-chai": "^2.2.1",
 		"source-map-support": "^0.5.10",
 		"ts-node": "^8.0.2",
+		"tslint": "^5.13.1",
 		"typescript": "*"
 	},
 	"nyc": {
@@ -47,7 +54,8 @@
 			"dist",
 			"node_modules",
 			"**/*.test.ts*",
-			"**/*.d.ts"
+			"**/*.d.ts",
+			"**/index.ts"
 		]
 	}
 }
