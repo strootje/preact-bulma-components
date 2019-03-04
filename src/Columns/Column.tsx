@@ -1,51 +1,29 @@
 import ClassNames from 'classnames';
 import { h, RenderableProps } from 'preact';
-import { Breakpoints, Sizes } from '../Bulma';
-
-type BreakpointsWithFallback = 'fallback' | Breakpoints;
+import { AddBreakpointClasses, Sizes, WithBreakpoints } from '../Bulma';
+import { AddModifierClasses, ModifierProps } from '../Modifiers';
 
 type ColumnSize = 'full' | Sizes;
-type ColumnSizes = { [_ in BreakpointsWithFallback]?: ColumnSize };
+type ColumnSizes = WithBreakpoints<ColumnSize>;
 
 type ColumnOffset = Sizes;
-type ColumnOffsets = { [_ in BreakpointsWithFallback]?: ColumnOffset };
+type ColumnOffsets = WithBreakpoints<ColumnOffset>;
 
 type ColumnNarrow = boolean;
-type ColumnNarrows = { [_ in BreakpointsWithFallback]?: ColumnNarrow };
+type ColumnNarrows = WithBreakpoints<ColumnNarrow>;
 
-interface ColumnProps {
+interface ColumnProps extends ModifierProps {
 	size?: ColumnSize | ColumnSizes;
 	offset?: ColumnOffset | ColumnOffsets;
 	narrow?: ColumnNarrow | ColumnNarrows;
 }
 
 export default function Column(props: RenderableProps<ColumnProps>) {
-	let size: ColumnSizes;
-	let offset: ColumnOffsets;
-	let narrow: ColumnNarrows;
-
-	if (typeof props.size === 'string') {
-		size = { fallback: props.size };
-	} else {
-		size = props.size || {};
-	}
-
-	if (typeof props.offset === 'string') {
-		offset = { fallback: props.offset };
-	} else {
-		offset = props.offset || {};
-	}
-
-	if (typeof props.narrow === 'boolean') {
-		narrow = { fallback: props.narrow };
-	} else {
-		narrow = props.narrow || {};
-	}
-
 	const className = ClassNames('column', {
-		...Object.keys(size).reduce((prev, cur: BreakpointsWithFallback) => ({ ...prev, [`is-${size[cur]}${cur !== 'fallback' ? `-${cur}` : ''}`]: true }), {}),
-		...Object.keys(offset).reduce((prev, cur: BreakpointsWithFallback) => ({ ...prev, [`is-offset-${offset[cur]}${cur !== 'fallback' ? `-${cur}` : ''}`]: true }), {}),
-		...Object.keys(narrow).reduce((prev, cur: BreakpointsWithFallback) => ({ ...prev, [`is-narrow${cur !== 'fallback' ? `-${cur}` : ''}`]: true }), {})
+		...AddModifierClasses(props),
+		...AddBreakpointClasses(props.size),
+		...AddBreakpointClasses(props.offset, 'is-offset'),
+		...AddBreakpointClasses(props.narrow, (k, _) => `is-narrow${k !== 'fallback' ? `-${k}` : ''}`)
 	});
 
 	return (

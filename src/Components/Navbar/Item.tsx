@@ -1,13 +1,15 @@
 import ClassNames from 'classnames';
 import { h, RenderableProps } from 'preact';
+import { AddModifierClasses, ModifierProps } from '../../Modifiers';
 
-export interface NavbarItemProps {
+export interface NavbarItemProps extends ModifierProps {
 	expanded?: boolean;
 	tab?: boolean;
 }
 
-export function CssBaseClasses(props: NavbarItemProps, classesToAdd?: { [_: string]: boolean }): string {
+export function AddNavbarItemClasses(props: NavbarItemProps, classesToAdd?: { [_: string]: boolean }): string {
 	return ClassNames('navbar-item', {
+		...AddModifierClasses(props),
 		['is-expanded']: !!props.expanded,
 		['is-tab']: !!props.tab,
 		...classesToAdd
@@ -15,7 +17,7 @@ export function CssBaseClasses(props: NavbarItemProps, classesToAdd?: { [_: stri
 }
 
 export default function NavbarItem(props: RenderableProps<NavbarItemProps>) {
-	const className = CssBaseClasses(props);
+	const className = AddNavbarItemClasses(props);
 
 	return (
 		<div class={className}>

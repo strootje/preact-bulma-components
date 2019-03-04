@@ -1,18 +1,14 @@
 import ClassNames from 'classnames';
 import { h, RenderableProps } from 'preact';
+import { AddModifierClasses, ModifierProps } from '../../Modifiers';
 
-interface NavbarMenuProps {
+interface NavbarMenuProps extends ModifierProps {
 	active?: boolean;
 }
 
-const defaults: NavbarMenuProps = {
-	active: false
-};
-
 export default function NavbarMenu(props: RenderableProps<NavbarMenuProps>) {
-	props = { ...defaults, ...props };
-
 	const className = ClassNames('navbar-menu', {
+		...AddModifierClasses(props),
 		['is-active']: !!props.active
 	});
 

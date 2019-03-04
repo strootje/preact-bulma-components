@@ -2,11 +2,11 @@ import ClassNames from 'classnames';
 import { h, RenderableProps } from 'preact';
 import { AddModifierClasses, ModifierProps } from '../../Modifiers';
 
-interface NavbarBrandProps extends ModifierProps {
+interface LevelRightProps extends ModifierProps {
 }
 
-export default function NavbarBrand(props: RenderableProps<NavbarBrandProps>) {
-	const className = ClassNames('navbar-brand', {
+export default function LevelRight(props: RenderableProps<LevelRightProps>) {
+	const className = ClassNames('level-right', {
 		...AddModifierClasses(props)
 	});
 

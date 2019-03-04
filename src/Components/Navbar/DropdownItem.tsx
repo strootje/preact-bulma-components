@@ -1,5 +1,5 @@
 import { h, RenderableProps } from 'preact';
-import { CssBaseClasses, NavbarItemProps } from './Item';
+import { AddNavbarItemClasses, NavbarItemProps } from './Item';
 
 interface NavbarDropdownItemProps extends NavbarItemProps {
 	label: string | JSX.Element;
@@ -8,7 +8,7 @@ interface NavbarDropdownItemProps extends NavbarItemProps {
 }
 
 export default function NavbarDropdownItem(props: RenderableProps<NavbarDropdownItemProps>) {
-	const className = CssBaseClasses(props, {
+	const className = AddNavbarItemClasses(props, {
 		['has-dropdown']: true,
 		['is-hoverable']: !!props.hoverable || !props.active,
 		['is-active']: !!props.active

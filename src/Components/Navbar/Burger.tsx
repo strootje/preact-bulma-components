@@ -1,7 +1,8 @@
 import ClassNames from 'classnames';
 import { h, RenderableProps } from 'preact';
+import { AddModifierClasses, ModifierProps } from '../../Modifiers';
 
-interface NavbarBurgerProps {
+interface NavbarBurgerProps extends ModifierProps {
 	active?: boolean;
 }
 
@@ -13,6 +14,7 @@ export default function NavbarBurger(props: RenderableProps<NavbarBurgerProps>) 
 	props = { ...defaults, ...props };
 
 	const className = ClassNames('navbar-burger', {
+		...AddModifierClasses(props),
 		['is-active']: !!props.active
 	});
 
