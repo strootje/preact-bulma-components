@@ -1,7 +1,6 @@
-import ClassNames from 'classnames';
-import { h, RenderableProps } from 'preact';
+import BuildElement from '../BuildElement';
 import { AddBreakpointClasses, Sizes, WithBreakpoints } from '../Bulma';
-import { AddModifierClasses, ModifierProps } from '../Modifiers';
+import { ModifierProps } from '../Modifiers';
 
 type ColumnSize = 'full' | Sizes;
 type ColumnSizes = WithBreakpoints<ColumnSize>;
@@ -18,17 +17,10 @@ interface ColumnProps extends ModifierProps {
 	narrow?: ColumnNarrow | ColumnNarrows;
 }
 
-export default function Column(props: RenderableProps<ColumnProps>) {
-	const className = ClassNames('column', {
-		...AddModifierClasses(props),
+export default BuildElement<ColumnProps>('column', {
+	addClasses: (props) => ({
 		...AddBreakpointClasses(props.size),
 		...AddBreakpointClasses(props.offset, 'is-offset'),
 		...AddBreakpointClasses(props.narrow, (k, _) => `is-narrow${k !== 'fallback' ? `-${k}` : ''}`)
-	});
-
-	return (
-		<div class={className}>
-			{props.children}
-		</div>
-	);
-}
+	})
+});

@@ -1,3 +1,4 @@
+export interface ListOfAttributes { [_: string]: any; }
 export interface ListOfClasses { [_: string]: boolean; }
 
 export type Breakpoints = 'mobile' | 'tablet' | 'touch' | 'desktop' | 'widescreen' | 'fullhd';
@@ -12,6 +13,7 @@ export type Sides = 'left' | 'right';
 export type NamedSizes = 'four-fifths' | 'three-quarters' | 'two-thirds' | 'three-fifths' | 'three-quarters' | 'half' | 'two-fifths' | 'one-third' | 'one-quarter' | 'one-fifth';
 export type NumberedSizes = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
 export type Sizes = NamedSizes | NumberedSizes;
+export type OtherSizes = 'small' | 'normal' | 'medium' | 'large';
 
 type Reducer<T> = (key: string, value?: T) => string;
 

@@ -1,4 +1,5 @@
-import { h, RenderableProps } from 'preact';
+import { h } from 'preact';
+import BuildElement from '../../BuildElement';
 import { AddNavbarItemClasses, NavbarItemProps } from './Item';
 
 interface NavbarDropdownItemProps extends NavbarItemProps {
@@ -7,22 +8,26 @@ interface NavbarDropdownItemProps extends NavbarItemProps {
 	active?: boolean;
 }
 
-export default function NavbarDropdownItem(props: RenderableProps<NavbarDropdownItemProps>) {
-	const className = AddNavbarItemClasses(props, {
+export default BuildElement<NavbarDropdownItemProps>('navbar-item', {
+	addAttributes: (props) => ({
+		['label']: props.label
+	}),
+
+	addClasses: (props) => AddNavbarItemClasses(props, {
 		['has-dropdown']: true,
 		['is-hoverable']: !!props.hoverable || !props.active,
 		['is-active']: !!props.active
-	});
+	}),
 
-	return (
+	render: (className, { label }, { children }) => (
 		<div class={className}>
 			<a class='navbar-link'>
-				{props.label}
+				{label}
 			</a>
 
 			<div class='navbar-dropdown'>
-				{props.children}
+				{children}
 			</div>
 		</div>
-	);
-}
+	)
+});

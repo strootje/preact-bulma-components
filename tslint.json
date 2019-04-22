@@ -6,6 +6,7 @@
 		"max-line-length": [ true, 180 ],
 		"no-empty-interface": false,
 		"quotemark": [ true, "single" ],
-		"trailing-comma": [ true, { "multiline": "never", "singleline": "never", "esSpecCompliant": true } ]
+		"trailing-comma": [ true, { "multiline": "never", "singleline": "never", "esSpecCompliant": true } ],
+		"no-trailing-whitespace": [ true, "ignore-blank-lines" ]
 	}
 }

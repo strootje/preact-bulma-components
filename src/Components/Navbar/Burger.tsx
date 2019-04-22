@@ -1,28 +1,27 @@
-import ClassNames from 'classnames';
-import { h, RenderableProps } from 'preact';
-import { AddModifierClasses, ModifierProps } from '../../Modifiers';
+import { h } from 'preact';
+import BuildElement from '../../BuildElement';
+import { ModifierProps } from '../../Modifiers';
 
 interface NavbarBurgerProps extends ModifierProps {
 	active?: boolean;
 }
 
-const defaults: NavbarBurgerProps = {
-	active: false
-};
+export default BuildElement<NavbarBurgerProps>('navbar-burger', {
+	addAttributes: () => ({
+		['role']: 'button',
+		['aria-label']: 'menu',
+		['aria-expanded']: 'false'
+	}),
 
-export default function NavbarBurger(props: RenderableProps<NavbarBurgerProps>) {
-	props = { ...defaults, ...props };
-
-	const className = ClassNames('navbar-burger', {
-		...AddModifierClasses(props),
+	addClasses: (props) => ({
 		['is-active']: !!props.active
-	});
+	}),
 
-	return (
-		<a class={className} role='button' aria-label='menu' aria-expanded='false'>
+	render: (className, attr) => (
+		<a class={className} {...attr}>
 			<span aria-hidden></span>
 			<span aria-hidden></span>
 			<span aria-hidden></span>
 		</a>
-	);
-}
+	)
+});
