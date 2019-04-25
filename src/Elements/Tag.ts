@@ -10,7 +10,7 @@ interface TagProps extends ModifierProps {
 }
 
 export default BuildElement<TagProps>('tag', {
-	addClasses: (props: TagProps) => ({
+	addClasses: (props) => ({
 		[`is-${props.size}`]: !!props.size,
 		[`is-${props.color}`]: !!props.color,
 		[`is-delete`]: !!props.delete,

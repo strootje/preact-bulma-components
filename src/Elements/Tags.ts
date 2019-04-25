@@ -7,7 +7,7 @@ interface TagsProps extends ModifierProps {
 
 // TODO: link single tag
 export default BuildElement<TagsProps>('tags', {
-	addClasses: (props: TagsProps) => ({
+	addClasses: (props) => ({
 		[`has-addons`]: !!props.addons
 	})
 });

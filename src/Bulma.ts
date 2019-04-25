@@ -9,6 +9,7 @@ export type Colors = 'primary' | 'link' | 'info' | 'success' | 'warning' | 'dang
 export type ColorsExtra = 'black-bis' | 'black-ter' | 'gray-darker' | 'gray-dark' | 'gray' | 'gray-light' | 'gray-lighter' | 'white-ter' | 'white-bis' | Colors;
 export type Directions = 'horizontal' | 'vertical' | 'both';
 export type Sides = 'left' | 'right';
+export type Alignments = 'centered' | Sides;
 
 export type NamedSizes = 'four-fifths' | 'three-quarters' | 'two-thirds' | 'three-fifths' | 'three-quarters' | 'half' | 'two-fifths' | 'one-third' | 'one-quarter' | 'one-fifth';
 export type NumberedSizes = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';

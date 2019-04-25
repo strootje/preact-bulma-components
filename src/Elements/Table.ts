@@ -10,7 +10,7 @@ interface ContentProps extends ModifierProps {
 }
 
 export default BuildElement<ContentProps>('content', {
-	addClasses: (props: ContentProps) => ({
+	addClasses: (props) => ({
 		[`is-bordered`]: !!props.bordered,
 		[`is-striped`]: !!props.striped,
 		[`is-narrow`]: !!props.narrow,

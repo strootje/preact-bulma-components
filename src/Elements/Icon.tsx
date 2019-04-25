@@ -12,8 +12,8 @@ export default BuildElement<IconProps>('icon', {
 		[`is-${props.size}`]: !!props.size
 	}),
 
-	render: (className, attr) => (
-		<span class={className} {...attr}>
+	render: (className, attribs) => (
+		<span class={className} {...attribs}>
 			<i>todo: class</i>
 		</span>
 	)

@@ -1,7 +1,7 @@
-import ClassNames from 'classnames';
-import { h, RenderableProps } from 'preact';
+import { FunctionalComponent, RenderableProps } from 'preact';
+import BuildElement from '../../BuildElement';
 import { Colors } from '../../Bulma';
-import { AddModifierClasses, ModifierProps } from '../../Modifiers';
+import { ModifierProps } from '../../Modifiers';
 import NavbarBrand from './Brand';
 import NavbarBurger from './Burger';
 import NavbarDropdownItem from './DropdownItem';
@@ -19,29 +19,24 @@ interface NavbarProps extends ModifierProps {
 	fixed?: 'top' | 'bottom';
 }
 
-const defaults: NavbarProps = {
-	'aria-label': 'main navigation',
-	'role': 'navigation'
-};
+const Navbar = BuildElement<NavbarProps>('navbar', {
+	addAttributes: () => ({
+		['aria-label']: 'main navigation',
+		['role']: 'navigation'
+	}),
 
-export default function Navbar(props: RenderableProps<NavbarProps>): JSX.Element {
-	props = { ...defaults, ...props };
-
-	const className = ClassNames('navbar', {
-		...AddModifierClasses(props),
+	addClasses: (props) => ({
 		[`is-${props.color}`]: !!props.color,
 		['is-transparent']: !!props.transparent,
 		[`is-fixed-${props.fixed}`]: !!props.fixed
-	});
+	}),
 
-	return (
-		<nav class={className} role={props.role} aria-label={props['aria-label']}>
-			{props.children}
-		</nav>
-	);
-}
+	render: 'nav'
+}) as (FunctionalComponent<RenderableProps<NavbarProps>> & {
+	[_ in 'Brand' | 'Burger' | 'Dropdown' | 'End' | 'Item' | 'LinkItem' | 'Menu' | 'Start']: FunctionalComponent<any>;
+});
 
-// Set subitems within main item
+export default Navbar;
 Navbar.Brand = NavbarBrand;
 Navbar.Burger = NavbarBurger;
 Navbar.Dropdown = NavbarDropdownItem;
@@ -50,4 +45,3 @@ Navbar.Item = NavbarItem;
 Navbar.LinkItem = NavbarLinkItem;
 Navbar.Menu = NavbarMenu;
 Navbar.Start = NavbarStart;
-Navbar.End = NavbarEnd;

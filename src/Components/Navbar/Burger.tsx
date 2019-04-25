@@ -17,8 +17,8 @@ export default BuildElement<NavbarBurgerProps>('navbar-burger', {
 		['is-active']: !!props.active
 	}),
 
-	render: (className, attr) => (
-		<a class={className} {...attr}>
+	render: (className, attribs) => (
+		<a class={className} {...attribs}>
 			<span aria-hidden></span>
 			<span aria-hidden></span>
 			<span aria-hidden></span>
