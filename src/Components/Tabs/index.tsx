@@ -8,9 +8,8 @@ interface TabsProps extends ModifierProps {
 	align?: Alignments;
 	boxed?: boolean;
 	fullwidth?: boolean;
-	rounded?: boolean;
 	size?: OtherSizes;
-	toggle?: boolean;
+	toggle?: boolean | 'rounded';
 }
 
 const Tabs = BuildElement<TabsProps>('tabs', {
@@ -18,9 +17,9 @@ const Tabs = BuildElement<TabsProps>('tabs', {
 		[`is-${props.align}`]: !!props.align,
 		[`is-boxed`]: !!props.boxed,
 		[`is-fullwidth`]: !!props.fullwidth,
-		[`is-rounded`]: !!props.rounded,
 		[`is-${props.size}`]: !!props.size,
-		[`is-toggle`]: !!props.toggle
+		[`is-toggle`]: !!props.toggle,
+		[`is-toggle-rounded`]: props.toggle === 'rounded'
 	}),
 
 	render: (className, attribs, { children }) => (

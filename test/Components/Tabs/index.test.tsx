@@ -35,21 +35,11 @@ describe('The <Tabs> Component', () => {
 		);
 	});
 
-	it('should render to a <div> with classname `.tabs .is-boxed` when `fullwidth` is set', () => {
+	it('should render to a <div> with classname `.tabs .is-fullwidth` when `fullwidth` is set', () => {
 		expect(
 			<Tabs fullwidth />
 		).to.eql(
 			<div class='tabs is-fullwidth'>
-				<ul />
-			</div>
-		);
-	});
-
-	it('should render to a <div> with classname `.tabs .is-boxed` when `rounded` is set', () => {
-		expect(
-			<Tabs rounded />
-		).to.eql(
-			<div class='tabs is-rounded'>
 				<ul />
 			</div>
 		);
@@ -65,11 +55,21 @@ describe('The <Tabs> Component', () => {
 		);
 	});
 
-	it('should render to a <div> with classname `.tabs .is-boxed` when `toggle` is set', () => {
+	it('should render to a <div> with classname `.tabs .is-toggle` when `toggle` is set', () => {
 		expect(
 			<Tabs toggle />
 		).to.eql(
 			<div class='tabs is-toggle'>
+				<ul />
+			</div>
+		);
+	});
+
+	it('should render to a <div> with classname `.tabs .is-toggle .is-toggle-rounded` when `toggle` is set to `rounded`', () => {
+		expect(
+			<Tabs toggle='rounded' />
+		).to.eql(
+			<div class='tabs is-toggle is-toggle-rounded'>
 				<ul />
 			</div>
 		);
