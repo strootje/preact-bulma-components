@@ -26,7 +26,7 @@ describe('The <BreadcrumbItem> Component', () => {
 			<BreadcrumbItem icon='fas fa-lock'>Home</BreadcrumbItem>
 		).to.eql(
 			<li>
-				<span class='icon is-small'><i class='fas fa-lock' aria-hidden='true'></i></span>
+				<span class='icon is-small'><i class='fas fa-lock'></i></span>
 				<a href='#'>Home</a>
 			</li>
 		);

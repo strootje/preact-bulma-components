@@ -1,5 +1,6 @@
 import { h } from 'preact';
 import BuildElement from '../../BuildElement';
+import Icon from '../../Elements/Icon';
 import { ModifierProps } from '../../Modifiers';
 
 interface ItemProps extends ModifierProps {
@@ -14,7 +15,7 @@ export default BuildElement<ItemProps>('', {
 
 	render: (className, { href, ...attribs }, { children, icon }) => (
 		<li class={className} {...attribs}>
-			{icon && <span class='icon is-small'><i class={icon} aria-hidden='true'></i></span>}
+			{icon && <Icon size='small'>{icon}</Icon>}
 			<a href={href}>{children}</a>
 		</li>
 	)

@@ -4,6 +4,7 @@ import { OtherSizes } from '../Bulma';
 import { ModifierProps } from '../Modifiers';
 
 interface IconProps extends ModifierProps {
+	children: string;
 	size?: OtherSizes;
 }
 
@@ -12,9 +13,9 @@ export default BuildElement<IconProps>('icon', {
 		[`is-${props.size}`]: !!props.size
 	}),
 
-	render: (className, attribs) => (
+	render: (className, attribs, { children }) => (
 		<span class={className} {...attribs}>
-			<i>todo: class</i>
+			<i class={typeof children === 'string' ? children : children.toString()}></i>
 		</span>
 	)
 });
