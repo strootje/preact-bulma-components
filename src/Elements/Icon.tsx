@@ -15,7 +15,7 @@ export default BuildElement<IconProps>('icon', {
 
 	render: (className, attribs, { children }) => (
 		<span class={className} {...attribs}>
-			<i class={typeof children === 'string' ? children : children.toString()}></i>
+			<i class={children.toString()}></i>
 		</span>
 	)
 });

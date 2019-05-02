@@ -1,8 +1,8 @@
-import BuildElement from '../BuildElement';
-import { Colors, OtherSizes } from '../Bulma';
-import { ModifierProps } from '../Modifiers';
+import BuildElement from '../../BuildElement';
+import { Colors, OtherSizes } from '../../Bulma';
+import { ModifierProps } from '../../Modifiers';
 
-interface TagProps extends ModifierProps {
+export interface TagProps extends ModifierProps {
 	size?: OtherSizes;
 	color?: Colors;
 	delete?: boolean;

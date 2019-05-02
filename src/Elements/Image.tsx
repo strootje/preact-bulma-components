@@ -14,19 +14,13 @@ interface ImageProps extends ModifierProps {
 }
 
 export default BuildElement<ImageProps>('image', {
-	addAttributes: (props) => ({
-		['src']: props.src,
-		['caption']: props.caption,
-		['rounded']: `${props.rounded}`
-	}),
-
 	addClasses: (props) => ({
 		[`is-${props.size}`]: !!props.size
 	}),
 
-	render: (className, { src, caption, rounded, ...rest }) => (
-		<figure class={className} {...rest}>
-			<img {...rounded && `class='is-rounded'`} src={src} />
+	render: (className, attribs, { src, caption, rounded }) => (
+		<figure class={className} {...attribs}>
+			<img class={!!rounded ? 'rounded' : ''} src={src} />
 			{caption && <figcaption>{caption}</figcaption>}
 		</figure>
 	)

@@ -4,5 +4,4 @@ export * from './Delete';
 export * from './Icon';
 export * from './Image';
 export * from './Notification';
-export * from './Tag';
 export * from './Tags';

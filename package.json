@@ -12,12 +12,10 @@
 		"lint": "tslint -p ./tslint.json",
 
 		"pretest": "pnpm run lint",
-		"test": "mocha",
-		"pretest:cover": "pnpm run pretest",
-		"test:cover": "nyc --reporter=html --reporter=text-summary mocha",
+		"test": "nyc --reporter=text-summary mocha",
 
 		"prebuild": "pnpm run lint",
-		"build": "tsx -sourcemap",
+		"build": "tsx",
 
 		"prepack": "npm run build",
 		"coverage": "nyc report --reporter=text-lcov | coveralls"
