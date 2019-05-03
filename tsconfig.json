@@ -17,11 +17,13 @@
 		 "preserveConstEnums": true,
 		 "sourceMap": true,
 		 "emitDecoratorMetadata": true,
-		 "experimentalDecorators": true
+		 "experimentalDecorators": true,
 	},
 	"include": [
 		"src/**/*.ts",
 		"src/**/*.tsx",
+		"stories/**/*.ts",
+		"stories/**/*.tsx",
 		"test/**/*.ts",
 		"test/**/*.tsx",
 		"types/**/*.d.ts"
