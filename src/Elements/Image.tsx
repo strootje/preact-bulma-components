@@ -18,10 +18,28 @@ export default BuildElement<ImageProps>('image', {
 		[`is-${props.size}`]: !!props.size
 	}),
 
-	render: (className, attribs, { src, caption, rounded }) => (
-		<figure class={className} {...attribs}>
-			<img class={!!rounded ? 'rounded' : ''} src={src} />
-			{caption && <figcaption>{caption}</figcaption>}
-		</figure>
-	)
+	render: (className, attribs, { src, caption, rounded }) => {
+		const imgProps: {
+			class?: string;
+			alt?: string;
+			role?: 'presentation'
+		} = {};
+
+		if (!!rounded) {
+			imgProps.class = 'rounded';
+		}
+
+		if (!!caption) {
+			imgProps.alt = caption;
+		} else {
+			imgProps.role = 'presentation';
+		}
+
+		return (
+			<figure class={className} {...attribs}>
+				<img src={src} {...imgProps} />
+				{caption && <figcaption>{caption}</figcaption>}
+			</figure>
+		);
+	}
 });

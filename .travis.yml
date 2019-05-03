@@ -10,7 +10,7 @@ install:
 - pnpm i
 
 script:
-- pnpm run test:cover
+- pnpm run test
 
 after_success:
 - pnpm run coverage

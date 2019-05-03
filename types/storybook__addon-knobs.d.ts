@@ -69,12 +69,12 @@ declare module '@storybook/addon-knobs' {
 
 	export interface OptionsKnobOptions {
 		display?:
-		| "radio"
-		| "inline-radio"
-		| "check"
-		| "inline-check"
-		| "select"
-		| "multi-select";
+		| 'radio'
+		| 'inline-radio'
+		| 'check'
+		| 'inline-check'
+		| 'select'
+		| 'multi-select';
 	}
 
 	export function optionsKnob<T>(

@@ -9,7 +9,7 @@ interface TabProps extends ModifierProps {
 
 export default BuildElement<TabProps>('', {
 	addAttributes: (props) => ({
-		['href']: props.href || '#'
+		['href']: props.href
 	}),
 
 	render: (className, { href, ...attribs }, { children, icon }) => (

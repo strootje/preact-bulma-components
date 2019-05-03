@@ -2,7 +2,7 @@ import { FunctionalComponent, h, RenderableProps } from 'preact';
 import BuildElement from '../../BuildElement';
 import { Alignments, OtherSizes } from '../../Bulma';
 import { ModifierProps } from '../../Modifiers';
-import Item from './Item';
+import Item, { BreadcrumbItemProps } from './Item';
 
 interface BreadcrumbProps extends ModifierProps {
 	align?: Alignments;
@@ -29,7 +29,7 @@ const Breadcrumb = BuildElement<BreadcrumbProps>('breadcrumb', {
 		</nav>
 	)
 }) as (FunctionalComponent<RenderableProps<BreadcrumbProps>> & {
-	[_ in 'Item']: FunctionalComponent<any>
+	[_ in 'Item']: FunctionalComponent<BreadcrumbItemProps>
 });
 
 export default Breadcrumb;

@@ -1,13 +1,15 @@
-import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/preact';
 import { h } from 'preact';
-import Delete from '../../src/Elements/Delete';
+import Tabs from '../../src/Components/Tabs';
 import ModifierKnobs from '../ModifierKnobs';
 
-const stories = storiesOf('Elements/Delete', module);
+const stories = storiesOf('Components/Tabs', module);
 stories.addDecorator(withKnobs);
 
 stories.add('Simple', () => (
-	<Delete {...ModifierKnobs()} onClick={action('clicked')} />
+	<Tabs {...ModifierKnobs()}>
+		<Tabs.Tab>Tab 1</Tabs.Tab>
+		<Tabs.Tab>Tab 2</Tabs.Tab>
+	</Tabs>
 ));

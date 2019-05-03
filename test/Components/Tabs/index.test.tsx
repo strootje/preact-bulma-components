@@ -75,4 +75,20 @@ describe('The <Tabs> Component', () => {
 		);
 	});
 
+	it('should render to a complete tabs element', () => {
+		expect(
+			<Tabs>
+				<Tabs.Tab>Tab 1</Tabs.Tab>
+				<Tabs.Tab>Tab 2</Tabs.Tab>
+			</Tabs>
+		).to.eql(
+			<div class='tabs'>
+				<ul>
+					<li><a>Tab 1</a></li>
+					<li><a>Tab 2</a></li>
+				</ul>
+			</div>
+		);
+	});
+
 });

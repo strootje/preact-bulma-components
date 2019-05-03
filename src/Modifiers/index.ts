@@ -5,6 +5,7 @@ import { AddResponsiveModifierClasses, ResponsiveModifierProps } from './Respons
 import { AddTypographyModifierClasses, TypographyModifierProps } from './Typography';
 
 export interface ModifierProps extends
+	JSX.DOMAttributes,
 	HelperModifierProps,
 	ResponsiveModifierProps,
 	ColorModifierProps,

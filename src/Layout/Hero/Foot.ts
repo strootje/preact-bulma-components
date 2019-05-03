@@ -1,7 +1,7 @@
 import BuildElement from '../../BuildElement';
 import { ModifierProps } from '../../Modifiers';
 
-interface HeroFootProps extends ModifierProps {
+export interface HeroFootProps extends ModifierProps {
 }
 
 export default BuildElement<HeroFootProps>('hero-foot');

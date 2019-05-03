@@ -1,12 +1,14 @@
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/preact';
 import { h } from 'preact';
-import Notification from '../../src/Elements/Notification';
+import Tile from '../../src/Layout/Tile';
 import ModifierKnobs from '../ModifierKnobs';
 
-const stories = storiesOf('Elements/Notification', module);
+const stories = storiesOf('Layout/Tile', module);
 stories.addDecorator(withKnobs);
 
 stories.add('Simple', () => (
-	<Notification {...ModifierKnobs()}>{text('Content', 'Hello, World!')}</Notification>
+	<Tile {...ModifierKnobs()}>
+		{text('Content', 'Hello, World!')}
+	</Tile>
 ));
