@@ -34,9 +34,6 @@ export default function BuildElement<Props extends ModifierProps>(name: string, 
 			...addAttributes(props)
 		};
 
-// tslint:disable-next-line: no-console
-		console.log('attribs =====', attribs);
-
 		if (typeof render === 'string') {
 			return h(render, { children: props.children, class: className, ...attribs });
 		} else {
