@@ -4,8 +4,6 @@ import { ModifierProps } from '../../Modifiers';
 export interface CardFooterItemProps extends ModifierProps {
 }
 
-const CardFooterItem = BuildElement<CardFooterItemProps>('card-footer-item', {
+export default BuildElement<CardFooterItemProps>('card-footer-item', {
 	render: 'p'
 });
-
-export default CardFooterItem;

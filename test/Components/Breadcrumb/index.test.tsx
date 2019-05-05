@@ -57,7 +57,7 @@ describe('The <Breadcrumb> Component', () => {
 				<ul>
 					<li><a href='/'>Home</a></li>
 					<li><a href='/blog'>Blog</a></li>
-					<li><a href='/blog/hello-world'>Hello World</a></li>
+					<li><a class='active' href='/blog/hello-world'>Hello World</a></li>
 				</ul>
 			</nav>
 		);

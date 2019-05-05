@@ -9,7 +9,7 @@ describe('The <TabsTab> Component', () => {
 		expect(
 			<TabsTab>Home</TabsTab>
 		).to.eql(
-			<li><a href='#'>Home</a></li>
+			<li><a>Home</a></li>
 		);
 	});
 
@@ -27,7 +27,7 @@ describe('The <TabsTab> Component', () => {
 		).to.eql(
 			<li>
 				<span class='icon is-small'><i class='fas fa-lock' aria-hidden='true'></i></span>
-				<a href='#'>Home</a>
+				<a>Home</a>
 			</li>
 		);
 	});

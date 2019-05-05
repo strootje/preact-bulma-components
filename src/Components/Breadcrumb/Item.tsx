@@ -3,20 +3,25 @@ import BuildElement from '../../BuildElement';
 import Icon from '../../Elements/Icon';
 import { ModifierProps } from '../../Modifiers';
 
-interface ItemProps extends ModifierProps {
+export interface BreadcrumbItemProps extends ModifierProps {
 	href?: string;
 	icon?: string;
+	active?: boolean;
 }
 
-export default BuildElement<ItemProps>('', {
+export default BuildElement<BreadcrumbItemProps>('', {
 	addAttributes: (props) => ({
-		['href']: props.href || '#'
+		['href']: props.href
 	}),
 
-	render: (className, { href, ...attribs }, { children, icon }) => (
+	addClasses: (props) => ({
+		['is-active']: !!props.active
+	}),
+
+	render: (className, { href, onClick, ...attribs }, { children, icon }) => (
 		<li class={className} {...attribs}>
 			{icon && <Icon size='small'>{icon}</Icon>}
-			<a href={href}>{children}</a>
+			<a href={href} onClick={onClick}>{children}</a>
 		</li>
 	)
 });

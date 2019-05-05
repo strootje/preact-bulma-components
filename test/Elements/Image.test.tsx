@@ -10,7 +10,7 @@ describe('The <Image> Component', () => {
 			<Image src='test' />
 		).to.eql(
 			<figure class='image'>
-				<img src='test' />
+				<img src='test' role='presentation' />
 			</figure>
 		);
 	});
@@ -20,7 +20,7 @@ describe('The <Image> Component', () => {
 			<Image src='test' rounded />
 		).to.eql(
 			<figure class='image'>
-				<img class='rounded' src='test' />
+				<img class='rounded' src='test' role='presentation' />
 			</figure>
 		);
 	});
@@ -30,7 +30,7 @@ describe('The <Image> Component', () => {
 			<Image src='test' caption='hello world' />
 		).to.eql(
 			<figure class='image'>
-				<img src='test' />
+				<img src='test' alt='hello world' />
 				<figcaption>hello world</figcaption>
 			</figure>
 		);

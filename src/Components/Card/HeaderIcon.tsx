@@ -7,12 +7,10 @@ export interface CardHeaderIconProps extends ModifierProps {
 	children: string;
 }
 
-const CardHeaderIcon = BuildElement<CardHeaderIconProps>('card-header-icon', {
+export default BuildElement<CardHeaderIconProps>('card-header-icon', {
 	render: (className, attribs, { children }) => (
 		<a class={className} {...attribs}>
 			<Icon>{children}</Icon>
 		</a>
 	)
 });
-
-export default CardHeaderIcon;

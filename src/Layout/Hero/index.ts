@@ -2,9 +2,9 @@ import { FunctionalComponent, RenderableProps } from 'preact';
 import BuildElement from '../../BuildElement';
 import { Colors } from '../../Bulma';
 import { ModifierProps } from '../../Modifiers';
-import HeroBody from './Body';
-import HeroFoot from './Foot';
-import HeroHead from './Head';
+import HeroBody, { HeroBodyProps } from './Body';
+import HeroFoot, { HeroFootProps } from './Foot';
+import HeroHead, { HeroHeadProps } from './Head';
 
 type HeroSize = 'medium' | 'large' | 'fullheight' | 'fullheight-with-navbar';
 
@@ -21,7 +21,9 @@ const Hero = BuildElement<HeroProps>('hero', {
 		[`is-bold`]: !!props.bold
 	})
 }) as (FunctionalComponent<RenderableProps<HeroProps>> & {
-	[_ in 'Body' | 'Foot' | 'Head']: FunctionalComponent<any>;
+	Body: FunctionalComponent<RenderableProps<HeroBodyProps>>;
+	Foot: FunctionalComponent<RenderableProps<HeroFootProps>>;
+	Head: FunctionalComponent<RenderableProps<HeroHeadProps>>;
 });
 
 // Set subitems within main item
