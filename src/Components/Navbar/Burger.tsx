@@ -2,7 +2,7 @@ import { h } from 'preact';
 import BuildElement from '../../BuildElement';
 import { ModifierProps } from '../../Modifiers';
 
-interface NavbarBurgerProps extends ModifierProps {
+export interface NavbarBurgerProps extends ModifierProps {
 	active?: boolean;
 }
 

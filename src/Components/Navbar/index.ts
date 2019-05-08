@@ -2,14 +2,13 @@ import { FunctionalComponent, RenderableProps } from 'preact';
 import BuildElement from '../../BuildElement';
 import { Colors } from '../../Bulma';
 import { ModifierProps } from '../../Modifiers';
-import NavbarBrand from './Brand';
-import NavbarBurger from './Burger';
-import NavbarDropdownItem from './DropdownItem';
-import NavbarEnd from './End';
-import NavbarItem from './Item';
-import NavbarLinkItem from './LinkItem';
-import NavbarMenu from './Menu';
-import NavbarStart from './Start';
+import NavbarBrand, { NavbarBrandProps } from './Brand';
+import NavbarBurger, { NavbarBurgerProps } from './Burger';
+import NavbarDropdownItem, { NavbarDropdownItemProps } from './DropdownItem';
+import NavbarEnd, { NavbarEndProps } from './End';
+import NavbarItem, { NavbarItemProps } from './Item';
+import NavbarMenu, { NavbarMenuProps } from './Menu';
+import NavbarStart, { NavbarStartProps } from './Start';
 
 interface NavbarProps extends ModifierProps {
 	'aria-label'?: string;
@@ -33,7 +32,13 @@ const Navbar = BuildElement<NavbarProps>('navbar', {
 
 	render: 'nav'
 }) as (FunctionalComponent<RenderableProps<NavbarProps>> & {
-	[_ in 'Brand' | 'Burger' | 'Dropdown' | 'End' | 'Item' | 'LinkItem' | 'Menu' | 'Start']: FunctionalComponent<any>;
+	Brand: FunctionalComponent<RenderableProps<NavbarBrandProps>>;
+	Burger: FunctionalComponent<RenderableProps<NavbarBurgerProps>>;
+	Dropdown: FunctionalComponent<RenderableProps<NavbarDropdownItemProps>>;
+	End: FunctionalComponent<RenderableProps<NavbarEndProps>>;
+	Item: FunctionalComponent<RenderableProps<NavbarItemProps>>;
+	Menu: FunctionalComponent<RenderableProps<NavbarMenuProps>>;
+	Start: FunctionalComponent<RenderableProps<NavbarStartProps>>;
 });
 
 export default Navbar;
@@ -42,6 +47,5 @@ Navbar.Burger = NavbarBurger;
 Navbar.Dropdown = NavbarDropdownItem;
 Navbar.End = NavbarEnd;
 Navbar.Item = NavbarItem;
-Navbar.LinkItem = NavbarLinkItem;
 Navbar.Menu = NavbarMenu;
 Navbar.Start = NavbarStart;

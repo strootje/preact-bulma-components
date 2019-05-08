@@ -2,7 +2,7 @@ import { h } from 'preact';
 import BuildElement from '../../BuildElement';
 import { AddNavbarItemClasses, NavbarItemProps } from './Item';
 
-interface NavbarDropdownItemProps extends NavbarItemProps {
+export interface NavbarDropdownItemProps extends NavbarItemProps {
 	label: string | JSX.Element;
 	hoverable?: boolean;
 	active?: boolean;

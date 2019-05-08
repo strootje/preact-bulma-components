@@ -10,9 +10,9 @@ stories.addDecorator(withKnobs);
 stories.add('Simple', () => (
 	<Navbar {...ModifierKnobs()} color='primary'>
 		<Navbar.Brand>
-			<Navbar.LinkItem href='https://github.com/strootje/preact-bulma-components'>
+			<Navbar.Item href='https://github.com/strootje/preact-bulma-components'>
 				<img />
-			</Navbar.LinkItem>
+			</Navbar.Item>
 
 			<Navbar.Burger />
 		</Navbar.Brand>
@@ -20,9 +20,9 @@ stories.add('Simple', () => (
 		<Navbar.Menu>
 			<Navbar.Start>
 				<Navbar.Dropdown label='posts'>
-					<Navbar.LinkItem href='~/posts/hello-world'>
+					<Navbar.Item href='~/posts/hello-world'>
 						Hello World!
-					</Navbar.LinkItem>
+					</Navbar.Item>
 				</Navbar.Dropdown>
 			</Navbar.Start>
 

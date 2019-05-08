@@ -1,7 +1,7 @@
 import BuildElement from '../../BuildElement';
 import { ModifierProps } from '../../Modifiers';
 
-interface NavbarMenuProps extends ModifierProps {
+export interface NavbarMenuProps extends ModifierProps {
 	active?: boolean;
 }
 
