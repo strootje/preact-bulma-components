@@ -1,17 +1,24 @@
 import { FunctionalComponent, h, RenderableProps } from 'preact';
 import BuildElement from '../../BuildElement';
+import { Sides } from '../../Bulma';
 import { ModifierProps } from '../../Modifiers';
 import Divider, { DropdownDividerProps } from './Divider';
 import Item, { DropdownItemProps } from './Item';
 
 export interface DropdownProps extends ModifierProps {
 	active?: boolean;
+	align?: Sides;
+	direction?: 'down' | 'up';
+	hoverable?: boolean;
 	label: string;
 }
 
 const Dropdown = BuildElement<DropdownProps>('dropdown', {
 	addClasses: (props) => ({
-		[`is-active`]: !!props.active
+		[`is-active`]: !!props.active,
+		[`is-hoverable`]: !!props.hoverable,
+		[`is-up`]: !!props.direction && props.direction === 'up',
+		[`is-${props.align}`]: !!props.align
 	}),
 
 	render: (className, attribs, { children, label }) => (
