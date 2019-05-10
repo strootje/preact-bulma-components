@@ -1,8 +1,9 @@
 import { FunctionalComponent, h, RenderableProps } from 'preact';
 import BuildElement from '../../BuildElement';
 import { ColorsExtra, OtherSizes } from '../../Bulma';
-import Delete from '../../Elements/Delete';
 import { ModifierProps } from '../../Modifiers';
+import Body from './Body';
+import Header from './Header';
 
 export interface MessageProps extends ModifierProps {
 	color?: ColorsExtra;
@@ -18,14 +19,13 @@ const Message = BuildElement<MessageProps>('message', {
 
 	render: (className, attribs, { children, header, size }) => (
 		<article class={className} {...attribs}>
-			{header && <div class='message-header'>
-				<p>{header}</p>
-				<Delete size={size} />
-			</div>}
+			{header && <Header size={size}>
+				{header}
+			</Header>}
 
-			<div class='message-body'>
+			<Body>
 				{children}
-			</div>
+			</Body>
 		</article>
 	)
 }) as (FunctionalComponent<RenderableProps<MessageProps>> & {
