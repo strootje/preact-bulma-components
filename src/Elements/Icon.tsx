@@ -3,18 +3,25 @@ import BuildElement from '../BuildElement';
 import { OtherSizes } from '../Bulma';
 import { ModifierProps } from '../Modifiers';
 
+const defaultClassName = 'icon';
+
 interface IconProps extends ModifierProps {
+	base?: string;
 	children: string;
 	size?: OtherSizes;
 }
 
-export default BuildElement<IconProps>('icon', {
+const replaceWithBase = (className: string, baseName?: string): string => {
+	return !baseName ? className : className.replace(defaultClassName, `${baseName}-${defaultClassName}`);
+}
+
+export default BuildElement<IconProps>(defaultClassName, {
 	addClasses: (props) => ({
 		[`is-${props.size}`]: !!props.size
 	}),
 
-	render: (className, attribs, { children }) => (
-		<span class={className} {...attribs}>
+	render: (className, attribs, { base, children }) => (
+		<span class={replaceWithBase(className, base)} {...attribs}>
 			<i class={children.toString()}></i>
 		</span>
 	)
