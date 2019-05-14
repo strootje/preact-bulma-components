@@ -1,4 +1,15 @@
+/.nyc_output
+/.storybook
+/dist/stories
+/dist/test
 /src
+/stories
+/test
+/types
+.gitignore
+.nycrc.json
+.travis.yml
+pnpm-lock.yaml
 preact-bulma-components-*.tgz
-shrinkwrap.yaml
 tsconfig.json
+tslint.json

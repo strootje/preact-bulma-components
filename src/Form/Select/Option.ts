@@ -11,4 +11,4 @@ export default BuildElement<SelectOptionProps>('', {
 	}),
 
 	render: 'option'
-})
+});
