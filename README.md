@@ -5,7 +5,13 @@
 
 The Elegance of [Bulma.io][bulma] with the Power of [Preact][preact]
 
-# License
+## Current To-Do list
+* Figure something out of the form elements (embed control or not)
+* Form/Select icons
+* unit tests for all elements
+* more useful stories for all elements
+
+## License
 
 see LICENSE.md
 

@@ -13,7 +13,7 @@ interface IconProps extends ModifierProps {
 
 const replaceWithBase = (className: string, baseName?: string): string => {
 	return !baseName ? className : className.replace(defaultClassName, `${baseName}-${defaultClassName}`);
-}
+};
 
 export default BuildElement<IconProps>(defaultClassName, {
 	addClasses: (props) => ({

@@ -13,9 +13,9 @@ export default BuildElement<PanelCheckboxProps>('panel-block', {
 
 	addClasses: addBaseClasses,
 
-	render: (className, attribs, { children }) => (
+	render: (className, attribs, { checked, children }) => (
 		<label class={className} {...attribs}>
-			<input type='checkbox' />
+			<input type='checkbox' aria-checked={checked} />
 			{children}
 		</label>
 	)

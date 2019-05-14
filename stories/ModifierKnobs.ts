@@ -1,5 +1,5 @@
 import { boolean, number, radios, select } from '@storybook/addon-knobs';
-import { Colors, ColorsExtra, Sides } from '../src/Bulma';
+import { Colors, Sides } from '../src/Bulma';
 import { ModifierProps } from '../src/Modifiers';
 import { DisplayKind } from '../src/Modifiers/Responsive';
 import { TextAlignment, TextSize } from '../src/Modifiers/Typography';
@@ -24,28 +24,6 @@ const ColorsOptions: { [s: string]: Colors } = {
 	White: 'white'
 };
 
-const ColorsExtraOptions: { [s: string]: ColorsExtra } = {
-	'Black': 'black',
-	'Black (Bis)': 'black-bis',
-	'Black (Ter)': 'black-ter',
-	'Danger': 'danger',
-	'Dark': 'dark',
-	'Gray': 'gray',
-	'Gray (Dark)': 'gray-dark',
-	'Gray (Darker)': 'gray-darker',
-	'Gray (Light)': 'gray-light',
-	'Gray (Lighter)': 'gray-lighter',
-	'Info': 'info',
-	'Light': 'light',
-	'Link': 'link',
-	'Primary': 'primary',
-	'Success': 'success',
-	'Warning': 'warning',
-	'White': 'white',
-	'White (Bis)': 'white-bis',
-	'White (Ter)': 'white-ter'
-};
-
 const PulledOptions: { [s: string]: Sides } = {
 	Left: 'left',
 	Right: 'right'
@@ -67,7 +45,7 @@ const TextAlignOptinos: { [s: string]: TextAlignment } = {
 };
 
 export default (): ModifierProps => ({
-	'background-color': select<ColorsExtra | undefined>('Background Color', ColorsExtraOptions, undefined, Groups.Color),
+	'background-color': select<Colors | undefined>('Background Color', ColorsOptions, undefined, Groups.Color),
 	'clearfix': boolean('Clearfix', false, Groups.Helper),
 	'clipped': boolean('Clipped', false, Groups.Helper),
 	'display': select<DisplayKind | undefined>('Display', DisplayOptions, undefined, Groups.Responsive),
@@ -80,7 +58,7 @@ export default (): ModifierProps => ({
 	'screenreader': boolean('Screenreader Only', false, Groups.Helper),
 	'shadowless': boolean('No Shadow', false, Groups.Helper),
 	'text-align': radios('Text Alignment', TextAlignOptinos, undefined, Groups.Typography),
-	'text-color': select<ColorsExtra | undefined>('Text Color', ColorsExtraOptions, undefined, Groups.Color),
+	'text-color': select<Colors | undefined>('Text Color', ColorsOptions, undefined, Groups.Color),
 	'text-size': number('Text Size', 0, { min: 1, max: 7, step: 1, range: true }, Groups.Typography) as unknown as TextSize,
 	'unselectable': boolean('Unselectable', false, Groups.Helper)
 });
