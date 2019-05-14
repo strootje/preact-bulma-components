@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import BuildElement from '../../BuildElement';
-import Icon from '../../Elements/Icon';
+import { Icon } from '../../Elements/Icon';
 import { addBaseClasses, PanelBlockProps } from './Block';
 
 export interface PanelLinkProps extends PanelBlockProps {
@@ -8,7 +8,7 @@ export interface PanelLinkProps extends PanelBlockProps {
 	icon?: string;
 }
 
-export default BuildElement<PanelLinkProps>('panel-block', {
+export const PanelLink = BuildElement<PanelLinkProps>('panel-block', {
 	addAttributes: (props) => ({
 		[`href`]: props.href
 	}),

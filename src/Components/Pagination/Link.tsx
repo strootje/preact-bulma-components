@@ -7,7 +7,7 @@ export interface PaginationLinkProps extends ModifierProps {
 	current?: boolean;
 }
 
-export default BuildElement<PaginationLinkProps>('pagination-link', {
+export const PaginationLink = BuildElement<PaginationLinkProps>('pagination-link', {
 	addAttributes: (props) => ({
 		[`aria-label`]: `Goto page ${props.children}`
 	}),

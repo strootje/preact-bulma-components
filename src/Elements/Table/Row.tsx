@@ -5,7 +5,7 @@ import { ModifierProps } from '../../Modifiers';
 export interface TableRowProps extends ModifierProps {
 }
 
-export default BuildElement<TableRowProps>('', {
+export const TableRow = BuildElement<TableRowProps>('', {
 	render: (className, attribs, { children }) => (
 		<tr class={className} {...attribs}>
 			{children}

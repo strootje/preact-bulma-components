@@ -5,7 +5,7 @@ import { ModifierProps } from '../Modifiers';
 
 const defaultClassName = 'icon';
 
-interface IconProps extends ModifierProps {
+export interface IconProps extends ModifierProps {
 	base?: string;
 	children: string;
 	size?: OtherSizes;
@@ -15,7 +15,7 @@ const replaceWithBase = (className: string, baseName?: string): string => {
 	return !baseName ? className : className.replace(defaultClassName, `${baseName}-${defaultClassName}`);
 };
 
-export default BuildElement<IconProps>(defaultClassName, {
+export const Icon = BuildElement<IconProps>(defaultClassName, {
 	addClasses: (props) => ({
 		[`is-${props.size}`]: !!props.size
 	}),

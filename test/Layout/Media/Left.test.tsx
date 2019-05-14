@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import MediaLeft from '../../../src/Layout/Media/Left';
+import { MediaLeft } from '../../../src/Layout/Media/Left';
 
 describe('The <MediaLeft> Component', () => {
 	use(require('preact-jsx-chai').default);

@@ -1,13 +1,13 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import TagsTag from '../../../src/Elements/Tags/Tag';
+import { Tag } from '../../../src/Elements/Tags/Tag';
 
-describe('The <TagsTag> Component', () => {
+describe('The <Tag> Component', () => {
 	use(require('preact-jsx-chai').default);
 
 	it('should render to a <span> with classname `.tag`', () => {
 		expect(
-			<TagsTag />
+			<Tag />
 		).to.eql(
 			<span class='tag'></span>
 		);
@@ -15,7 +15,7 @@ describe('The <TagsTag> Component', () => {
 
 	it('should render to a <span> with classname `.tag` and `is-rounded`', () => {
 		expect(
-			<TagsTag rounded />
+			<Tag rounded />
 		).to.eql(
 			<span class='tag is-rounded'></span>
 		);
@@ -23,7 +23,7 @@ describe('The <TagsTag> Component', () => {
 
 	it('should render to a <span> with classname `.tag` and `.is-dark`', () => {
 		expect(
-			<TagsTag color='dark' />
+			<Tag color='dark' />
 		).to.eql(
 			<span class='tag is-dark'></span>
 		);
@@ -31,7 +31,7 @@ describe('The <TagsTag> Component', () => {
 
 	it('should render to a <span> with classname `.tag` and `.is-delete`', () => {
 		expect(
-			<TagsTag delete />
+			<Tag delete />
 		).to.eql(
 			<span class='tag is-delete'></span>
 		);
@@ -39,7 +39,7 @@ describe('The <TagsTag> Component', () => {
 
 	it('should render to a <span> with classname `.tag` and `.is-normal`', () => {
 		expect(
-			<TagsTag size='normal' />
+			<Tag size='normal' />
 		).to.eql(
 			<span class='tag is-normal'></span>
 		);

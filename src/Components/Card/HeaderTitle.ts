@@ -4,6 +4,6 @@ import { ModifierProps } from '../../Modifiers';
 export interface CardHeaderTitleProps extends ModifierProps {
 }
 
-export default BuildElement<CardHeaderTitleProps>('card-header-title', {
+export const CardHeaderTitle = BuildElement<CardHeaderTitleProps>('card-header-title', {
 	render: 'p'
 });

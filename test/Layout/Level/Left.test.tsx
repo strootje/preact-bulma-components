@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import LevelLeft from '../../../src/Layout/Level/Left';
+import { LevelLeft } from '../../../src/Layout/Level/Left';
 
 describe('The <LevelLeft> Component', () => {
 	use(require('preact-jsx-chai').default);

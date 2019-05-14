@@ -6,7 +6,7 @@ export interface NavbarBurgerProps extends ModifierProps {
 	active?: boolean;
 }
 
-export default BuildElement<NavbarBurgerProps>('navbar-burger', {
+export const NavbarBurger = BuildElement<NavbarBurgerProps>('navbar-burger', {
 	addAttributes: () => ({
 		['role']: 'button',
 		['aria-label']: 'menu',

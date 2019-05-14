@@ -4,6 +4,6 @@ import { ModifierProps } from '../../Modifiers';
 export interface PaginationListProps extends ModifierProps {
 }
 
-export default BuildElement<PaginationListProps>('pagination-list', {
+export const PaginationList = BuildElement<PaginationListProps>('pagination-list', {
 	render: 'ul'
 });

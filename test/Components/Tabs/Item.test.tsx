@@ -1,13 +1,13 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import TabsTab from '../../../src/Components/Tabs/Tab';
+import { Tab } from '../../../src/Components/Tabs/Tab';
 
-describe('The <TabsTab> Component', () => {
+describe('The <Tab> Component', () => {
 	use(require('preact-jsx-chai').default);
 
 	it('should render to a <li> without classname', () => {
 		expect(
-			<TabsTab>Home</TabsTab>
+			<Tab>Home</Tab>
 		).to.eql(
 			<li><a>Home</a></li>
 		);
@@ -15,7 +15,7 @@ describe('The <TabsTab> Component', () => {
 
 	it('should render to a <li> without classname with href set to `/home`', () => {
 		expect(
-			<TabsTab href='/home'>Home</TabsTab>
+			<Tab href='/home'>Home</Tab>
 		).to.eql(
 			<li><a href='/home'>Home</a></li>
 		);
@@ -23,7 +23,7 @@ describe('The <TabsTab> Component', () => {
 
 	it('should render to a <li> without classname with an icon set', () => {
 		expect(
-			<TabsTab icon='fas fa-lock'>Home</TabsTab>
+			<Tab icon='fas fa-lock'>Home</Tab>
 		).to.eql(
 			<li>
 				<span class='icon is-small'><i class='fas fa-lock' aria-hidden='true'></i></span>

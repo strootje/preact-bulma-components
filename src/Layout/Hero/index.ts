@@ -2,19 +2,22 @@ import { FunctionalComponent, RenderableProps } from 'preact';
 import BuildElement from '../../BuildElement';
 import { Colors } from '../../Bulma';
 import { ModifierProps } from '../../Modifiers';
-import HeroBody, { HeroBodyProps } from './Body';
-import HeroFoot, { HeroFootProps } from './Foot';
-import HeroHead, { HeroHeadProps } from './Head';
+import { HeroBody, HeroBodyProps } from './Body';
+import { HeroFooter, HeroFooterProps } from './Footer';
+import { HeroHeader, HeroHeaderProps } from './Header';
+export { HeroBody, HeroBodyProps } from './Body';
+export { HeroFooter, HeroFooterProps } from './Footer';
+export { HeroHeader, HeroHeaderProps } from './Header';
 
 type HeroSize = 'medium' | 'large' | 'fullheight' | 'fullheight-with-navbar';
 
-interface HeroProps extends ModifierProps {
+export interface HeroProps extends ModifierProps {
 	color?: Colors;
 	size?: HeroSize;
 	bold?: boolean;
 }
 
-const Hero = BuildElement<HeroProps>('hero', {
+export const Hero = BuildElement<HeroProps>('hero', {
 	addClasses: (props) => ({
 		[`is-${props.color}`]: !!props.color,
 		[`is-${props.size}`]: !!props.size,
@@ -22,12 +25,10 @@ const Hero = BuildElement<HeroProps>('hero', {
 	})
 }) as (FunctionalComponent<RenderableProps<HeroProps>> & {
 	Body: FunctionalComponent<RenderableProps<HeroBodyProps>>;
-	Foot: FunctionalComponent<RenderableProps<HeroFootProps>>;
-	Head: FunctionalComponent<RenderableProps<HeroHeadProps>>;
+	Footer: FunctionalComponent<RenderableProps<HeroFooterProps>>;
+	Header: FunctionalComponent<RenderableProps<HeroHeaderProps>>;
 });
 
-// Set subitems within main item
-export default Hero;
 Hero.Body = HeroBody;
-Hero.Foot = HeroFoot;
-Hero.Head = HeroHead;
+Hero.Footer = HeroFooter;
+Hero.Header = HeroHeader;

@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import Tile from '../../src/Layout/Tile';
+import { Tile } from '../../src/Layout/Tile';
 
 describe('The <Tile> Component', () => {
 	use(require('preact-jsx-chai').default);

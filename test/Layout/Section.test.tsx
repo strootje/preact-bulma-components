@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import Section from '../../src/Layout/Section';
+import { Section } from '../../src/Layout/Section';
 
 describe('The <Section> Component', () => {
 	use(require('preact-jsx-chai').default);

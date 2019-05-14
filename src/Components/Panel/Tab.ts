@@ -5,7 +5,7 @@ export interface PanelTabProps extends ModifierProps {
 	active?: boolean;
 }
 
-export default BuildElement<PanelTabProps>('', {
+export const PanelTab = BuildElement<PanelTabProps>('', {
 	addClasses: (props) => ({
 		[`is-active`]: !!props.active
 	}),

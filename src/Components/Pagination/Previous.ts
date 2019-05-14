@@ -5,7 +5,7 @@ export interface PaginationPreviousProps extends ModifierProps {
 	disabled?: boolean;
 }
 
-export default BuildElement<PaginationPreviousProps>('pagination-previous', {
+export const PaginationPrevious = BuildElement<PaginationPreviousProps>('pagination-previous', {
 	addAttributes: (props) => ({
 		[`disabled`]: !!props.disabled
 	}),

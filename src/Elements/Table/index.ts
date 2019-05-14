@@ -1,13 +1,18 @@
 import { FunctionalComponent, RenderableProps } from 'preact';
 import BuildElement from '../../BuildElement';
 import { ModifierProps } from '../../Modifiers';
-import TableBody, { TableBodyProps } from './Body';
-import TableColumn, { TableColumnProps } from './Column';
-import TableFoot, { TableFootProps } from './Foot';
-import TableHead, { TableHeadProps } from './Head';
-import TableRow, { TableRowProps } from './Row';
+import { TableBody, TableBodyProps } from './Body';
+import { TableColumn, TableColumnProps } from './Column';
+import { TableFooter, TableFooterProps } from './Footer';
+import { TableHeader, TableHeaderProps } from './Header';
+import { TableRow, TableRowProps } from './Row';
+export { TableBody, TableBodyProps } from './Body';
+export { TableColumn, TableColumnProps } from './Column';
+export { TableFooter, TableFooterProps } from './Footer';
+export { TableHeader, TableHeaderProps } from './Header';
+export { TableRow, TableRowProps } from './Row';
 
-interface TableProps extends ModifierProps {
+export interface TableProps extends ModifierProps {
 	bordered?: boolean;
 	striped?: boolean;
 	narrow?: boolean;
@@ -15,7 +20,7 @@ interface TableProps extends ModifierProps {
 	fullwidth?: boolean;
 }
 
-const Table = BuildElement<TableProps>('table', {
+export const Table = BuildElement<TableProps>('table', {
 	addClasses: (props) => ({
 		[`is-bordered`]: !!props.bordered,
 		[`is-striped`]: !!props.striped,
@@ -27,14 +32,13 @@ const Table = BuildElement<TableProps>('table', {
 }) as (FunctionalComponent<RenderableProps<TableProps>> & {
 	Body: FunctionalComponent<RenderableProps<TableBodyProps>>;
 	Column: FunctionalComponent<RenderableProps<TableColumnProps>>;
-	Foot: FunctionalComponent<RenderableProps<TableFootProps>>;
-	Head: FunctionalComponent<RenderableProps<TableHeadProps>>;
+	Footer: FunctionalComponent<RenderableProps<TableFooterProps>>;
+	Header: FunctionalComponent<RenderableProps<TableHeaderProps>>;
 	Row: FunctionalComponent<RenderableProps<TableRowProps>>;
 });
 
-export default Table;
 Table.Body = TableBody;
 Table.Column = TableColumn;
-Table.Foot = TableFoot;
-Table.Head = TableHead;
+Table.Footer = TableFooter;
+Table.Header = TableHeader;
 Table.Row = TableRow;

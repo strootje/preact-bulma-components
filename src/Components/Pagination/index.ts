@@ -2,11 +2,16 @@ import { FunctionalComponent, RenderableProps } from 'preact';
 import BuildElement from '../../BuildElement';
 import { Alignments, OtherSizes } from '../../Bulma';
 import { ModifierProps } from '../../Modifiers';
-import Ellipsis, { PaginationEllipsisProps } from './Ellipsis';
-import Link, { PaginationLinkProps } from './Link';
-import List, { PaginationListProps } from './List';
-import Next, { PaginationNextProps } from './Next';
-import Previous, { PaginationPreviousProps } from './Previous';
+import { PaginationEllipsis, PaginationEllipsisProps } from './Ellipsis';
+import { PaginationLink, PaginationLinkProps } from './Link';
+import { PaginationList, PaginationListProps } from './List';
+import { PaginationNext, PaginationNextProps } from './Next';
+import { PaginationPrevious, PaginationPreviousProps } from './Previous';
+export { PaginationEllipsis, PaginationEllipsisProps } from './Ellipsis';
+export { PaginationLink, PaginationLinkProps } from './Link';
+export { PaginationList, PaginationListProps } from './List';
+export { PaginationNext, PaginationNextProps } from './Next';
+export { PaginationPrevious, PaginationPreviousProps } from './Previous';
 
 export interface PaginationProps extends ModifierProps {
 	align?: Alignments;
@@ -14,7 +19,7 @@ export interface PaginationProps extends ModifierProps {
 	size?: OtherSizes;
 }
 
-const Pagination = BuildElement<PaginationProps>('pagination', {
+export const Pagination = BuildElement<PaginationProps>('pagination', {
 	addAttributes: () => ({
 		[`role`]: 'navigation',
 		[`aria-label`]: 'pagination'
@@ -35,9 +40,8 @@ const Pagination = BuildElement<PaginationProps>('pagination', {
 	Previous: FunctionalComponent<RenderableProps<PaginationPreviousProps>>;
 });
 
-export default Pagination;
-Pagination.Ellipsis = Ellipsis;
-Pagination.Link = Link;
-Pagination.List = List;
-Pagination.Next = Next;
-Pagination.Previous = Previous;
+Pagination.Ellipsis = PaginationEllipsis;
+Pagination.Link = PaginationLink;
+Pagination.List = PaginationList;
+Pagination.Next = PaginationNext;
+Pagination.Previous = PaginationPrevious;

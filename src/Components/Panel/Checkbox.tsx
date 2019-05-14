@@ -6,7 +6,7 @@ export interface PanelCheckboxProps extends PanelBlockProps {
 	checked?: boolean;
 }
 
-export default BuildElement<PanelCheckboxProps>('panel-block', {
+export const PanelCheckbox = BuildElement<PanelCheckboxProps>('panel-block', {
 	addAttributes: (props) => ({
 		[`checked`]: !!props.checked
 	}),

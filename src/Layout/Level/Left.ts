@@ -4,4 +4,4 @@ import { ModifierProps } from '../../Modifiers';
 export interface LevelLeftProps extends ModifierProps {
 }
 
-export default BuildElement<LevelLeftProps>('level-left');
+export const LevelLeft = BuildElement<LevelLeftProps>('level-left');

@@ -2,15 +2,16 @@ import { FunctionalComponent, h, RenderableProps } from 'preact';
 import BuildElement from '../../BuildElement';
 import { Alignments, OtherSizes } from '../../Bulma';
 import { ModifierProps } from '../../Modifiers';
-import Item, { BreadcrumbItemProps } from './Item';
+import { BreadcrumbItem, BreadcrumbItemProps } from './Item';
+export { BreadcrumbItem, BreadcrumbItemProps } from './Item';
 
-interface BreadcrumbProps extends ModifierProps {
+export interface BreadcrumbProps extends ModifierProps {
 	align?: Alignments;
 	separator?: 'arrow' | 'bullet' | 'dot' | 'succeeds';
 	size?: OtherSizes;
 }
 
-const Breadcrumb = BuildElement<BreadcrumbProps>('breadcrumb', {
+export const Breadcrumb = BuildElement<BreadcrumbProps>('breadcrumb', {
 	addAttributes: () => ({
 		['aria-label']: 'breadcrumbs'
 	}),
@@ -29,8 +30,7 @@ const Breadcrumb = BuildElement<BreadcrumbProps>('breadcrumb', {
 		</nav>
 	)
 }) as (FunctionalComponent<RenderableProps<BreadcrumbProps>> & {
-	[_ in 'Item']: FunctionalComponent<BreadcrumbItemProps>
+	Item: FunctionalComponent<BreadcrumbItemProps>
 });
 
-export default Breadcrumb;
-Breadcrumb.Item = Item;
+Breadcrumb.Item = BreadcrumbItem;

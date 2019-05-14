@@ -6,7 +6,7 @@ export interface TableColumnProps extends ModifierProps {
 	heading?: boolean;
 }
 
-export default BuildElement<TableColumnProps>('', {
+export const TableColumn = BuildElement<TableColumnProps>('', {
 	render: (className, attribs, { children, heading }) => (
 		!!heading ? <th class={className} {...attribs}>{children}</th> : <td class={className} {...attribs}>{children}</td>
 	)

@@ -17,7 +17,7 @@ export function AddNavbarItemClasses(props: NavbarItemProps, classesToAdd?: List
 	};
 }
 
-export default BuildElement<NavbarItemProps>('navbar-item', {
+export const NavbarItem = BuildElement<NavbarItemProps>('navbar-item', {
 	addAttributes: (props) => ({
 		[`href`]: props.href
 	}),

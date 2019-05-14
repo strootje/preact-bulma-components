@@ -1,17 +1,23 @@
 import { FunctionalComponent, RenderableProps } from 'preact';
 import BuildElement from '../../BuildElement';
 import { ModifierProps } from '../../Modifiers';
-import CardContent, { CardContentProps } from './Content';
-import CardFooter, { CardFooterProps } from './Footer';
-import CardFooterItem, { CardFooterItemProps } from './FooterItem';
-import CardHeader, { CardHeaderProps } from './Header';
-import CardHeaderIcon, { CardHeaderIconProps } from './HeaderIcon';
-import CardHeaderTitle, { CardHeaderTitleProps } from './HeaderTitle';
+import { CardContent, CardContentProps } from './Content';
+import { CardFooter, CardFooterProps } from './Footer';
+import { CardFooterItem, CardFooterItemProps } from './FooterItem';
+import { CardHeader, CardHeaderProps } from './Header';
+import { CardHeaderIcon, CardHeaderIconProps } from './HeaderIcon';
+import { CardHeaderTitle, CardHeaderTitleProps } from './HeaderTitle';
+export { CardContent, CardContentProps } from './Content';
+export { CardFooter, CardFooterProps } from './Footer';
+export { CardFooterItem, CardFooterItemProps } from './FooterItem';
+export { CardHeader, CardHeaderProps } from './Header';
+export { CardHeaderIcon, CardHeaderIconProps } from './HeaderIcon';
+export { CardHeaderTitle, CardHeaderTitleProps } from './HeaderTitle';
 
-interface CardProps extends ModifierProps {
+export interface CardProps extends ModifierProps {
 }
 
-const Card = BuildElement<CardProps>('card', {
+export const Card = BuildElement<CardProps>('card', {
 }) as (FunctionalComponent<RenderableProps<CardProps>> & {
 	Content: FunctionalComponent<RenderableProps<CardContentProps>>;
 	Header: FunctionalComponent<RenderableProps<CardHeaderProps>>;
@@ -21,7 +27,6 @@ const Card = BuildElement<CardProps>('card', {
 	FooterItem: FunctionalComponent<RenderableProps<CardFooterItemProps>>;
 });
 
-export default Card;
 Card.Content = CardContent;
 Card.Header = CardHeader;
 Card.HeaderIcon = CardHeaderIcon;

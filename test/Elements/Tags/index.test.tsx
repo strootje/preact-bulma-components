@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import Tags from '../../../src/Elements/Tags';
+import { Tags } from '../../../src/Elements/Tags';
 
 describe('The <Tags> Component', () => {
 	use(require('preact-jsx-chai').default);

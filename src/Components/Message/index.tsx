@@ -1,9 +1,9 @@
-import { FunctionalComponent, h, RenderableProps } from 'preact';
+import { h } from 'preact';
 import BuildElement from '../../BuildElement';
 import { ColorsExtra, OtherSizes } from '../../Bulma';
 import { ModifierProps } from '../../Modifiers';
-import Body from './Body';
-import Header from './Header';
+import { MessageBody } from './Body';
+import { MessageHeader } from './Header';
 
 export interface MessageProps extends ModifierProps {
 	color?: ColorsExtra;
@@ -11,7 +11,7 @@ export interface MessageProps extends ModifierProps {
 	size?: OtherSizes;
 }
 
-const Message = BuildElement<MessageProps>('message', {
+export const Message = BuildElement<MessageProps>('message', {
 	addClasses: (props) => ({
 		[`is-${props.color}`]: !!props.color,
 		[`is-${props.size}`]: !!props.size
@@ -19,16 +19,13 @@ const Message = BuildElement<MessageProps>('message', {
 
 	render: (className, attribs, { children, header, size }) => (
 		<article class={className} {...attribs}>
-			{header && <Header size={size}>
+			{header && <MessageHeader size={size}>
 				{header}
-			</Header>}
+			</MessageHeader>}
 
-			<Body>
+			<MessageBody>
 				{children}
-			</Body>
+			</MessageBody>
 		</article>
 	)
-}) as (FunctionalComponent<RenderableProps<MessageProps>> & {
 });
-
-export default Message;

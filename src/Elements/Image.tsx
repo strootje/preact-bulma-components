@@ -6,14 +6,14 @@ type ImageFixedSize = '16x16' | '24x214' | '32x32' | '48x48' | '64x64' | '96x96'
 type ImageReponsiveSize = 'square' | '1by1' | '5by4' | '4by3' | '3by2' | '5by3' | '16by9' | '2by1' | '3by1' | '4by5' | '3by4' | '2by3' | '3by5' | '9by16' | '1by2' | '1by3';
 type ImageSize = ImageFixedSize | ImageReponsiveSize;
 
-interface ImageProps extends ModifierProps {
+export interface ImageProps extends ModifierProps {
 	src: string;
 	size?: ImageSize;
 	rounded?: boolean;
 	caption?: string;
 }
 
-export default BuildElement<ImageProps>('image', {
+export const Image = BuildElement<ImageProps>('image', {
 	addClasses: (props) => ({
 		[`is-${props.size}`]: !!props.size
 	}),

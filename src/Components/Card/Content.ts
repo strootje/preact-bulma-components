@@ -4,5 +4,5 @@ import { ModifierProps } from '../../Modifiers';
 export interface CardContentProps extends ModifierProps {
 }
 
-export default BuildElement<CardContentProps>('card-content', {
+export const CardContent = BuildElement<CardContentProps>('card-content', {
 });

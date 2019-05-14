@@ -10,7 +10,7 @@ export const addBaseClasses = (props: PanelBlockProps): ListOfClasses => ({
 	[`is-active`]: !!props.active
 });
 
-export default BuildElement('panel-block', {
+export const PanelBlock = BuildElement('panel-block', {
 	addClasses: addBaseClasses,
 	render: 'div'
 });

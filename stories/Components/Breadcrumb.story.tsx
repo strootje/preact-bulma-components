@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/preact';
 import { h } from 'preact';
-import Breadcrumb from '../../src/Components/Breadcrumb';
+import { Breadcrumb } from '../../src/Components/Breadcrumb';
 import ModifierKnobs from '../ModifierKnobs';
 
 const stories = storiesOf('Components/Breadcrumb', module);

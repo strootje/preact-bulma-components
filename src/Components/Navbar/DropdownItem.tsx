@@ -8,7 +8,7 @@ export interface NavbarDropdownItemProps extends NavbarItemProps {
 	active?: boolean;
 }
 
-export default BuildElement<NavbarDropdownItemProps>('navbar-item', {
+export const NavbarDropdownItem = BuildElement<NavbarDropdownItemProps>('navbar-item', {
 	addAttributes: (props) => ({
 		['label']: props.label
 	}),

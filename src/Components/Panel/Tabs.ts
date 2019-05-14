@@ -4,6 +4,6 @@ import { ModifierProps } from '../../Modifiers';
 export interface PanelTabsProps extends ModifierProps {
 }
 
-export default BuildElement<PanelTabsProps>('panel-tabs', {
+export const PanelTabs = BuildElement<PanelTabsProps>('panel-tabs', {
 	render: 'p'
 });

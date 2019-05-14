@@ -5,7 +5,7 @@ export interface SelectOptionProps extends ModifierProps {
 	value?: any;
 }
 
-export default BuildElement<SelectOptionProps>('', {
+export const SelectOption = BuildElement<SelectOptionProps>('', {
 	addAttributes: (props) => ({
 		[`value`]: props.value
 	}),

@@ -4,6 +4,6 @@ import { ModifierProps } from '../../Modifiers';
 export interface TableBodyProps extends ModifierProps {
 }
 
-export default BuildElement<TableBodyProps>('', {
+export const TableBody = BuildElement<TableBodyProps>('', {
 	render: 'tbody'
 });

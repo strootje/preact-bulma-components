@@ -2,8 +2,6 @@
 	"compilerOptions": {
 		 "module": "commonjs",
 		 "target": "es6",
-		 "declaration": true,
-		 "outDir": "./dist",
 
 		 "jsx": "react",
 		 "jsxFactory": "h",
@@ -17,16 +15,12 @@
 		 "preserveConstEnums": true,
 		 "sourceMap": true,
 		 "emitDecoratorMetadata": true,
-		 "experimentalDecorators": true,
+		 "experimentalDecorators": true
 	},
 	"include": [
-		"src/**/*.ts",
-		"src/**/*.tsx",
-		"stories/**/*.ts",
-		"stories/**/*.tsx",
-		"test/**/*.ts",
-		"test/**/*.tsx",
-		"types/**/*.d.ts"
+		"**/*.ts",
+		"**/*.tsx",
+		"**/*.d.ts"
 	],
 	"exclude": [
 		"node_modules"

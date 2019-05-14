@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import Content from '../../src/Elements/Content';
+import { Content } from '../../src/Elements/Content';
 
 describe('The <Content> Component', () => {
 	use(require('preact-jsx-chai').default);

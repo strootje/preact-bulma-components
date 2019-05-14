@@ -4,4 +4,4 @@ import { ModifierProps } from '../../Modifiers';
 export interface MediaLeftProps extends ModifierProps {
 }
 
-export default BuildElement<MediaLeftProps>('media-left');
+export const MediaLeft = BuildElement<MediaLeftProps>('media-left');

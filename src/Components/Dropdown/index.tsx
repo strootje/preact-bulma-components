@@ -2,8 +2,10 @@ import { FunctionalComponent, h, RenderableProps } from 'preact';
 import BuildElement from '../../BuildElement';
 import { Sides } from '../../Bulma';
 import { ModifierProps } from '../../Modifiers';
-import Divider, { DropdownDividerProps } from './Divider';
-import Item, { DropdownItemProps } from './Item';
+import { DropdownDivider, DropdownDividerProps } from './Divider';
+import { DropdownItem, DropdownItemProps } from './Item';
+export { DropdownDivider, DropdownDividerProps } from './Divider';
+export { DropdownItem, DropdownItemProps } from './Item';
 
 export interface DropdownProps extends ModifierProps {
 	active?: boolean;
@@ -13,7 +15,7 @@ export interface DropdownProps extends ModifierProps {
 	label: string;
 }
 
-const Dropdown = BuildElement<DropdownProps>('dropdown', {
+export const Dropdown = BuildElement<DropdownProps>('dropdown', {
 	addClasses: (props) => ({
 		[`is-active`]: !!props.active,
 		[`is-hoverable`]: !!props.hoverable,
@@ -39,6 +41,5 @@ const Dropdown = BuildElement<DropdownProps>('dropdown', {
 	Item: FunctionalComponent<RenderableProps<DropdownItemProps>>;
 });
 
-export default Dropdown;
-Dropdown.Divider = Divider;
-Dropdown.Item = Item;
+Dropdown.Divider = DropdownDivider;
+Dropdown.Item = DropdownItem;

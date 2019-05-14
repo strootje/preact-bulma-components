@@ -1,7 +1,7 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/preact';
 import { h } from 'preact';
-import Tabs from '../../src/Components/Tabs';
+import { Tabs } from '../../src/Components/Tabs';
 import ModifierKnobs from '../ModifierKnobs';
 
 const stories = storiesOf('Components/Tabs', module);

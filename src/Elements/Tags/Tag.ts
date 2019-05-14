@@ -9,7 +9,7 @@ export interface TagProps extends ModifierProps {
 	rounded?: boolean;
 }
 
-export default BuildElement<TagProps>('tag', {
+export const Tag = BuildElement<TagProps>('tag', {
 	addClasses: (props) => ({
 		[`is-${props.size}`]: !!props.size,
 		[`is-${props.color}`]: !!props.color,

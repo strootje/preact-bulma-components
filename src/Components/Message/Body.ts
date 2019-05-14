@@ -4,4 +4,4 @@ import { ModifierProps } from '../../Modifiers';
 export interface MessageBodyProps extends ModifierProps {
 }
 
-export default BuildElement<MessageBodyProps>('message-body');
+export const MessageBody = BuildElement<MessageBodyProps>('message-body');

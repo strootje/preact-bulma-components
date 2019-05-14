@@ -4,6 +4,6 @@ import { ModifierProps } from '../../Modifiers';
 export interface MenuListProps extends ModifierProps {
 }
 
-export default BuildElement<MenuListProps>('menu-list', {
+export const MenuList = BuildElement<MenuListProps>('menu-list', {
 	render: 'ul'
 });

@@ -11,13 +11,13 @@ type ColumnOffsets = WithBreakpoints<ColumnOffset>;
 type ColumnNarrow = boolean;
 type ColumnNarrows = WithBreakpoints<ColumnNarrow>;
 
-export interface ColumnsColumnProps extends ModifierProps {
+export interface ColumnProps extends ModifierProps {
 	size?: ColumnSize | ColumnSizes;
 	offset?: ColumnOffset | ColumnOffsets;
 	narrow?: ColumnNarrow | ColumnNarrows;
 }
 
-export default BuildElement<ColumnsColumnProps>('column', {
+export const Column = BuildElement<ColumnProps>('column', {
 	addClasses: (props) => ({
 		...AddBreakpointClasses(props.size),
 		...AddBreakpointClasses(props.offset, 'is-offset'),

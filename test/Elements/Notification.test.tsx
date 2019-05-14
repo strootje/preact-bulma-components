@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import Notification from '../../src/Elements/Notification';
+import { Notification } from '../../src/Elements/Notification';
 
 describe('The <Notification> Component', () => {
 	use(require('preact-jsx-chai').default);

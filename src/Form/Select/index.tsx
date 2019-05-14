@@ -3,7 +3,8 @@ import BuildElement from '../../BuildElement';
 import { Colors, OtherSizes } from '../../Bulma';
 import { ModifierProps } from '../../Modifiers';
 import { AddInputAttributes, AddInputClasses } from '../InputBase';
-import Option, { SelectOptionProps } from './Option';
+import { SelectOption, SelectOptionProps } from './Option';
+export { SelectOption, SelectOptionProps } from './Option';
 
 export interface SelectProps extends ModifierProps {
 	color?: Colors;
@@ -12,7 +13,7 @@ export interface SelectProps extends ModifierProps {
 	size?: OtherSizes;
 }
 
-const Select = BuildElement<SelectProps>('select', {
+export const Select = BuildElement<SelectProps>('select', {
 	addAttributes: (props) => ({
 		...AddInputAttributes(props),
 		[`multiple`]: !!props.multiple
@@ -33,5 +34,4 @@ const Select = BuildElement<SelectProps>('select', {
 	Option: FunctionalComponent<RenderableProps<SelectOptionProps>>;
 });
 
-export default Select;
-Select.Option = Option;
+Select.Option = SelectOption;

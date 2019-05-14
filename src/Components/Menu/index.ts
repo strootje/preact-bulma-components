@@ -1,14 +1,17 @@
 import { FunctionalComponent, RenderableProps } from 'preact';
 import BuildElement from '../../BuildElement';
 import { ModifierProps } from '../../Modifiers';
-import Label, { MenuLabelProps } from './Label';
-import List, { MenuListProps } from './List';
-import ListItem, { MenuListItemProps } from './ListItem';
+import { MenuLabel, MenuLabelProps } from './Label';
+import { MenuList, MenuListProps } from './List';
+import { MenuListItem, MenuListItemProps } from './ListItem';
+export { MenuLabel, MenuLabelProps } from './Label';
+export { MenuList, MenuListProps } from './List';
+export { MenuListItem, MenuListItemProps } from './ListItem';
 
 export interface MenuProps extends ModifierProps {
 }
 
-const Menu = BuildElement<MenuProps>('menu', {
+export const Menu = BuildElement<MenuProps>('menu', {
 	render: 'aside'
 }) as (FunctionalComponent<RenderableProps<MenuProps>> & {
 	Label: FunctionalComponent<RenderableProps<MenuLabelProps>>;
@@ -16,7 +19,6 @@ const Menu = BuildElement<MenuProps>('menu', {
 	ListItem: FunctionalComponent<RenderableProps<MenuListItemProps>>;
 });
 
-export default Menu;
-Menu.Label = Label;
-Menu.List = List;
-Menu.ListItem = ListItem;
+Menu.Label = MenuLabel;
+Menu.List = MenuList;
+Menu.ListItem = MenuListItem;

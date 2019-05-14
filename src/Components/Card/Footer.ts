@@ -4,6 +4,6 @@ import { ModifierProps } from '../../Modifiers';
 export interface CardFooterProps extends ModifierProps {
 }
 
-export default BuildElement<CardFooterProps>('card-footer', {
+export const CardFooter = BuildElement<CardFooterProps>('card-footer', {
 	render: 'footer'
 });

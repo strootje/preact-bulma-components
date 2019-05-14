@@ -5,7 +5,7 @@ export interface PaginationNextProps extends ModifierProps {
 	disabled?: boolean;
 }
 
-export default BuildElement<PaginationNextProps>('pagination-next', {
+export const PaginationNext = BuildElement<PaginationNextProps>('pagination-next', {
 	addAttributes: (props) => ({
 		[`disabled`]: !!props.disabled
 	}),

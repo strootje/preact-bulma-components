@@ -1,7 +1,7 @@
 import BuildElement from '../BuildElement';
 import { ModifierProps } from '../Modifiers';
 
-interface BoxProps extends ModifierProps {
+export interface BoxProps extends ModifierProps {
 }
 
-export default BuildElement<BoxProps>('box');
+export const Box = BuildElement<BoxProps>('box');

@@ -4,4 +4,4 @@ import { ModifierProps } from '../../Modifiers';
 export interface LevelItemProps extends ModifierProps {
 }
 
-export default BuildElement<LevelItemProps>('level-item');
+export const LevelItem = BuildElement<LevelItemProps>('level-item');

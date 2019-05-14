@@ -7,7 +7,7 @@ export interface ControlProps extends ModifierProps {
 	disabled?: boolean;
 }
 
-export default BuildElement<ControlProps>('checkbox', {
+export const Checkbox = BuildElement<ControlProps>('checkbox', {
 	addAttributes: (props) => ({
 		[`checked`]: !!props.checked,
 		[`disabled`]: !!props.disabled

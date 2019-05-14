@@ -4,4 +4,4 @@ import { ModifierProps } from '../../Modifiers';
 export interface MediaContentProps extends ModifierProps {
 }
 
-export default BuildElement<MediaContentProps>('media-content');
+export const MediaContent = BuildElement<MediaContentProps>('media-content');

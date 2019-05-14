@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import NavbarDropdownItem from '../../../src/Components/Navbar/DropdownItem';
+import { NavbarDropdownItem } from '../../../src/Components/Navbar/DropdownItem';
 
 describe('The <NavbarDropdownItem> Component', () => {
 	use(require('preact-jsx-chai').default);

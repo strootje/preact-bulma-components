@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import NavbarBrand from '../../../src/Components/Navbar/Brand';
+import { NavbarBrand } from '../../../src/Components/Navbar/Brand';
 
 describe('The <NavbarBrand> Component', () => {
 	use(require('preact-jsx-chai').default);

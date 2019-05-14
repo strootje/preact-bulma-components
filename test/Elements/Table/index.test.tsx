@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import Table from '../../../src/Elements/Table';
+import { Table } from '../../../src/Elements/Table';
 
 describe('The <Table> Component', () => {
 	use(require('preact-jsx-chai').default);
@@ -16,21 +16,21 @@ describe('The <Table> Component', () => {
 	it('should render a full table', () => {
 		expect(
 			<Table>
-				<Table.Head>
+				<Table.Header>
 					<Table.Row>
 						<Table.Column heading>col 1</Table.Column>
 						<Table.Column heading>col 2</Table.Column>
 						<Table.Column heading>col 3</Table.Column>
 					</Table.Row>
-				</Table.Head>
+				</Table.Header>
 
-				<Table.Foot>
+				<Table.Footer>
 					<Table.Row>
 						<Table.Column>foot 1</Table.Column>
 						<Table.Column>foot 2</Table.Column>
 						<Table.Column>foot 3</Table.Column>
 					</Table.Row>
-				</Table.Foot>
+				</Table.Footer>
 
 				<Table.Body>
 					{[1, 2, 3].map((i) => (<Table.Row>

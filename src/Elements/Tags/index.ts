@@ -1,13 +1,14 @@
 import { FunctionalComponent, RenderableProps } from 'preact';
 import BuildElement from '../../BuildElement';
 import { ModifierProps } from '../../Modifiers';
-import Tag, { TagProps } from './Tag';
+import { Tag, TagProps } from './Tag';
+export { Tag, TagProps } from './Tag';
 
-interface TagsProps extends ModifierProps {
+export interface TagsProps extends ModifierProps {
 	addons?: boolean;
 }
 
-const Tags = BuildElement<TagsProps>('tags', {
+export const Tags = BuildElement<TagsProps>('tags', {
 	addClasses: (props) => ({
 		[`has-addons`]: !!props.addons
 	})
@@ -15,5 +16,4 @@ const Tags = BuildElement<TagsProps>('tags', {
 	Tag: FunctionalComponent<RenderableProps<TagProps>>;
 });
 
-export default Tags;
 Tags.Tag = Tag;

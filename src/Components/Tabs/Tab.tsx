@@ -2,12 +2,12 @@ import { h } from 'preact';
 import BuildElement from '../../BuildElement';
 import { ModifierProps } from '../../Modifiers';
 
-interface TabProps extends ModifierProps {
+export interface TabProps extends ModifierProps {
 	href?: string;
 	icon?: string;
 }
 
-export default BuildElement<TabProps>('', {
+export const Tab = BuildElement<TabProps>('', {
 	addAttributes: (props) => ({
 		['href']: props.href
 	}),

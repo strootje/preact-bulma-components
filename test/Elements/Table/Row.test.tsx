@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import TableRow from '../../../src/Elements/Table/Row';
+import { TableRow } from '../../../src/Elements/Table/Row';
 
 describe('The <TableRow> Component', () => {
 	use(require('preact-jsx-chai').default);

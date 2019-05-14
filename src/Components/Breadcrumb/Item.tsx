@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import BuildElement from '../../BuildElement';
-import Icon from '../../Elements/Icon';
+import { Icon } from '../../Elements/Icon';
 import { ModifierProps } from '../../Modifiers';
 
 export interface BreadcrumbItemProps extends ModifierProps {
@@ -9,7 +9,7 @@ export interface BreadcrumbItemProps extends ModifierProps {
 	active?: boolean;
 }
 
-export default BuildElement<BreadcrumbItemProps>('', {
+export const BreadcrumbItem = BuildElement<BreadcrumbItemProps>('', {
 	addAttributes: (props) => ({
 		['href']: props.href
 	}),

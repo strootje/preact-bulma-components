@@ -4,4 +4,4 @@ import { ModifierProps } from '../../Modifiers';
 export interface NavbarStartProps extends ModifierProps {
 }
 
-export default BuildElement<NavbarStartProps>('navbar-start');
+export const NavbarStart = BuildElement<NavbarStartProps>('navbar-start');

@@ -1,7 +1,7 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/preact';
 import { h } from 'preact';
-import Pagination from '../../src/Components/Pagination';
+import { Pagination } from '../../src/Components/Pagination';
 import ModifierKnobs from '../ModifierKnobs';
 
 const stories = storiesOf('Components/Pagination', module);

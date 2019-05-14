@@ -1,10 +1,10 @@
 import BuildElement from '../BuildElement';
 import { AddInputAttributes, AddInputClasses, InputBaseProps } from './InputBase';
 
-export interface TextInputProps extends InputBaseProps {
+export interface TextareaProps extends InputBaseProps {
 }
 
-export default BuildElement<TextInputProps>('textarea', {
+export const Textarea = BuildElement<TextareaProps>('textarea', {
 	addAttributes: AddInputAttributes,
 	addClasses: AddInputClasses,
 	render: 'textarea'

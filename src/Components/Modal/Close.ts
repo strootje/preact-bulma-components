@@ -3,7 +3,7 @@ import BuildElement from '../../BuildElement';
 export interface ModalCloseProps {
 }
 
-export default BuildElement<ModalCloseProps>('modal-close', {
+export const ModalClose = BuildElement<ModalCloseProps>('modal-close', {
 	addAttributes: () => ({
 		[`aria-label`]: 'close'
 	}),

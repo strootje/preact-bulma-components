@@ -6,7 +6,7 @@ export interface DropdownItemProps extends ModifierProps {
 	href?: string;
 }
 
-export default BuildElement<DropdownItemProps>('dropdown-item', {
+export const DropdownItem = BuildElement<DropdownItemProps>('dropdown-item', {
 	addAttributes: (props) => ({
 		[`href`]: props.href
 	}),

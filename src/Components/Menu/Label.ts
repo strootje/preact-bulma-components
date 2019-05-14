@@ -4,6 +4,6 @@ import { ModifierProps } from '../../Modifiers';
 export interface MenuLabelProps extends ModifierProps {
 }
 
-export default BuildElement<MenuLabelProps>('menu-label', {
+export const MenuLabel = BuildElement<MenuLabelProps>('menu-label', {
 	render: 'p'
 });

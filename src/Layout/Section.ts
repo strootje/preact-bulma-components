@@ -1,9 +1,9 @@
 import BuildElement from '../BuildElement';
 import { ModifierProps } from '../Modifiers';
 
-interface SectionProps extends ModifierProps {
+export interface SectionProps extends ModifierProps {
 }
 
-export default BuildElement<SectionProps>('section', {
+export const Section = BuildElement<SectionProps>('section', {
 	render: 'section'
 });

@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import Footer from '../../src/Layout/Footer';
+import { Footer } from '../../src/Layout/Footer';
 
 describe('The <Footer> Component', () => {
 	use(require('preact-jsx-chai').default);
