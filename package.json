@@ -1,9 +1,9 @@
 {
 	"private": true,
 	"name": "preact-bulma-components",
-	"version": "0.1.3",
-	"main": "./dist/index.js",
-	"types": "./dist/index.d.ts",
+	"version": "0.1.4",
+	"main": "./dist/src/index.js",
+	"types": "./dist/src/index.d.ts",
 	"description": "Bulma Components for Preact",
 	"repository": "https://github.com/strootje/preact-bulma-components",
 	"author": "Bas Stroosnijder",
