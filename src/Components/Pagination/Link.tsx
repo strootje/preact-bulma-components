@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface PaginationLinkProps extends ModifierProps {
@@ -7,12 +7,16 @@ export interface PaginationLinkProps extends ModifierProps {
 	current?: boolean;
 }
 
-export const PaginationLink = BuildElement<PaginationLinkProps>('pagination-link', {
-	addAttributes: (props) => ({
+export interface PaginationLinkAttribs {
+	'aria-label'?: string;
+}
+
+export const PaginationLink = ElementBuilder<PaginationLinkProps, PaginationLinkAttribs>('pagination-link', {
+	attribs: (props) => ({
 		[`aria-label`]: `Goto page ${props.children}`
 	}),
 
-	addClasses: (props) => ({
+	classes: (props) => ({
 		[`is-current`]: !!props.current
 	}),
 

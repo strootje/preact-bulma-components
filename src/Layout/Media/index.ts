@@ -1,20 +1,22 @@
-import { FunctionalComponent, RenderableProps } from 'preact';
-import BuildElement from '../../BuildElement';
+import { Component, ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
-import { MediaContent, MediaContentProps } from './Content';
-import { MediaLeft, MediaLeftProps } from './Left';
-import { MediaRight, MediaRightProps } from './Right';
-export { MediaContent, MediaContentProps } from './Content';
-export { MediaLeft, MediaLeftProps } from './Left';
-export { MediaRight, MediaRightProps } from './Right';
+import { MediaContent, MediaContentAttribs, MediaContentProps } from './Content';
+import { MediaLeft, MediaLeftAttribs, MediaLeftProps } from './Left';
+import { MediaRight, MediaRightAttribs, MediaRightProps } from './Right';
+export { MediaContent, MediaContentAttribs, MediaContentProps } from './Content';
+export { MediaLeft, MediaLeftAttribs, MediaLeftProps } from './Left';
+export { MediaRight, MediaRightAttribs, MediaRightProps } from './Right';
 
 export interface MediaProps extends ModifierProps {
 }
 
-export const Media = BuildElement('media') as (FunctionalComponent<RenderableProps<MediaProps>> & {
-	Content: FunctionalComponent<RenderableProps<MediaContentProps>>;
-	Left: FunctionalComponent<RenderableProps<MediaLeftProps>>;
-	Right: FunctionalComponent<RenderableProps<MediaRightProps>>;
+export interface MediaAttribs {
+}
+
+export const Media = ElementBuilder<MediaProps, MediaAttribs>('media') as (Component<MediaProps, MediaAttribs> & {
+	Content: Component<MediaContentProps, MediaContentAttribs>;
+	Left: Component<MediaLeftProps, MediaLeftAttribs>;
+	Right: Component<MediaRightProps, MediaRightAttribs>;
 });
 
 Media.Content = MediaContent;

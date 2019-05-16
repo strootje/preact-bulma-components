@@ -1,11 +1,14 @@
 import { h } from 'preact';
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface PaginationEllipsisProps extends ModifierProps {
 }
 
-export const PaginationEllipsis = BuildElement<PaginationEllipsisProps>('pagination-ellipsis', {
+export interface PaginationEllipsisAttribs {
+}
+
+export const PaginationEllipsis = ElementBuilder<PaginationEllipsisProps, PaginationEllipsisAttribs>('pagination-ellipsis', {
 	render: (className, attribs) => (
 		<li><span class={className} {...attribs}>&hellip;</span></li>
 	)

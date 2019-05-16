@@ -1,19 +1,22 @@
 import { h } from 'preact';
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { Icon } from '../../Elements/Icon';
 import { addBaseClasses, PanelBlockProps } from './Block';
 
 export interface PanelLinkProps extends PanelBlockProps {
-	href?: string;
 	icon?: string;
 }
 
-export const PanelLink = BuildElement<PanelLinkProps>('panel-block', {
-	addAttributes: (props) => ({
+export interface PanelLinkAttribs {
+	href?: string;
+}
+
+export const PanelLink = ElementBuilder<PanelLinkProps, PanelLinkAttribs>('panel-block', {
+	attribs: (props) => ({
 		[`href`]: props.href
 	}),
 
-	addClasses: addBaseClasses,
+	classes: addBaseClasses,
 
 	render: (className, attribs, { children, icon }) => (
 		<a class={className} {...attribs}>

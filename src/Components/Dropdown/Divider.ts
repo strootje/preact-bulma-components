@@ -1,9 +1,12 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface DropdownDividerProps extends ModifierProps {
 }
 
-export const DropdownDivider = BuildElement<DropdownDividerProps>('dropdown-divider', {
+export interface DropdownDividerAttribs {
+}
+
+export const DropdownDivider = ElementBuilder<DropdownDividerProps, DropdownDividerAttribs>('dropdown-divider', {
 	render: 'hr'
 });

@@ -1,13 +1,16 @@
 import { h } from 'preact';
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface DropdownItemProps extends ModifierProps {
+}
+
+export interface DropdownItemAttribs {
 	href?: string;
 }
 
-export const DropdownItem = BuildElement<DropdownItemProps>('dropdown-item', {
-	addAttributes: (props) => ({
+export const DropdownItem = ElementBuilder<DropdownItemProps, DropdownItemAttribs>('dropdown-item', {
+	attribs: (props) => ({
 		[`href`]: props.href
 	}),
 

@@ -1,7 +1,10 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface NavbarEndProps extends ModifierProps {
 }
 
-export const NavbarEnd = BuildElement<NavbarEndProps>('navbar-end');
+export interface NavbarEndAttribs {
+}
+
+export const NavbarEnd = ElementBuilder<NavbarEndProps, NavbarEndAttribs>('navbar-end');

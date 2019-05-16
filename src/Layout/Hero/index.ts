@@ -1,13 +1,12 @@
-import { FunctionalComponent, RenderableProps } from 'preact';
-import BuildElement from '../../BuildElement';
 import { Colors } from '../../Bulma';
+import { Component, ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
-import { HeroBody, HeroBodyProps } from './Body';
-import { HeroFooter, HeroFooterProps } from './Footer';
-import { HeroHeader, HeroHeaderProps } from './Header';
-export { HeroBody, HeroBodyProps } from './Body';
-export { HeroFooter, HeroFooterProps } from './Footer';
-export { HeroHeader, HeroHeaderProps } from './Header';
+import { HeroBody, HeroBodyAttribs, HeroBodyProps } from './Body';
+import { HeroFooter, HeroFooterAttribs, HeroFooterProps } from './Footer';
+import { HeroHeader, HeroHeaderAttribs, HeroHeaderProps } from './Header';
+export { HeroBody, HeroBodyAttribs, HeroBodyProps } from './Body';
+export { HeroFooter, HeroFooterAttribs, HeroFooterProps } from './Footer';
+export { HeroHeader, HeroHeaderAttribs, HeroHeaderProps } from './Header';
 
 type HeroSize = 'medium' | 'large' | 'fullheight' | 'fullheight-with-navbar';
 
@@ -17,16 +16,19 @@ export interface HeroProps extends ModifierProps {
 	bold?: boolean;
 }
 
-export const Hero = BuildElement<HeroProps>('hero', {
-	addClasses: (props) => ({
+export interface HeroAttribs {
+}
+
+export const Hero = ElementBuilder<HeroProps, HeroAttribs>('hero', {
+	classes: (props) => ({
 		[`is-${props.color}`]: !!props.color,
 		[`is-${props.size}`]: !!props.size,
 		[`is-bold`]: !!props.bold
 	})
-}) as (FunctionalComponent<RenderableProps<HeroProps>> & {
-	Body: FunctionalComponent<RenderableProps<HeroBodyProps>>;
-	Footer: FunctionalComponent<RenderableProps<HeroFooterProps>>;
-	Header: FunctionalComponent<RenderableProps<HeroHeaderProps>>;
+}) as (Component<HeroProps, HeroAttribs> & {
+	Body: Component<HeroBodyProps, HeroBodyAttribs>;
+	Footer: Component<HeroFooterProps, HeroFooterAttribs>;
+	Header: Component<HeroHeaderProps, HeroHeaderAttribs>;
 });
 
 Hero.Body = HeroBody;

@@ -1,12 +1,15 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface NavbarMenuProps extends ModifierProps {
 	active?: boolean;
 }
 
-export const NavbarMenu = BuildElement<NavbarMenuProps>('navbar-menu', {
-	addClasses: (props) => ({
+export interface NavbarMenuAttribs {
+}
+
+export const NavbarMenu = ElementBuilder<NavbarMenuProps, NavbarMenuAttribs>('navbar-menu', {
+	classes: (props) => ({
 		['is-active']: !!props.active
 	})
 });

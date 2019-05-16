@@ -1,12 +1,15 @@
 import { h } from 'preact';
-import BuildElement from '../../BuildElement';
 import { ListOfClasses } from '../../Bulma';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface NavbarItemProps extends ModifierProps {
 	expanded?: boolean;
-	href?: string;
 	tab?: boolean;
+}
+
+export interface NavbarItemAttribs {
+	href?: string;
 }
 
 export function AddNavbarItemClasses(props: NavbarItemProps, classesToAdd?: ListOfClasses): ListOfClasses {
@@ -17,12 +20,12 @@ export function AddNavbarItemClasses(props: NavbarItemProps, classesToAdd?: List
 	};
 }
 
-export const NavbarItem = BuildElement<NavbarItemProps>('navbar-item', {
-	addAttributes: (props) => ({
+export const NavbarItem = ElementBuilder<NavbarItemProps, NavbarItemAttribs>('navbar-item', {
+	attribs: (props) => ({
 		[`href`]: props.href
 	}),
 
-	addClasses: AddNavbarItemClasses,
+	classes: AddNavbarItemClasses,
 
 	render: (className, attribs, { children, href }) => (
 		!!href ? <a class={className} {...attribs}>{children}</a> : <div class={className} {...attribs}>{children}</div>

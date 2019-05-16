@@ -1,7 +1,10 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface MessageBodyProps extends ModifierProps {
 }
 
-export const MessageBody = BuildElement<MessageBodyProps>('message-body');
+export interface MessageBodyAttribs {
+}
+
+export const MessageBody = ElementBuilder<MessageBodyProps, MessageBodyAttribs>('message-body');

@@ -1,7 +1,10 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface MediaContentProps extends ModifierProps {
 }
 
-export const MediaContent = BuildElement<MediaContentProps>('media-content');
+export interface MediaContentAttribs {
+}
+
+export const MediaContent = ElementBuilder<MediaContentProps, MediaContentAttribs>('media-content');

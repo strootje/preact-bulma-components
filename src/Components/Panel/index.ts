@@ -1,31 +1,33 @@
-import { FunctionalComponent, RenderableProps } from 'preact';
-import BuildElement from '../../BuildElement';
+import { Component, ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
-import { PanelBlock, PanelBlockProps } from './Block';
-import { PanelCheckbox, PanelCheckboxProps } from './Checkbox';
-import { PanelHeader, PanelHeaderProps } from './Header';
-import { PanelLink, PanelLinkProps } from './Link';
-import { PanelTab, PanelTabProps } from './Tab';
-import { PanelTabs, PanelTabsProps } from './Tabs';
-export { PanelBlock, PanelBlockProps } from './Block';
-export { PanelCheckbox, PanelCheckboxProps } from './Checkbox';
-export { PanelHeader, PanelHeaderProps } from './Header';
-export { PanelLink, PanelLinkProps } from './Link';
-export { PanelTab, PanelTabProps } from './Tab';
-export { PanelTabs, PanelTabsProps } from './Tabs';
+import { PanelBlock, PanelBlockAttribs, PanelBlockProps } from './Block';
+import { PanelCheckbox, PanelCheckboxAttribs, PanelCheckboxProps } from './Checkbox';
+import { PanelHeader, PanelHeaderAttribs, PanelHeaderProps } from './Header';
+import { PanelLink, PanelLinkAttribs, PanelLinkProps } from './Link';
+import { PanelTab, PanelTabAttribs, PanelTabProps } from './Tab';
+import { PanelTabs, PanelTabsAttribs, PanelTabsProps } from './Tabs';
+export { PanelBlock, PanelBlockAttribs, PanelBlockProps } from './Block';
+export { PanelCheckbox, PanelCheckboxAttribs, PanelCheckboxProps } from './Checkbox';
+export { PanelHeader, PanelHeaderAttribs, PanelHeaderProps } from './Header';
+export { PanelLink, PanelLinkAttribs, PanelLinkProps } from './Link';
+export { PanelTab, PanelTabAttribs, PanelTabProps } from './Tab';
+export { PanelTabs, PanelTabsAttribs, PanelTabsProps } from './Tabs';
 
 export interface PanelProps extends ModifierProps {
 }
 
-export const Panel = BuildElement<PanelProps>('panel', {
+export interface PanelAttribs {
+}
+
+export const Panel = ElementBuilder<PanelProps, PanelAttribs>('panel', {
 	render: 'nav'
-}) as (FunctionalComponent<RenderableProps<PanelProps>> & {
-	Block: FunctionalComponent<RenderableProps<PanelBlockProps>>;
-	Checkbox: FunctionalComponent<RenderableProps<PanelCheckboxProps>>;
-	Header: FunctionalComponent<RenderableProps<PanelHeaderProps>>;
-	Link: FunctionalComponent<RenderableProps<PanelLinkProps>>;
-	Tab: FunctionalComponent<RenderableProps<PanelTabProps>>;
-	Tabs: FunctionalComponent<RenderableProps<PanelTabsProps>>;
+}) as (Component<PanelProps, PanelAttribs> & {
+	Block: Component<PanelBlockProps, PanelBlockAttribs>;
+	Checkbox: Component<PanelCheckboxProps, PanelCheckboxAttribs>;
+	Header: Component<PanelHeaderProps, PanelHeaderAttribs>;
+	Link: Component<PanelLinkProps, PanelLinkAttribs>;
+	Tab: Component<PanelTabProps, PanelTabAttribs>;
+	Tabs: Component<PanelTabsProps, PanelTabsAttribs>;
 });
 
 Panel.Checkbox = PanelBlock;

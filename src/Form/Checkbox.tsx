@@ -1,16 +1,19 @@
 import { h } from 'preact';
-import BuildElement from '../BuildElement';
+import { ElementBuilder } from '../ElementBuilder';
 import { ModifierProps } from '../Modifiers';
 
 export interface ControlProps extends ModifierProps {
+}
+
+export interface ControlAttribs {
 	checked?: boolean;
 	disabled?: boolean;
 }
 
-export const Checkbox = BuildElement<ControlProps>('checkbox', {
-	addAttributes: (props) => ({
-		[`checked`]: !!props.checked,
-		[`disabled`]: !!props.disabled
+export const Checkbox = ElementBuilder<ControlProps, ControlAttribs>('checkbox', {
+	attribs: (props) => ({
+		['checked']: !!props.checked,
+		['disabled']: !!props.disabled
 	}),
 
 	render: (className, attribs, { checked, children, disabled }) => (

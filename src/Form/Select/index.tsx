@@ -1,25 +1,28 @@
-import { FunctionalComponent, h, RenderableProps } from 'preact';
-import BuildElement from '../../BuildElement';
+import { h } from 'preact';
 import { Colors, OtherSizes } from '../../Bulma';
+import { Component, ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
-import { AddInputAttributes, AddInputClasses } from '../InputBase';
-import { SelectOption, SelectOptionProps } from './Option';
-export { SelectOption, SelectOptionProps } from './Option';
+import { AddInputAttributes, AddInputClasses, InputBaseAttribs } from '../InputBase';
+import { SelectOption, SelectOptionAttribs, SelectOptionProps } from './Option';
+export { SelectOption, SelectOptionAttribs, SelectOptionProps } from './Option';
 
 export interface SelectProps extends ModifierProps {
 	color?: Colors;
-	multiple?: boolean;
 	rounded?: boolean;
 	size?: OtherSizes;
 }
 
-export const Select = BuildElement<SelectProps>('select', {
-	addAttributes: (props) => ({
+export interface SelectAttribs extends InputBaseAttribs {
+	multiple?: boolean;
+}
+
+export const Select = ElementBuilder<SelectProps, SelectAttribs>('select', {
+	attribs: (props) => ({
 		...AddInputAttributes(props),
-		[`multiple`]: !!props.multiple
+		['multiple']: !!props.multiple
 	}),
 
-	addClasses: (props) => ({
+	classes: (props) => ({
 		...AddInputClasses(props)
 	}),
 
@@ -30,8 +33,8 @@ export const Select = BuildElement<SelectProps>('select', {
 			</select>
 		</div>
 	)
-}) as (FunctionalComponent<RenderableProps<SelectProps>> & {
-	Option: FunctionalComponent<RenderableProps<SelectOptionProps>>;
+}) as (Component<SelectProps, SelectAttribs> & {
+	Option: Component<SelectOptionProps, SelectOptionAttribs>;
 });
 
 Select.Option = SelectOption;

@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface MenuListItemProps extends ModifierProps {
@@ -7,7 +7,10 @@ export interface MenuListItemProps extends ModifierProps {
 	label: string;
 }
 
-export const MenuListItem = BuildElement<MenuListItemProps>('', {
+export interface MenuListItemAttribs {
+}
+
+export const MenuListItem = ElementBuilder<MenuListItemProps, MenuListItemAttribs>({
 	render: (className, attribs, { active, children, label }) => (
 		<li class={className}><a class={active ? 'is-active' : ''} {...attribs}>{label}</a>{children}</li>
 	)

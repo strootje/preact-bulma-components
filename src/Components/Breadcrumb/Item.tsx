@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { Icon } from '../../Elements/Icon';
 import { ModifierProps } from '../../Modifiers';
 
@@ -9,19 +9,23 @@ export interface BreadcrumbItemProps extends ModifierProps {
 	active?: boolean;
 }
 
-export const BreadcrumbItem = BuildElement<BreadcrumbItemProps>('', {
-	addAttributes: (props) => ({
+export interface BreadcrumbItemAttribs {
+	href?: string;
+}
+
+export const BreadcrumbItem = ElementBuilder<BreadcrumbItemProps, BreadcrumbItemAttribs>({
+	attribs: (props) => ({
 		['href']: props.href
 	}),
 
-	addClasses: (props) => ({
+	classes: (props) => ({
 		['is-active']: !!props.active
 	}),
 
-	render: (className, { href, onClick, ...attribs }, { children, icon }) => (
+	render: (className, { href, ...attribs }, { children, icon }) => (
 		<li class={className} {...attribs}>
 			{icon && <Icon size='small'>{icon}</Icon>}
-			<a href={href} onClick={onClick}>{children}</a>
+			<a href={href}>{children}</a>
 		</li>
 	)
 });

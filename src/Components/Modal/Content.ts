@@ -1,6 +1,10 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
+import { ModifierProps } from '../../Modifiers';
 
-export interface ModalContentProps {
+export interface ModalContentProps extends ModifierProps {
 }
 
-export const ModalContent = BuildElement<ModalContentProps>('modal-content');
+export interface ModalContentAttribs {
+}
+
+export const ModalContent = ElementBuilder<ModalContentProps, ModalContentAttribs>('modal-content');

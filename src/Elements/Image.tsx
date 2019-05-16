@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import BuildElement from '../BuildElement';
+import { ElementBuilder } from '../ElementBuilder';
 import { ModifierProps } from '../Modifiers';
 
 type ImageFixedSize = '16x16' | '24x214' | '32x32' | '48x48' | '64x64' | '96x96' | '128x128';
@@ -13,8 +13,11 @@ export interface ImageProps extends ModifierProps {
 	caption?: string;
 }
 
-export const Image = BuildElement<ImageProps>('image', {
-	addClasses: (props) => ({
+export interface ImageAttribs {
+}
+
+export const Image = ElementBuilder<ImageProps, ImageAttribs>('image', {
+	classes: (props) => ({
 		[`is-${props.size}`]: !!props.size
 	}),
 

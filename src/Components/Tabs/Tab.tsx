@@ -1,14 +1,17 @@
 import { h } from 'preact';
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface TabProps extends ModifierProps {
-	href?: string;
 	icon?: string;
 }
 
-export const Tab = BuildElement<TabProps>('', {
-	addAttributes: (props) => ({
+export interface TabAttribs {
+	href?: string;
+}
+
+export const Tab = ElementBuilder<TabProps, TabAttribs>({
+	attribs: (props) => ({
 		['href']: props.href
 	}),
 

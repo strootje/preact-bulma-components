@@ -1,9 +1,9 @@
-import { FunctionalComponent, h, RenderableProps } from 'preact';
-import BuildElement from '../../BuildElement';
+import { h } from 'preact';
 import { Alignments, OtherSizes } from '../../Bulma';
+import { Component, ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
-import { BreadcrumbItem, BreadcrumbItemProps } from './Item';
-export { BreadcrumbItem, BreadcrumbItemProps } from './Item';
+import { BreadcrumbItem, BreadcrumbItemAttribs, BreadcrumbItemProps } from './Item';
+export { BreadcrumbItem, BreadcrumbItemAttribs, BreadcrumbItemProps } from './Item';
 
 export interface BreadcrumbProps extends ModifierProps {
 	align?: Alignments;
@@ -11,12 +11,16 @@ export interface BreadcrumbProps extends ModifierProps {
 	size?: OtherSizes;
 }
 
-export const Breadcrumb = BuildElement<BreadcrumbProps>('breadcrumb', {
-	addAttributes: () => ({
-		['aria-label']: 'breadcrumbs'
+export interface BreadcrumbAttribs {
+	'aria-label'?: string;
+}
+
+export const Breadcrumb = ElementBuilder<BreadcrumbProps, BreadcrumbAttribs>('breadcrumb', {
+	attribs: () => ({
+		'aria-label': 'breadcrumbs'
 	}),
 
-	addClasses: (props) => ({
+	classes: (props) => ({
 		[`is-${props.align}`]: !!props.align,
 		[`has-${props.separator}-separator`]: !!props.separator,
 		[`is-${props.size}`]: !!props.size
@@ -29,8 +33,8 @@ export const Breadcrumb = BuildElement<BreadcrumbProps>('breadcrumb', {
 			</ul>
 		</nav>
 	)
-}) as (FunctionalComponent<RenderableProps<BreadcrumbProps>> & {
-	Item: FunctionalComponent<BreadcrumbItemProps>
+}) as (Component<BreadcrumbProps, BreadcrumbAttribs> & {
+	Item: Component<BreadcrumbItemProps, BreadcrumbItemAttribs>;
 });
 
 Breadcrumb.Item = BreadcrumbItem;

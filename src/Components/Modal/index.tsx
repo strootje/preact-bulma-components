@@ -1,16 +1,22 @@
 import { h } from 'preact';
-import BuildElement from '../../BuildElement';
+import { Component, ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
-import { ModalBackground } from './Background';
-import { ModalClose } from './Close';
-import { ModalContent } from './Content';
+import { ModalBackground, ModalBackgroundAttribs, ModalBackgroundProps } from './Background';
+import { ModalClose, ModalCloseAttribs, ModalCloseProps } from './Close';
+import { ModalContent, ModalContentAttribs, ModalContentProps } from './Content';
+export { ModalBackground, ModalBackgroundAttribs, ModalBackgroundProps } from './Background';
+export { ModalClose, ModalCloseAttribs, ModalCloseProps } from './Close';
+export { ModalContent, ModalContentAttribs, ModalContentProps } from './Content';
 
 export interface ModalProps extends ModifierProps {
 	active?: boolean;
 }
 
-export const Modal = BuildElement<ModalProps>('modal', {
-	addClasses: (props) => ({
+export interface ModalAttribs {
+}
+
+export const Modal = ElementBuilder<ModalProps, ModalAttribs>('modal', {
+	classes: (props) => ({
 		[`is-active`]: !!props.active
 	}),
 
@@ -24,4 +30,12 @@ export const Modal = BuildElement<ModalProps>('modal', {
 			</ModalContent>
 		</div>
 	)
+}) as (Component<ModalProps, ModalAttribs> & {
+	Background: Component<ModalBackgroundProps, ModalBackgroundAttribs>;
+	Close: Component<ModalCloseProps, ModalCloseAttribs>;
+	Content: Component<ModalContentProps, ModalContentAttribs>;
 });
+
+Modal.Background = ModalBackground;
+Modal.Close = ModalClose;
+Modal.Content = ModalContent;

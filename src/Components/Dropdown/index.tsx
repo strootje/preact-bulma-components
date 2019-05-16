@@ -1,11 +1,11 @@
-import { FunctionalComponent, h, RenderableProps } from 'preact';
-import BuildElement from '../../BuildElement';
+import { h } from 'preact';
 import { Sides } from '../../Bulma';
+import { Component, ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
-import { DropdownDivider, DropdownDividerProps } from './Divider';
-import { DropdownItem, DropdownItemProps } from './Item';
-export { DropdownDivider, DropdownDividerProps } from './Divider';
-export { DropdownItem, DropdownItemProps } from './Item';
+import { DropdownDivider, DropdownDividerAttribs, DropdownDividerProps } from './Divider';
+import { DropdownItem, DropdownItemAttribs, DropdownItemProps } from './Item';
+export { DropdownDivider, DropdownDividerAttribs, DropdownDividerProps } from './Divider';
+export { DropdownItem, DropdownItemAttribs, DropdownItemProps } from './Item';
 
 export interface DropdownProps extends ModifierProps {
 	active?: boolean;
@@ -15,8 +15,11 @@ export interface DropdownProps extends ModifierProps {
 	label: string;
 }
 
-export const Dropdown = BuildElement<DropdownProps>('dropdown', {
-	addClasses: (props) => ({
+export interface DropdownAttribs {
+}
+
+export const Dropdown = ElementBuilder<DropdownProps, DropdownAttribs>('dropdown', {
+	classes: (props) => ({
 		[`is-active`]: !!props.active,
 		[`is-hoverable`]: !!props.hoverable,
 		[`is-up`]: !!props.direction && props.direction === 'up',
@@ -36,9 +39,9 @@ export const Dropdown = BuildElement<DropdownProps>('dropdown', {
 			</div>
 		</div>
 	)
-}) as (FunctionalComponent<RenderableProps<DropdownProps>> & {
-	Divider: FunctionalComponent<RenderableProps<DropdownDividerProps>>;
-	Item: FunctionalComponent<RenderableProps<DropdownItemProps>>;
+}) as (Component<DropdownProps, DropdownAttribs> & {
+	Divider: Component<DropdownDividerProps, DropdownDividerAttribs>;
+	Item: Component<DropdownItemProps, DropdownItemAttribs>;
 });
 
 Dropdown.Divider = DropdownDivider;

@@ -1,9 +1,12 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface MenuListProps extends ModifierProps {
 }
 
-export const MenuList = BuildElement<MenuListProps>('menu-list', {
+export interface MenuListAttribs {
+}
+
+export const MenuList = ElementBuilder<MenuListProps, MenuListAttribs>('menu-list', {
 	render: 'ul'
 });

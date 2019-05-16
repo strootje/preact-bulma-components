@@ -1,17 +1,16 @@
-import { FunctionalComponent, RenderableProps } from 'preact';
-import BuildElement from '../../BuildElement';
 import { Alignments, OtherSizes } from '../../Bulma';
+import { Component, ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
-import { PaginationEllipsis, PaginationEllipsisProps } from './Ellipsis';
-import { PaginationLink, PaginationLinkProps } from './Link';
-import { PaginationList, PaginationListProps } from './List';
-import { PaginationNext, PaginationNextProps } from './Next';
-import { PaginationPrevious, PaginationPreviousProps } from './Previous';
-export { PaginationEllipsis, PaginationEllipsisProps } from './Ellipsis';
-export { PaginationLink, PaginationLinkProps } from './Link';
-export { PaginationList, PaginationListProps } from './List';
-export { PaginationNext, PaginationNextProps } from './Next';
-export { PaginationPrevious, PaginationPreviousProps } from './Previous';
+import { PaginationEllipsis, PaginationEllipsisAttribs, PaginationEllipsisProps } from './Ellipsis';
+import { PaginationLink, PaginationLinkAttribs, PaginationLinkProps } from './Link';
+import { PaginationList, PaginationListAttribs, PaginationListProps } from './List';
+import { PaginationNext, PaginationNextAttribs, PaginationNextProps } from './Next';
+import { PaginationPrevious, PaginationPreviousAttribs, PaginationPreviousProps } from './Previous';
+export { PaginationEllipsis, PaginationEllipsisAttribs, PaginationEllipsisProps } from './Ellipsis';
+export { PaginationLink, PaginationLinkAttribs, PaginationLinkProps } from './Link';
+export { PaginationList, PaginationListAttribs, PaginationListProps } from './List';
+export { PaginationNext, PaginationNextAttribs, PaginationNextProps } from './Next';
+export { PaginationPrevious, PaginationPreviousAttribs, PaginationPreviousProps } from './Previous';
 
 export interface PaginationProps extends ModifierProps {
 	align?: Alignments;
@@ -19,25 +18,30 @@ export interface PaginationProps extends ModifierProps {
 	size?: OtherSizes;
 }
 
-export const Pagination = BuildElement<PaginationProps>('pagination', {
-	addAttributes: () => ({
+export interface PaginationAttribs {
+	'aria-label'?: string;
+	role?: string;
+}
+
+export const Pagination = ElementBuilder<PaginationProps, PaginationAttribs>('pagination', {
+	attribs: () => ({
 		[`role`]: 'navigation',
 		[`aria-label`]: 'pagination'
 	}),
 
-	addClasses: (props) => ({
+	classes: (props) => ({
 		[`is-${props.align}`]: !!props.align,
 		[`is-rounded`]: !!props.rounded,
 		[`is-${props.size}`]: !!props.size
 	}),
 
 	render: 'nav'
-}) as (FunctionalComponent<RenderableProps<PaginationProps>> & {
-	Ellipsis: FunctionalComponent<RenderableProps<PaginationEllipsisProps>>;
-	Link: FunctionalComponent<RenderableProps<PaginationLinkProps>>;
-	List: FunctionalComponent<RenderableProps<PaginationListProps>>;
-	Next: FunctionalComponent<RenderableProps<PaginationNextProps>>;
-	Previous: FunctionalComponent<RenderableProps<PaginationPreviousProps>>;
+}) as (Component<PaginationProps, PaginationAttribs> & {
+	Ellipsis: Component<PaginationEllipsisProps, PaginationEllipsisAttribs>;
+	Link: Component<PaginationLinkProps, PaginationLinkAttribs>;
+	List: Component<PaginationListProps, PaginationListAttribs>;
+	Next: Component<PaginationNextProps, PaginationNextAttribs>;
+	Previous: Component<PaginationPreviousProps, PaginationPreviousAttribs>;
 });
 
 Pagination.Ellipsis = PaginationEllipsis;

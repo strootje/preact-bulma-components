@@ -1,13 +1,16 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface PaginationPreviousProps extends ModifierProps {
+}
+
+export interface PaginationPreviousAttribs {
 	disabled?: boolean;
 }
 
-export const PaginationPrevious = BuildElement<PaginationPreviousProps>('pagination-previous', {
-	addAttributes: (props) => ({
-		[`disabled`]: !!props.disabled
+export const PaginationPrevious = ElementBuilder<PaginationPreviousProps, PaginationPreviousAttribs>('pagination-previous', {
+	attribs: (props) => ({
+		disabled: !!props.disabled
 	}),
 
 	render: 'a'

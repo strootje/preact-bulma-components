@@ -1,12 +1,15 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface PanelTabProps extends ModifierProps {
 	active?: boolean;
 }
 
-export const PanelTab = BuildElement<PanelTabProps>('', {
-	addClasses: (props) => ({
+export interface PanelTabAttribs {
+}
+
+export const PanelTab = ElementBuilder<PanelTabProps, PanelTabAttribs>({
+	classes: (props) => ({
 		[`is-active`]: !!props.active
 	}),
 

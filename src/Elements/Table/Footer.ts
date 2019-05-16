@@ -1,9 +1,12 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface TableFooterProps extends ModifierProps {
 }
 
-export const TableFooter = BuildElement<TableFooterProps>('', {
+export interface TableFooterAttribs {
+}
+
+export const TableFooter = ElementBuilder<TableFooterProps, TableFooterAttribs>({
 	render: 'tfoot'
 });

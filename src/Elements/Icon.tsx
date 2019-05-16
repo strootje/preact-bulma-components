@@ -1,6 +1,6 @@
 import { h } from 'preact';
-import BuildElement from '../BuildElement';
 import { OtherSizes } from '../Bulma';
+import { ElementBuilder } from '../ElementBuilder';
 import { ModifierProps } from '../Modifiers';
 
 const defaultClassName = 'icon';
@@ -11,12 +11,15 @@ export interface IconProps extends ModifierProps {
 	size?: OtherSizes;
 }
 
+export interface IconAttribs {
+}
+
 const replaceWithBase = (className: string, baseName?: string): string => {
 	return !baseName ? className : className.replace(defaultClassName, `${baseName}-${defaultClassName}`);
 };
 
-export const Icon = BuildElement<IconProps>(defaultClassName, {
-	addClasses: (props) => ({
+export const Icon = ElementBuilder<IconProps, IconAttribs>(defaultClassName, {
+	classes: (props) => ({
 		[`is-${props.size}`]: !!props.size
 	}),
 

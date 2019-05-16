@@ -1,5 +1,5 @@
-import BuildElement from '../../BuildElement';
 import { Colors, OtherSizes } from '../../Bulma';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface TagProps extends ModifierProps {
@@ -9,8 +9,11 @@ export interface TagProps extends ModifierProps {
 	rounded?: boolean;
 }
 
-export const Tag = BuildElement<TagProps>('tag', {
-	addClasses: (props) => ({
+export interface TagAttribs {
+}
+
+export const Tag = ElementBuilder<TagProps, TagAttribs>('tag', {
+	classes: (props) => ({
 		[`is-${props.size}`]: !!props.size,
 		[`is-${props.color}`]: !!props.color,
 		[`is-delete`]: !!props.delete,

@@ -1,4 +1,4 @@
-export interface ListOfAttributes { [_: string]: any; }
+export type ListOfAttributes<A> = { [_ in keyof A]?: any; };
 export interface ListOfClasses { [_: string]: boolean; }
 
 export type Breakpoints = 'mobile' | 'tablet' | 'touch' | 'desktop' | 'widescreen' | 'fullhd';

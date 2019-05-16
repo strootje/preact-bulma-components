@@ -1,7 +1,10 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface LevelItemProps extends ModifierProps {
 }
 
-export const LevelItem = BuildElement<LevelItemProps>('level-item');
+export interface LevelItemAttribs {
+}
+
+export const LevelItem = ElementBuilder<LevelItemProps, LevelItemAttribs>('level-item');

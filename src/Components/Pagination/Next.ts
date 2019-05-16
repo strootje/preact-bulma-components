@@ -1,13 +1,16 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface PaginationNextProps extends ModifierProps {
+}
+
+export interface PaginationNextAttribs {
 	disabled?: boolean;
 }
 
-export const PaginationNext = BuildElement<PaginationNextProps>('pagination-next', {
-	addAttributes: (props) => ({
-		[`disabled`]: !!props.disabled
+export const PaginationNext = ElementBuilder<PaginationNextProps, PaginationNextAttribs>('pagination-next', {
+	attribs: (props) => ({
+		disabled: !!props.disabled
 	}),
 
 	render: 'a'

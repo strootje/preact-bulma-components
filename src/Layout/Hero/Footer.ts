@@ -1,7 +1,10 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface HeroFooterProps extends ModifierProps {
 }
 
-export const HeroFooter = BuildElement<HeroFooterProps>('hero-foot');
+export interface HeroFooterAttribs {
+}
+
+export const HeroFooter = ElementBuilder<HeroFooterProps, HeroFooterAttribs>('hero-foot');

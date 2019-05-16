@@ -1,9 +1,12 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface CardHeaderTitleProps extends ModifierProps {
 }
 
-export const CardHeaderTitle = BuildElement<CardHeaderTitleProps>('card-header-title', {
+export interface CardHeaderTitleAttribs {
+}
+
+export const CardHeaderTitle = ElementBuilder<CardHeaderTitleProps, CardHeaderTitleAttribs>('card-header-title', {
 	render: 'p'
 });

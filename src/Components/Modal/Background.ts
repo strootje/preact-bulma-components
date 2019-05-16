@@ -1,6 +1,9 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 
 export interface ModalBackgroundProps {
 }
 
-export const ModalBackground = BuildElement<ModalBackgroundProps>('modal-background');
+export interface ModalBackgroundAttribs {
+}
+
+export const ModalBackground = ElementBuilder<ModalBackgroundProps, ModalBackgroundAttribs>('modal-background');

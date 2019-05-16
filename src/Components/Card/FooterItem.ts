@@ -1,9 +1,12 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface CardFooterItemProps extends ModifierProps {
 }
 
-export const CardFooterItem = BuildElement<CardFooterItemProps>('card-footer-item', {
+export interface CardFooterItemAttribs {
+}
+
+export const CardFooterItem = ElementBuilder<CardFooterItemProps, CardFooterItemAttribs>('card-footer-item', {
 	render: 'p'
 });

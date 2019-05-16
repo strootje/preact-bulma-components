@@ -1,6 +1,6 @@
 import { RenderableProps } from 'preact';
-import BuildElement from '../BuildElement';
 import { NumberedSizes } from '../Bulma';
+import { ElementBuilder } from '../ElementBuilder';
 import { ModifierProps } from '../Modifiers';
 
 export interface TileBaseProps extends ModifierProps {
@@ -19,8 +19,11 @@ export interface TileChildProps extends TileBaseProps {
 	class: 'box' | string;
 }
 
-export const Tile = BuildElement<TileProps | TileChildProps>('tile', {
-	addClasses: (props: RenderableProps<TileProps | TileChildProps>) => ({
+export interface TileAttribs {
+}
+
+export const Tile = ElementBuilder<(TileProps | TileChildProps), TileAttribs>('tile', {
+	classes: (props: RenderableProps<(TileProps | TileChildProps)>) => ({
 		[`is-${props.size}`]: !!props.size,
 		[`is-${props.type}`]: !!props.type,
 		[`is-vertical`]: !!props.vertical,

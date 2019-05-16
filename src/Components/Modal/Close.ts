@@ -1,14 +1,18 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 
 export interface ModalCloseProps {
 }
 
-export const ModalClose = BuildElement<ModalCloseProps>('modal-close', {
-	addAttributes: () => ({
+export interface ModalCloseAttribs {
+	'aria-label'?: string;
+}
+
+export const ModalClose = ElementBuilder<ModalCloseProps, ModalCloseAttribs>('modal-close', {
+	attribs: () => ({
 		[`aria-label`]: 'close'
 	}),
 
-	addClasses: () => ({
+	classes: () => ({
 		[`is-large`]: true
 	}),
 

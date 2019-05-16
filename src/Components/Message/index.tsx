@@ -1,9 +1,11 @@
 import { h } from 'preact';
-import BuildElement from '../../BuildElement';
 import { ColorsExtra, OtherSizes } from '../../Bulma';
+import { Component, ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
-import { MessageBody } from './Body';
-import { MessageHeader } from './Header';
+import { MessageBody, MessageBodyAttribs, MessageBodyProps } from './Body';
+import { MessageHeader, MessageHeaderAttribs, MessageHeaderProps } from './Header';
+export { MessageBody, MessageBodyAttribs, MessageBodyProps } from './Body';
+export { MessageHeader, MessageHeaderAttribs, MessageHeaderProps } from './Header';
 
 export interface MessageProps extends ModifierProps {
 	color?: ColorsExtra;
@@ -11,8 +13,11 @@ export interface MessageProps extends ModifierProps {
 	size?: OtherSizes;
 }
 
-export const Message = BuildElement<MessageProps>('message', {
-	addClasses: (props) => ({
+export interface MessageAttribs {
+}
+
+export const Message = ElementBuilder<MessageProps, MessageAttribs>('message', {
+	classes: (props) => ({
 		[`is-${props.color}`]: !!props.color,
 		[`is-${props.size}`]: !!props.size
 	}),
@@ -28,4 +33,10 @@ export const Message = BuildElement<MessageProps>('message', {
 			</MessageBody>
 		</article>
 	)
+}) as (Component<MessageProps, MessageAttribs> & {
+	Body: Component<MessageBodyProps, MessageBodyAttribs>;
+	Header: Component<MessageHeaderProps, MessageHeaderAttribs>;
 });
+
+Message.Body = MessageBody;
+Message.Header = MessageHeader;

@@ -1,9 +1,12 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface TableHeaderProps extends ModifierProps {
 }
 
-export const TableHeader = BuildElement<TableHeaderProps>('', {
+export interface TableHeaderAttribs {
+}
+
+export const TableHeader = ElementBuilder<TableHeaderProps, TableHeaderAttribs>({
 	render: 'thead'
 });
