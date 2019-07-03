@@ -1,12 +1,13 @@
 import ClassNames from 'classnames';
 import { FunctionalComponent, h, RenderableProps } from 'preact';
 import { ListOfAttributes, ListOfClasses } from './Bulma';
+import { HtmlAttribs as addHtmlAttribs } from './HtmlAttribs';
 import { AddModifierClasses, ModifierProps } from './Modifiers';
 
 type Props<P, A = {}> = RenderableProps<(P & A)>;
 export type Component<P, A = {}> = FunctionalComponent<Props<P, A>>;
 type ClassListBuilder<P, A> = (props: RenderableProps<P, A>) => ListOfClasses;
-type AttribListBuilder<P, A> = (props: Props<P, A>) => ListOfAttributes<(A & JSX.DOMAttributes)>;
+type AttribListBuilder<P, A> = (props: Props<P, A>) => ListOfAttributes<A>;
 type RenderComponent<P, A> = (name: string, attribs: ListOfAttributes<A>, props: (P & A)) => JSX.Element;
 interface ElementBuilderOpts<P, A> {
 	attribs?: AttribListBuilder<P, A>;
@@ -35,8 +36,8 @@ const elementBuilder = <P extends ModifierProps, A = {}>(name: string, opts: Ele
 			...addClasses(props)
 		});
 
-		const attribs: ListOfAttributes<A> = {
-			// ...addHtmlAttribs<(P & A)>(props),
+		const attribs: ListOfAttributes<(A & JSX.DOMAttributes)> = {
+			...addHtmlAttribs(this, props),
 			...addAttribs(props)
 		};
 

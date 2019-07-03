@@ -1,13 +1,11 @@
-import { Colors, ListOfAttributes, ListOfClasses, OtherSizes } from '../Bulma';
+import { Colors, InputStates, ListOfAttributes, ListOfClasses, OtherSizes } from '../Bulma';
 import { ModifierProps } from '../Modifiers';
-
-type States = 'normal' | 'hover' | 'focus';
 
 export interface InputBaseProps extends ModifierProps {
 	color?: Colors;
 	rounded?: boolean;
 	size?: OtherSizes;
-	state?: States;
+	state?: InputStates;
 }
 
 export interface InputBaseAttribs {

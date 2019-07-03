@@ -1,7 +1,7 @@
 {
 	"private": true,
 	"name": "preact-bulma-components",
-	"version": "0.1.6",
+	"version": "0.2.7",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"description": "Bulma Components for Preact",
@@ -16,6 +16,7 @@
 
 		"prebuild": "rm -rf ./dist && pnpm run lint",
 		"build": "tsc -p ./src",
+		"watch": "tsc --watch -p ./src",
 
 		"preserve": "pnpm run test",
 		"serve": "start-storybook -p 9008 --ci",

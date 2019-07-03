@@ -16,6 +16,9 @@ export type NumberedSizes = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' 
 export type Sizes = NamedSizes | NumberedSizes;
 export type OtherSizes = 'small' | 'normal' | 'medium' | 'large';
 
+export type InputStates = 'normal' | 'hover' | 'focus' | 'disabled';
+export type States = InputStates | 'active' | 'loading' | 'static';
+
 type Reducer<T> = (key: string, value?: T) => string;
 
 export function AddBreakpointClasses<T>(prop: (T | WithBreakpoints<T> | undefined), reducer?: (Reducer<T> | string)): ListOfClasses {

@@ -7,9 +7,15 @@ export interface ContentProps extends ModifierProps {
 }
 
 export interface ContentAttribs {
+	dangerouslySetInnerHTML?: { __html: string };
+	html?: string;
 }
 
 export const Content = ElementBuilder<ContentProps, ContentAttribs>('content', {
+	attribs: (props) => ({
+		[`dangerouslySetInnerHTML`]: !!props.html ? { __html: props.html } : props.dangerouslySetInnerHTML
+	}),
+
 	classes: (props) => ({
 		[`is-${props.size}`]: !!props.size
 	})
