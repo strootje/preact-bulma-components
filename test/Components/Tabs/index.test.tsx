@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import Tabs from '../../../src/Components/Tabs';
+import { Tabs } from '../../../src/Components/Tabs';
 
 describe('The <Tabs> Component', () => {
 	use(require('preact-jsx-chai').default);

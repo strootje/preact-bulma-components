@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import CardHeaderTitle from '../../../src/Components/Card/HeaderTitle';
+import { CardHeaderTitle } from '../../../src/Components/Card/HeaderTitle';
 
 describe('The <CardHeader> Component', () => {
 	use(require('preact-jsx-chai').default);

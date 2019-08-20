@@ -8,6 +8,7 @@
 //                 Adam Zmenak <https://github.com/azmenak>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 3.0
+// Modified for preact
 
 declare module '@storybook/addon-knobs' {
 	import { Renderable, RenderFunction } from '@storybook/preact';

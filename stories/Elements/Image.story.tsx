@@ -1,7 +1,7 @@
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/preact';
 import { h } from 'preact';
-import Image from '../../src/Elements/Image';
+import { Image } from '../../src/Elements/Image';
 import ModifierKnobs from '../ModifierKnobs';
 
 const imageUri = 'http://placekitten.com/g/200/300';

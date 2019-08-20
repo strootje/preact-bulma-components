@@ -1,9 +1,12 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface TableBodyProps extends ModifierProps {
 }
 
-export default BuildElement<TableBodyProps>('', {
+export interface TableBodyAttribs {
+}
+
+export const TableBody = ElementBuilder<TableBodyProps, TableBodyAttribs>({
 	render: 'tbody'
 });

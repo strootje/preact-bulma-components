@@ -1,13 +1,16 @@
-import BuildElement from '../BuildElement';
 import { Colors } from '../Bulma';
+import { ElementBuilder } from '../ElementBuilder';
 import { ModifierProps } from '../Modifiers';
 
-interface LabelProps extends ModifierProps {
+export interface HelpProps extends ModifierProps {
 	color?: Colors;
 }
 
-export default BuildElement<LabelProps>('help', {
-	addClasses: (props) => ({
+export interface HelpAttribs {
+}
+
+export const Help = ElementBuilder<HelpProps, HelpAttribs>('help', {
+	classes: (props) => ({
 		[`is-${props.color}`]: !!props.color
 	}),
 

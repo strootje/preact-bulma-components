@@ -1,20 +1,30 @@
 import { h } from 'preact';
-import BuildElement from '../BuildElement';
 import { OtherSizes } from '../Bulma';
+import { ElementBuilder } from '../ElementBuilder';
 import { ModifierProps } from '../Modifiers';
 
-interface IconProps extends ModifierProps {
+const defaultClassName = 'icon';
+
+export interface IconProps extends ModifierProps {
+	base?: string;
 	children: string;
 	size?: OtherSizes;
 }
 
-export default BuildElement<IconProps>('icon', {
-	addClasses: (props) => ({
+export interface IconAttribs {
+}
+
+const replaceWithBase = (className: string, baseName?: string): string => {
+	return !baseName ? className : className.replace(defaultClassName, `${baseName}-${defaultClassName}`);
+};
+
+export const Icon = ElementBuilder<IconProps, IconAttribs>(defaultClassName, {
+	classes: (props) => ({
 		[`is-${props.size}`]: !!props.size
 	}),
 
-	render: (className, attribs, { children }) => (
-		<span class={className} {...attribs}>
+	render: (className, attribs, { base, children }) => (
+		<span class={replaceWithBase(className, base)} {...attribs}>
 			<i class={children.toString()}></i>
 		</span>
 	)

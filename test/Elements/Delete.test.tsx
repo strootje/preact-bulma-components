@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import Delete from '../../src/Elements/Delete';
+import { Delete } from '../../src/Elements/Delete';
 
 describe('The <Delete> Component', () => {
 	use(require('preact-jsx-chai').default);

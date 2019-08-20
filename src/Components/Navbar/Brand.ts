@@ -1,7 +1,10 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
-interface NavbarBrandProps extends ModifierProps {
+export interface NavbarBrandProps extends ModifierProps {
 }
 
-export default BuildElement<NavbarBrandProps>('navbar-brand');
+export interface NavbarBrandAttribs {
+}
+
+export const NavbarBrand = ElementBuilder<NavbarBrandProps, NavbarBrandAttribs>('navbar-brand');

@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import BreadcrumbItem from '../../../src/Components/Breadcrumb/Item';
+import { BreadcrumbItem } from '../../../src/Components/Breadcrumb/Item';
 
 describe('The <BreadcrumbItem> Component', () => {
 	use(require('preact-jsx-chai').default);

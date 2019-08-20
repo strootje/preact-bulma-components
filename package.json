@@ -1,31 +1,39 @@
 {
-	"private": true,
+	"private": false,
 	"name": "preact-bulma-components",
-	"version": "0.1.2",
+	"version": "0.2.7",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"description": "Bulma Components for Preact",
 	"repository": "https://github.com/strootje/preact-bulma-components",
 	"author": "Bas Stroosnijder",
-	"license": "MIT",
+	"license": "MPL-v2",
+
 	"scripts": {
-		"lint": "tslint -p ./tsconfig.json",
 		"pretest": "pnpm run lint",
 		"test": "nyc --reporter=text-summary mocha",
-		"prebuild": "pnpm run lint",
-		"build": "tsx",
-		"prepack": "npm run build",
 		"coverage": "nyc report --reporter=text-lcov | coveralls",
-		"prestorybook": "pnpm run test",
-		"storybook": "start-storybook -p 9008 --ci"
+
+		"prebuild": "rm -rf ./dist && pnpm run lint",
+		"build": "tsc -p ./src",
+		"watch": "tsc --watch -p ./src",
+
+		"preserve": "pnpm run test",
+		"serve": "start-storybook -p 9008 --ci",
+
+		"lint": "tslint -p ./tsconfig.json",
+		"prepack": "npm run build"
 	},
+
 	"dependencies": {
 		"classnames": "*"
 	},
+
 	"peerDependencies": {
 		"bulma": "0.*",
 		"preact": "8.*"
 	},
+
 	"devDependencies": {
 		"@babel/core": "^7.4.4",
 		"@emotion/core": "^10.0.10",

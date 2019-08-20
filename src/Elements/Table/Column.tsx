@@ -1,12 +1,15 @@
 import { h } from 'preact';
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface TableColumnProps extends ModifierProps {
 	heading?: boolean;
 }
 
-export default BuildElement<TableColumnProps>('', {
+export interface TableColumnAttribs {
+}
+
+export const TableColumn = ElementBuilder<TableColumnProps, TableColumnAttribs>({
 	render: (className, attribs, { children, heading }) => (
 		!!heading ? <th class={className} {...attribs}>{children}</th> : <td class={className} {...attribs}>{children}</td>
 	)

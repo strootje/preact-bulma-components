@@ -1,9 +1,12 @@
-import BuildElement from '../BuildElement';
+import { ElementBuilder } from '../ElementBuilder';
 import { ModifierProps } from '../Modifiers';
 
-interface FooterProps extends ModifierProps {
+export interface FooterProps extends ModifierProps {
 }
 
-export default BuildElement<FooterProps>('footer', {
+export interface FooterAttribs {
+}
+
+export const Footer = ElementBuilder<FooterProps, FooterAttribs>('footer', {
 	render: 'footer'
 });

@@ -1,33 +1,36 @@
-import { FunctionalComponent, RenderableProps } from 'preact';
-import BuildElement from '../../BuildElement';
 import { Colors } from '../../Bulma';
+import { Component, ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
-import HeroBody, { HeroBodyProps } from './Body';
-import HeroFoot, { HeroFootProps } from './Foot';
-import HeroHead, { HeroHeadProps } from './Head';
+import { HeroBody, HeroBodyAttribs, HeroBodyProps } from './Body';
+import { HeroFooter, HeroFooterAttribs, HeroFooterProps } from './Footer';
+import { HeroHeader, HeroHeaderAttribs, HeroHeaderProps } from './Header';
+export { HeroBody, HeroBodyAttribs, HeroBodyProps } from './Body';
+export { HeroFooter, HeroFooterAttribs, HeroFooterProps } from './Footer';
+export { HeroHeader, HeroHeaderAttribs, HeroHeaderProps } from './Header';
 
 type HeroSize = 'medium' | 'large' | 'fullheight' | 'fullheight-with-navbar';
 
-interface HeroProps extends ModifierProps {
+export interface HeroProps extends ModifierProps {
 	color?: Colors;
 	size?: HeroSize;
 	bold?: boolean;
 }
 
-const Hero = BuildElement<HeroProps>('hero', {
-	addClasses: (props) => ({
+export interface HeroAttribs {
+}
+
+export const Hero = ElementBuilder<HeroProps, HeroAttribs>('hero', {
+	classes: (props) => ({
 		[`is-${props.color}`]: !!props.color,
 		[`is-${props.size}`]: !!props.size,
 		[`is-bold`]: !!props.bold
 	})
-}) as (FunctionalComponent<RenderableProps<HeroProps>> & {
-	Body: FunctionalComponent<RenderableProps<HeroBodyProps>>;
-	Foot: FunctionalComponent<RenderableProps<HeroFootProps>>;
-	Head: FunctionalComponent<RenderableProps<HeroHeadProps>>;
+}) as (Component<HeroProps, HeroAttribs> & {
+	Body: Component<HeroBodyProps, HeroBodyAttribs>;
+	Footer: Component<HeroFooterProps, HeroFooterAttribs>;
+	Header: Component<HeroHeaderProps, HeroHeaderAttribs>;
 });
 
-// Set subitems within main item
-export default Hero;
 Hero.Body = HeroBody;
-Hero.Foot = HeroFoot;
-Hero.Head = HeroHead;
+Hero.Footer = HeroFooter;
+Hero.Header = HeroHeader;

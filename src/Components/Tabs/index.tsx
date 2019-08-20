@@ -1,10 +1,11 @@
-import { FunctionalComponent, h, RenderableProps } from 'preact';
-import BuildElement from '../../BuildElement';
+import { h } from 'preact';
 import { Alignments, OtherSizes } from '../../Bulma';
+import { Component, ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
-import Tab from './Tab';
+import { Tab, TabAttribs, TabProps } from './Tab';
+export { Tab, TabAttribs, TabProps } from './Tab';
 
-interface TabsProps extends ModifierProps {
+export interface TabsProps extends ModifierProps {
 	align?: Alignments;
 	boxed?: boolean;
 	fullwidth?: boolean;
@@ -12,8 +13,11 @@ interface TabsProps extends ModifierProps {
 	toggle?: boolean | 'rounded';
 }
 
-const Tabs = BuildElement<TabsProps>('tabs', {
-	addClasses: (props) => ({
+export interface TabsAttribs {
+}
+
+export const Tabs = ElementBuilder<TabsProps, TabsAttribs>('tabs', {
+	classes: (props) => ({
 		[`is-${props.align}`]: !!props.align,
 		[`is-boxed`]: !!props.boxed,
 		[`is-fullwidth`]: !!props.fullwidth,
@@ -29,9 +33,8 @@ const Tabs = BuildElement<TabsProps>('tabs', {
 			</ul>
 		</div>
 	)
-}) as (FunctionalComponent<RenderableProps<TabsProps>> & {
-	[_ in 'Tab']: FunctionalComponent<any>
+}) as (Component<TabsProps, TabsAttribs> & {
+	Tab: Component<TabProps, TabAttribs>;
 });
 
-export default Tabs;
 Tabs.Tab = Tab;

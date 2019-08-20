@@ -1,19 +1,22 @@
 import { h } from 'preact';
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { AddNavbarItemClasses, NavbarItemProps } from './Item';
 
-interface NavbarDropdownItemProps extends NavbarItemProps {
-	label: string | JSX.Element;
+export interface NavbarDropdownItemProps extends NavbarItemProps {
 	hoverable?: boolean;
 	active?: boolean;
 }
 
-export default BuildElement<NavbarDropdownItemProps>('navbar-item', {
-	addAttributes: (props) => ({
+export interface NavbarDropdownItemAttribs {
+	label?: string | JSX.Element;
+}
+
+export const NavbarDropdownItem = ElementBuilder<NavbarDropdownItemProps, NavbarDropdownItemAttribs>('navbar-item', {
+	attribs: (props) => ({
 		['label']: props.label
 	}),
 
-	addClasses: (props) => AddNavbarItemClasses(props, {
+	classes: (props) => AddNavbarItemClasses(props, {
 		['has-dropdown']: true,
 		['is-hoverable']: !!props.hoverable || !props.active,
 		['is-active']: !!props.active

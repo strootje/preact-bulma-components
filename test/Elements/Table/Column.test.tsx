@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import TableColumn from '../../../src/Elements/Table/Column';
+import { TableColumn } from '../../../src/Elements/Table/Column';
 
 describe('The <TableColumn> Component', () => {
 	use(require('preact-jsx-chai').default);

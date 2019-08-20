@@ -1,19 +1,25 @@
 import { h } from 'preact';
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
-interface NavbarBurgerProps extends ModifierProps {
+export interface NavbarBurgerProps extends ModifierProps {
 	active?: boolean;
 }
 
-export default BuildElement<NavbarBurgerProps>('navbar-burger', {
-	addAttributes: () => ({
-		['role']: 'button',
-		['aria-label']: 'menu',
-		['aria-expanded']: 'false'
+export interface NavbarBurgerAttribs {
+	'aria-expanded'?: string;
+	'aria-label'?: string;
+	role?: string;
+}
+
+export const NavbarBurger = ElementBuilder<NavbarBurgerProps, NavbarBurgerAttribs>('navbar-burger', {
+	attribs: () => ({
+		'aria-expanded': 'false',
+		'aria-label': 'menu',
+		'role': 'button'
 	}),
 
-	addClasses: (props) => ({
+	classes: (props) => ({
 		['is-active']: !!props.active
 	}),
 

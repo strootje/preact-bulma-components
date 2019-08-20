@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import Navbar from '../../../src/Components/Navbar';
+import { Navbar } from '../../../src/Components/Navbar';
 
 describe('The <Navbar> Component', () => {
 	use(require('preact-jsx-chai').default);
@@ -17,9 +17,9 @@ describe('The <Navbar> Component', () => {
 		expect(
 			<Navbar>
 				<Navbar.Brand>
-					<Navbar.LinkItem href='https://github.com/strootje/preact-bulma-components'>
+					<Navbar.Item href='https://github.com/strootje/preact-bulma-components'>
 						<img />
-					</Navbar.LinkItem>
+					</Navbar.Item>
 
 					<Navbar.Burger />
 				</Navbar.Brand>
@@ -27,9 +27,9 @@ describe('The <Navbar> Component', () => {
 				<Navbar.Menu>
 					<Navbar.Start>
 						<Navbar.Dropdown label='posts'>
-							<Navbar.LinkItem href='~/posts/hello-world'>
+							<Navbar.Item href='~/posts/hello-world'>
 								Hello World!
-							</Navbar.LinkItem>
+							</Navbar.Item>
 						</Navbar.Dropdown>
 					</Navbar.Start>
 

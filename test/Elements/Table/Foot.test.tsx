@@ -1,13 +1,13 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import TableFoot from '../../../src/Elements/Table/Foot';
+import { TableFooter } from '../../../src/Elements/Table/Footer';
 
-describe('The <TableFoot> Component', () => {
+describe('The <TableFooter> Component', () => {
 	use(require('preact-jsx-chai').default);
 
 	it('should render to a <tfoot> without a classname', () => {
 		expect(
-			<TableFoot />
+			<TableFooter />
 		).to.eql(
 			<tfoot></tfoot>
 		);

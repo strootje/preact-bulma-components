@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import Container from '../../src/Layout/Container';
+import { Container } from '../../src/Layout/Container';
 
 describe('The <Container> Component', () => {
 	use(require('preact-jsx-chai').default);

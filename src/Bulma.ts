@@ -1,4 +1,4 @@
-export interface ListOfAttributes { [_: string]: any; }
+export type ListOfAttributes<A> = { [_ in keyof A]?: any; };
 export interface ListOfClasses { [_: string]: boolean; }
 
 export type Breakpoints = 'mobile' | 'tablet' | 'touch' | 'desktop' | 'widescreen' | 'fullhd';
@@ -15,6 +15,9 @@ export type NamedSizes = 'four-fifths' | 'three-quarters' | 'two-thirds' | 'thre
 export type NumberedSizes = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
 export type Sizes = NamedSizes | NumberedSizes;
 export type OtherSizes = 'small' | 'normal' | 'medium' | 'large';
+
+export type InputStates = 'normal' | 'hover' | 'focus' | 'disabled';
+export type States = InputStates | 'active' | 'loading' | 'static';
 
 type Reducer<T> = (key: string, value?: T) => string;
 

@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import Hero from '../../../src/Layout/Hero';
+import { Hero } from '../../../src/Layout/Hero';
 
 describe('The <Hero> Component', () => {
 	use(require('preact-jsx-chai').default);
@@ -16,17 +16,17 @@ describe('The <Hero> Component', () => {
 	it('should render a complete <Hero />', () => {
 		expect(
 			<Hero>
-				<Hero.Head>
+				<Hero.Header>
 					Header
-				</Hero.Head>
+				</Hero.Header>
 
 				<Hero.Body>
 					Body
 				</Hero.Body>
 
-				<Hero.Foot>
+				<Hero.Footer>
 					Footer
-				</Hero.Foot>
+				</Hero.Footer>
 			</Hero>
 		).to.eql(
 			<div class='hero'>

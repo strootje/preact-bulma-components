@@ -1,6 +1,6 @@
 import { expect, use } from 'chai';
 import { h } from 'preact';
-import Image from '../../src/Elements/Image';
+import { Image } from '../../src/Elements/Image';
 
 describe('The <Image> Component', () => {
 	use(require('preact-jsx-chai').default);

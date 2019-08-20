@@ -1,6 +1,10 @@
-import BuildElement from '../BuildElement';
+import { ElementBuilder } from '../ElementBuilder';
+import { ModifierProps } from '../Modifiers';
 
-interface FieldProps {
+export interface FieldProps extends ModifierProps {
 }
 
-export default BuildElement<FieldProps>('field');
+export interface FieldAttribs {
+}
+
+export const Field = ElementBuilder<FieldProps, FieldAttribs>('field');

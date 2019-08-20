@@ -1,7 +1,10 @@
-import BuildElement from '../../BuildElement';
+import { ElementBuilder } from '../../ElementBuilder';
 import { ModifierProps } from '../../Modifiers';
 
 export interface MediaRightProps extends ModifierProps {
 }
 
-export default BuildElement<MediaRightProps>('media-right');
+export interface MediaRightAttribs {
+}
+
+export const MediaRight = ElementBuilder<MediaRightProps, MediaRightAttribs>('media-right');
