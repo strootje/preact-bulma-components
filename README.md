@@ -5,15 +5,23 @@
 
 The Elegance of [Bulma.io][bulma] with the Power of [Preact][preact]
 
-## Current To-Do list
-* Figure something out of the form elements (embed control or not)
-* Form/Select icons
-* unit tests for all elements
-* more useful stories for all elements
+> This project is still a WIP.
 
-## License
+## Showcase
+This project uses storybook to showcase all the components.\
+[strootje.github.io/preact-bulma-components][docs:storybook]
 
-see LICENSE.md
+## How to install
+`npm install -S preact-bulma-components`
+
+## Contributing
+
+### Current todo list:
+* Meaningful stories for all components
+* Finish unit test coverage
+* Finish form components
+
 
 [bulma]: https://bulma.io/
 [preact]: https://preactjs.com/
+[docs:storybook]: https://strootje.github.io/preact-bulma-components
