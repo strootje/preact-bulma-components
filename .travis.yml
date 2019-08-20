@@ -6,14 +6,6 @@ cache:
   directories:
   - $HOME/.pnpm-store/
 
-deploy:
-  provider: npm
-  skip_cleanup: true
-  email: $NPM_EMAIL
-  api_key: $NPM_APIKEY
-  on:
-    branch: master
-
 before_install:
 - curl -L https://unpkg.com/@pnpm/self-installer | node
 
@@ -25,3 +17,18 @@ script:
 
 after_success:
 - pnpm run coverage
+- pnpm run build:storybook
+
+deploy:
+  - provider: npm
+    skip_cleanup: true
+    email: $NPM_EMAIL
+    api_key: $NPM_APIKEY
+    on:
+      branch: master
+  - provider: pages
+    github-token: $GITHUB_TOKEN
+    skip-cleanup: true
+    local-dir: ./storybook-static
+    on:
+      branch: master
