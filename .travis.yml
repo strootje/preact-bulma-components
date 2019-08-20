@@ -1,7 +1,17 @@
 language: node_js
 node_js: node
 
-cache: npm
+cache:
+  npm: true
+  directories:
+  - $HOME/.pnpm-store/
+
+deploy:
+  provider: npm
+  email: $NPM_EMAIL
+  api_key: $NPM_APIKEY
+  on:
+    branch: master
 
 before_install:
 - curl -L https://unpkg.com/@pnpm/self-installer | node

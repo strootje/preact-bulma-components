@@ -1,5 +1,5 @@
 {
-	"private": true,
+	"private": false,
 	"name": "preact-bulma-components",
 	"version": "0.2.7",
 	"main": "./dist/index.js",
