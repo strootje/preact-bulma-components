@@ -25,7 +25,7 @@ deploy:
     email: $NPM_EMAIL
     api_key: $NPM_APIKEY
     on:
-      branch: master
+      tags: true
   - provider: pages
     github-token: $GITHUB_TOKEN
     skip-cleanup: true
