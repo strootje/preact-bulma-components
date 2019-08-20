@@ -18,6 +18,8 @@
 		"build": "tsc -p ./src",
 		"watch": "tsc --watch -p ./src",
 
+		"build:storybook": "build-storybook",
+
 		"preserve": "pnpm run test",
 		"serve": "start-storybook -p 9008 --ci",
 
