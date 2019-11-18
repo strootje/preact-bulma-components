@@ -8,10 +8,12 @@ export interface MenuListItemProps extends ModifierProps {
 }
 
 export interface MenuListItemAttribs {
+	href: string;
 }
 
 export const MenuListItem = ElementBuilder<MenuListItemProps, MenuListItemAttribs>({
 	render: (className, attribs, { active, children, label }) => (
-		<li class={className}><a class={active ? 'is-active' : ''} {...attribs}>{label}</a>{children}</li>
+		// tslint:disable-next-line: react-a11y-anchors
+		<li class={className}><a class={active ? 'is-active' : ''} {...attribs} >{label}</a>{children}</li>
 	)
 });

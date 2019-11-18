@@ -18,6 +18,7 @@ export const PanelCheckbox = ElementBuilder<PanelCheckboxProps, PanelCheckboxAtt
 
 	render: (className, attribs, { checked, children }) => (
 		<label class={className} {...attribs}>
+			{/* tslint:disable-next-line: react-a11y-input-elements */}
 			<input type='checkbox' aria-checked={checked} />
 			{children}
 		</label>

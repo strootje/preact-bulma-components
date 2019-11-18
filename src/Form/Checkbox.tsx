@@ -18,6 +18,7 @@ export const Checkbox = ElementBuilder<ControlProps, ControlAttribs>('checkbox',
 
 	render: (className, attribs, { checked, children, disabled }) => (
 		<label class={className} disabled={disabled}>
+			{/* tslint:disable-next-line: react-a11y-input-elements */}
 			<input type='checkbox' {...attribs} aria-checked={!!checked} />
 			{children}
 		</label>
