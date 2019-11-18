@@ -24,9 +24,8 @@ export const NavbarDropdownItem = ElementBuilder<NavbarDropdownItemProps, Navbar
 
 	render: (className, { label }, { children }) => (
 		<div class={className}>
-			<a class='navbar-link'>
-				{label}
-			</a>
+			{/* tslint:disable-next-line: react-a11y-anchors */}
+			<a class='navbar-link'>{label}</a>
 
 			<div class='navbar-dropdown'>
 				{children}

@@ -8,10 +8,12 @@ export interface CardHeaderIconProps extends ModifierProps {
 }
 
 export interface CardHeaderIconAttribs {
+
 }
 
 export const CardHeaderIcon = ElementBuilder<CardHeaderIconProps, CardHeaderIconAttribs>('card-header-icon', {
 	render: (className, attribs, { children }) => (
+		// tslint:disable-next-line: react-a11y-anchors
 		<a class={className} {...attribs}>
 			<Icon>{children}</Icon>
 		</a>

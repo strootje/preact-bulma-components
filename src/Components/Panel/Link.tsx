@@ -18,8 +18,8 @@ export const PanelLink = ElementBuilder<PanelLinkProps, PanelLinkAttribs>('panel
 
 	classes: addBaseClasses,
 
-	render: (className, attribs, { children, icon }) => (
-		<a class={className} {...attribs}>
+	render: (className, attribs, { children, icon, href }) => (
+		<a class={className} {...attribs} href={href}>
 			{icon && <Icon base='panel'>{icon}</Icon>}
 			{children}
 		</a>

@@ -24,6 +24,7 @@ export const NavbarBurger = ElementBuilder<NavbarBurgerProps, NavbarBurgerAttrib
 	}),
 
 	render: (className, attribs) => (
+		// tslint:disable-next-line: react-a11y-anchors
 		<a class={className} {...attribs}>
 			<span aria-hidden></span>
 			<span aria-hidden></span>

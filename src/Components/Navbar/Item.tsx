@@ -28,6 +28,6 @@ export const NavbarItem = ElementBuilder<NavbarItemProps, NavbarItemAttribs>('na
 	classes: AddNavbarItemClasses,
 
 	render: (className, attribs, { children, href }) => (
-		!!href ? <a class={className} {...attribs}>{children}</a> : <div class={className} {...attribs}>{children}</div>
+		!!href ? <a class={className} {...attribs} href={href}>{children}</a> : <div class={className} {...attribs}>{children}</div>
 	)
 });

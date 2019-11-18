@@ -21,6 +21,7 @@ export const PaginationLink = ElementBuilder<PaginationLinkProps, PaginationLink
 	}),
 
 	render: (className, attribs, { children }) => (
+		// tslint:disable-next-line: react-a11y-anchors
 		<li><a class={className} {...attribs}>{children}</a></li>
 	)
 });
