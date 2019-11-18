@@ -11,11 +11,11 @@ stories.add('Simple', () => (
 	<Menu {...ModifierKnobs()}>
 		<Menu.Label>test</Menu.Label>
 		<Menu.List>
-			<Menu.ListItem label='xxx' />
-			<Menu.ListItem label='000' active>
+			<Menu.ListItem label='xxx' href='#xxx' />
+			<Menu.ListItem label='000' href='#000' active>
 				<Menu.Label>asdasd</Menu.Label>
 				<Menu.List>
-					<Menu.ListItem label='asdasd' />
+					<Menu.ListItem label='asdasd' href='asdasd' />
 				</Menu.List>
 			</Menu.ListItem>
 		</Menu.List>
