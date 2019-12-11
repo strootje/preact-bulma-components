@@ -1,4 +1,7 @@
+dependencies:
+  classnames: 2.2.6
 devDependencies:
+  '@types/classnames': 2.2.9
   '@types/node': 12.12.17
   '@typescript-eslint/eslint-plugin': 2.11.0_0dbb6242a97c931a7408d4e8d8053f71
   '@typescript-eslint/parser': 2.11.0_eslint@6.7.2+typescript@3.7.3
@@ -23,6 +26,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-7dV4eu9gBxoM0dAnj/BCFDW9LFU0zvTrkq0ugM7pnHEgguOEeOz1so2ZghEdzviYzQEED0r4EAgpsBChKy1TRQ==
+  /@types/classnames/2.2.9:
+    dev: true
+    resolution:
+      integrity: sha512-MNl+rT5UmZeilaPxAVs6YaPC2m6aA8rofviZbhbxpPpl61uKodfdQVsBtgJGTqGizEf02oW3tsVe7FYB8kK14A==
   /@types/eslint-visitor-keys/1.0.0:
     dev: true
     resolution:
@@ -44,7 +51,6 @@ packages:
       functional-red-black-tree: 1.0.1
       regexpp: 3.0.0
       tsutils: 3.17.1_typescript@3.7.3
-      typescript: 3.7.3
     dev: true
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -95,7 +101,6 @@ packages:
       lodash.unescape: 4.0.1
       semver: 6.3.0
       tsutils: 3.17.1_typescript@3.7.3
-      typescript: 3.7.3
     dev: true
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -213,6 +218,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
+  /classnames/2.2.6:
+    dev: false
+    resolution:
+      integrity: sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
   /cli-cursor/3.1.0:
     dependencies:
       restore-cursor: 3.1.0
@@ -1024,10 +1033,12 @@ packages:
     resolution:
       integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 specifiers:
+  '@types/classnames': ^2.2.9
   '@types/node': ^12.12.17
   '@typescript-eslint/eslint-plugin': ^2.11.0
   '@typescript-eslint/parser': ^2.11.0
   bulma: ^0.8.0
+  classnames: ^2.2.6
   eslint: ^6.7.2
   preact: ^10.1.0
   ts-node: ^8.5.4
