@@ -8,23 +8,31 @@
 	"repository": "https://github.com/strootje/preact-bulma-components",
 	"author": "Bas Stroosnijder",
 	"license": "MPL-v2",
+
 	"scripts": {
 		"pretest": "pnpm run lint",
 		"test": "nyc --reporter=text-summary mocha",
 		"coverage": "nyc report --reporter=text-lcov | coveralls",
+
 		"prebuild": "rm -rf ./dist && pnpm run lint",
 		"build": "tsc -p ./src",
 		"watch": "tsc --watch -p ./src",
+
 		"build:storybook": "build-storybook",
+
 		"preserve": "pnpm run test",
 		"serve": "start-storybook -p 9008 --ci",
+
 		"lint": "tslint -p ./tsconfig.json",
 		"prepack": "npm run build"
 	},
+
 	"dependencies": {
-		"classnames": "^2.2.6"
 	},
+
+	"peerDependencies": {
+	},
+
 	"devDependencies": {
-		"@types/classnames": "^2.2.9"
 	}
 }

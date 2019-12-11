@@ -1,3 +1,0 @@
-{
-	"extends": [ "./../tslint.json", "tslint-react-a11y" ]
-}
