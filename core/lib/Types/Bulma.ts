@@ -2,22 +2,6 @@
 // ### Bulma Types
 // ##########################
 
-export type Breakpoints =
-	'mobile' |
-	'tablet' |
-	'touch' |
-	'desktop' |
-	'widescreen' |
-	'fullhd';
-
-export type BreakpointsWithFallback =
-	'fallback' |
-	Breakpoints;
-
-export type WithBreakpoints<T> = {
-	[_ in BreakpointsWithFallback]?: T
-};
-
 // ### Colors
 // ##########################
 
@@ -81,8 +65,33 @@ export type Sizes =
 	SizesNamed |
 	SizesNumbered;
 
-// ### Sizes
+// ### Responsive Display
 // ##########################
+
+export type BreakpointsThisSpecific =
+	'mobile' |
+	'tablet-only' |
+	'desktop-only' |
+	'widescreen-only';
+
+export type BreakpointsThisAndLarger =
+	'touch' |
+	'tablet' |
+	'desktop' |
+	'widescreen' |
+	'fullhd';
+
+export type Breakpoints = 
+	BreakpointsThisSpecific |
+	BreakpointsThisAndLarger;
+
+export type BreakpointsWithFallback =
+	'fallback' |
+	Breakpoints;
+
+export type WithBreakpoints<T> = {
+	[_ in BreakpointsWithFallback]?: T
+};
 
 export type DisplayTypes =
 	'block' |
@@ -90,3 +99,7 @@ export type DisplayTypes =
 	'inline' |
 	'inline-block' |
 	'inline-flex';
+
+export type DisplayTypesWithHidden =
+	'hidden' |
+	DisplayTypes;

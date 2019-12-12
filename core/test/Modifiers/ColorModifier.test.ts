@@ -16,7 +16,7 @@ describe('AddColorModifierProps', () => {
 		expect(classes).to.contain({ ['is-primary']: true });
 	});
 
-	it('Should add `.has-background-black` when prop `color` is set to `{ background: \'black\' }`', () => {
+	it('Should add `.has-background-black` when prop `color.background` is set to `black`', () => {
 		// Arrange
 		const props: ColorModifierProps = {
 			color: {
@@ -31,7 +31,7 @@ describe('AddColorModifierProps', () => {
 		expect(classes).to.contain({ ['has-background-black']: true });
 	});
 
-	it('Should add `.has-background-black .has-text-gray` when prop `color` is set to `{ background: \'black\', text: \'gray\' }`', () => {
+	it('Should add `.has-background-black .has-text-gray` when prop `color.background` is set to `black` and the prop `color.text` is set to `gray`', () => {
 		// Arrange
 		const props: ColorModifierProps = {
 			color: {
