@@ -2,8 +2,37 @@
 // ### Bulma Types
 // ##########################
 
+export type BreakpointsThisSpecific =
+	'mobile' |
+	'tablet-only' |
+	'desktop-only' |
+	'widescreen-only';
+
+export type BreakpointsThisAndLarger =
+	'touch' |
+	'tablet' |
+	'desktop' |
+	'widescreen' |
+	'fullhd';
+
+export type Breakpoints =
+	BreakpointsThisSpecific |
+	BreakpointsThisAndLarger;
+
+export type BreakpointsWithFallback =
+	'fallback' |
+	Breakpoints;
+
+export type WithBreakpoints<T, B extends string = BreakpointsWithFallback> = {
+	[_ in B]?: T
+};
+
 // ### Colors
 // ##########################
+
+export type ColorFields =
+	'background' |
+	'text';
 
 export type ColorsStyled =
 	'primary' |
@@ -65,33 +94,8 @@ export type Sizes =
 	SizesNamed |
 	SizesNumbered;
 
-// ### Responsive Display
+// ### Display
 // ##########################
-
-export type BreakpointsThisSpecific =
-	'mobile' |
-	'tablet-only' |
-	'desktop-only' |
-	'widescreen-only';
-
-export type BreakpointsThisAndLarger =
-	'touch' |
-	'tablet' |
-	'desktop' |
-	'widescreen' |
-	'fullhd';
-
-export type Breakpoints = 
-	BreakpointsThisSpecific |
-	BreakpointsThisAndLarger;
-
-export type BreakpointsWithFallback =
-	'fallback' |
-	Breakpoints;
-
-export type WithBreakpoints<T> = {
-	[_ in BreakpointsWithFallback]?: T
-};
 
 export type DisplayTypes =
 	'block' |
@@ -103,3 +107,41 @@ export type DisplayTypes =
 export type DisplayTypesWithHidden =
 	'hidden' |
 	DisplayTypes;
+
+// ### Text
+// ##########################
+
+export type TextSizes =
+	'1' |
+	'2' |
+	'3' |
+	'4' |
+	'5' |
+	'6' |
+	'7';
+
+export type TextAlignments =
+	'centered' |
+	'justified' |
+	'left' |
+	'right';
+
+export type TextTransformations =
+	'capitalized' |
+	'lowercase' |
+	'uppercase' |
+	'italic';
+
+export type TextWeights =
+	'light' |
+	'normal' |
+	'medium' |
+	'semibold' |
+	'bold';
+
+export type TextFamilies =
+	'sans-serif' |
+	'monospace' |
+	'primary' |
+	'secondary' |
+	'code';
