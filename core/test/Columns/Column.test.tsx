@@ -7,7 +7,7 @@ import { Column } from '../../lib/Columns/Column';
 describe('<Column />', () => {
 	use(JsxPlugin);
 
-	it('should render', () => {
+	it('TODO: should render', () => {
 		expect(
 			<Column title='testing' />
 		).to.equal(
