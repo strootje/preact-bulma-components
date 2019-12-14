@@ -6,18 +6,8 @@ export interface SpacingModifierProps {
 }
 
 export const AddSpacingModifierProps = <P extends SpacingModifierProps>(props: P): ListOfClasses => {
-	if (!props.marginless && !props.paddingless) {
-		return {};
-	}
-
-	const classes: ListOfClasses = {};
-	if (props.marginless) {
-		classes[`is-marginless`] = !!props.marginless;
-	}
-
-	if (props.paddingless) {
-		classes[`is-paddingless`] = !!props.paddingless;
-	}
-
-	return classes;
+	return {
+		[`is-marginless`]: !!props.marginless,
+		[`is-paddingless`]: !!props.paddingless
+	};
 };

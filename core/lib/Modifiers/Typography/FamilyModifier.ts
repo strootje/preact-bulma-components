@@ -6,12 +6,7 @@ export interface FamilyModifierProps {
 }
 
 export const AddFamilyModifierProps = <P extends FamilyModifierProps>(props: P): ListOfClasses => {
-	if (!props.font || typeof props.font != 'string') {
-		return {};
-	}
-
-	const classes: ListOfClasses = {};
-	classes[`is-family-${props.font}`] = !!props.font;
-
-	return classes;
+	return {
+		[`is-family-${props.font}`]: !!props.font
+	};
 };

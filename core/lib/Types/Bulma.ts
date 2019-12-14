@@ -22,6 +22,7 @@ export type Colors = ColorsStyled | ColorsNamed;
 export type SizesNamed = 'full' | 'four-fifths' | 'three-quarters' | 'two-thirds' | 'three-fifths' | 'half' | 'two-fifths' | 'one-third' | 'one-quarter' | 'one-fifth';
 export type SizesNumbered = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
 export type Sizes = SizesNamed | SizesNumbered;
+export type SizeTypes = 'small' | 'medium' | 'large';
 
 // ### Display
 // ##########################
@@ -42,3 +43,8 @@ export type TextFamilies = 'sans-serif' | 'monospace' | 'primary' | 'secondary' 
 // ##########################
 
 export type FloatTypes = 'clear' | 'left' | 'right';
+
+// ### States
+// ##########################
+
+export type StateTypes = 'outlined' | 'loading';

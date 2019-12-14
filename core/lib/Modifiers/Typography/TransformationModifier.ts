@@ -6,12 +6,7 @@ export interface TransformationModifierProps {
 }
 
 export const AddTransformationModifierProps = <P extends TransformationModifierProps>(props: P): ListOfClasses => {
-	if (!props.transform || typeof props.transform != 'string') {
-		return {};
-	}
-
-	const classes: ListOfClasses = {};
-	classes[`is-${props.transform}`] = !!props.transform;
-
-	return classes;
+	return {
+		[`is-${props.transform}`]: !!props.transform
+	};
 };

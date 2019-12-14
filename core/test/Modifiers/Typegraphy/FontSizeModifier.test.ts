@@ -1,16 +1,16 @@
 import { expect } from 'chai';
 import { describe, it } from 'mocha';
-import { AddSizeModifierProps, SizeModifierProps } from "../../../lib/Modifiers/Typography/SizeModifier";
+import { AddFontSizeModifierProps, FontSizeModifierProps } from "../../../lib/Modifiers/Typography/FontSizeModifier";
 
-describe('AddSizeModifierProps', () => {
+describe('AddFontSizeModifierProps', () => {
 	it('Should add `.is-size-1` when prop `size` is set to `1`', () => {
 		// Arrange
-		const props: SizeModifierProps = {
-			size: '1'
+		const props: FontSizeModifierProps = {
+			'font-size': '1'
 		};
 
 		// Act
-		const classes = AddSizeModifierProps(props);
+		const classes = AddFontSizeModifierProps(props);
 
 		// Assert
 		expect(classes).to.contain({
@@ -20,14 +20,14 @@ describe('AddSizeModifierProps', () => {
 
 	it('Should add `.is-size-4-touch` when prop `size.touch` is set to `4`', () => {
 		// Arrange
-		const props: SizeModifierProps = {
-			size: {
+		const props: FontSizeModifierProps = {
+			'font-size': {
 				touch: '4'
 			}
 		};
 
 		// Act
-		const classes = AddSizeModifierProps(props);
+		const classes = AddFontSizeModifierProps(props);
 
 		// Assert
 		expect(classes).to.contain({
@@ -37,15 +37,15 @@ describe('AddSizeModifierProps', () => {
 
 	it('Should add `.is-size-4-touch .is-size-1-fullhd` when prop `size.touch` is set to `4` and `size.fullhd` is set to `1`', () => {
 		// Arrange
-		const props: SizeModifierProps = {
-			size: {
+		const props: FontSizeModifierProps = {
+			'font-size': {
 				touch: '4',
 				fullhd: '1'
 			}
 		};
 
 		// Act
-		const classes = AddSizeModifierProps(props);
+		const classes = AddFontSizeModifierProps(props);
 
 		// Assert
 		expect(classes).to.contain({
