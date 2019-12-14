@@ -1,4 +1,4 @@
-import { FunctionalComponent, JSX, RenderableProps, VNode,  } from 'preact';
+import { FunctionalComponent, JSX, RenderableProps, VNode } from 'preact';
 
 type AllowedHtmlElements = keyof JSX.IntrinsicElements;
 export type Props<P> = RenderableProps<P>;
@@ -7,7 +7,7 @@ export type ComponentProps<P, A extends EventTarget> = Props<P> & Attribs<A>;
 export interface Component<P, A extends EventTarget> extends FunctionalComponent<ComponentProps<P, A>> { };
 
 export interface ListOfClasses { [_: string]: boolean; }
-export type ListOfAttribs<A extends EventTarget> = { [Key in keyof A]?: A[Key]; }
+export type ListOfAttribs<A extends EventTarget> = { [Key in keyof Attribs<A>]?: (Attribs<A>)[Key]; }
 
 export interface ClassListBuilder<P, A extends EventTarget> {
 	(props: ComponentProps<P, A>): ListOfClasses;

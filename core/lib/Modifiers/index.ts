@@ -1,10 +1,10 @@
-import { ListOfClasses } from "../Types/Preact";
+import { ComponentProps, ListOfAttribs, ListOfClasses } from "../Types/Preact";
 import { AddFloatModifierProps, FloatModifierProps } from "./Helpers/FloatModifier";
 import { AddOtherModifierProps, OtherModifierProps } from "./Helpers/OtherModifier";
 import { AddSpacingModifierProps, SpacingModifierProps } from "./Helpers/SpacingModifier";
 import { AddDisplayModifierProps, DisplayModifierProps } from "./Responsive/DisplayModifier";
 import { AddSizeModifierProps, SizeModifierProps } from "./Syntax/SizeModifier";
-import { AddStateModifierProps, StateModifierProps } from "./Syntax/StateModifier";
+import { AddStateModifierAttribs, AddStateModifierProps, StateModifierAttribs, StateModifierProps } from "./Syntax/StateModifier";
 import { AddAlignmentModifierProps, AlignmentModifierProps } from "./Typography/AlignmentModifier";
 import { AddColorModifierProps, ColorModifierProps } from "./Typography/ColorModifier";
 import { AddFamilyModifierProps, FamilyModifierProps } from "./Typography/FamilyModifier";
@@ -34,6 +34,13 @@ export interface ModifierProps extends
 	WeightModifierProps {
 }
 
+export interface ModifierAttribs extends
+	EventTarget,
+
+	// Syntax
+	StateModifierAttribs {
+}
+
 export const AddModifierProps = <P extends ModifierProps>(props: P): ListOfClasses => ({
 	// Helpers
 	...AddFloatModifierProps<P>(props),
@@ -54,4 +61,9 @@ export const AddModifierProps = <P extends ModifierProps>(props: P): ListOfClass
 	...AddFontSizeModifierProps<P>(props),
 	...AddTransformationModifierProps<P>(props),
 	...AddWeightModifierProps<P>(props)
+});
+
+export const AddModifierAttribs = <P extends ModifierProps, A extends ModifierAttribs>(props: ComponentProps<P, A>): ListOfAttribs<A> => ({
+	// Syntax
+	...AddStateModifierAttribs<P, A>(props)
 });

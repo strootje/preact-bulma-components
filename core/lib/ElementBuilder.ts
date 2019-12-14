@@ -1,6 +1,6 @@
 import ClassNames from 'classnames';
 import { h } from 'preact';
-import { AddModifierProps } from './Modifiers';
+import { AddModifierAttribs, AddModifierProps } from './Modifiers';
 import { Attribs, Component, ComponentProps, ElementBuilderOpts } from "./Types/Preact";
 
 export function ElementBuilder<P = {}, A extends EventTarget = HTMLDivElement>(opts: ElementBuilderOpts<P, A>): Component<P, A>;
@@ -25,7 +25,8 @@ const elementBuilder = <P, A extends EventTarget>(name: string, opts: ElementBui
 		});
 
 		const attribs: Attribs<A> = {
-			...addAttribs(props)
+			...addAttribs(props),
+			...AddModifierAttribs<P, A>(props)
 		};
 
 		if (typeof render === 'string') {
