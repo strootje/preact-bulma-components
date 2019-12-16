@@ -18,7 +18,7 @@ export interface AttribListBuilder<P, A extends EventTarget> {
 }
 
 export interface RenderComponent<P, A extends EventTarget> {
-	(name: string, props: Props<P>, attribs: Attribs<A>): VNode<any> | null;
+	(classes: string, props: Props<P>, attribs: Attribs<A>): VNode<any> | null;
 }
 
 export interface ElementBuilderOpts<P, A extends EventTarget> {

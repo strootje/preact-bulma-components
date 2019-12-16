@@ -2,14 +2,14 @@ import { expect, use } from 'chai';
 import { describe, it } from 'mocha';
 import { h } from 'preact';
 import JsxPlugin from 'preact-jsx-chai';
-import { LevelItem } from '../../../lib/Layout/Level/Item';
+import { Level } from '../../../lib/Layout/Level';
 
 describe('<Level.Item />', () => {
 	use(JsxPlugin);
 
 	it('Should render with `.level-item` when no props are set', () => {
 		expect(
-			<LevelItem />
+			<Level.Item />
 		).to.equal(
 			<div class='level-item'></div>
 		);
@@ -17,7 +17,7 @@ describe('<Level.Item />', () => {
 
 	it('Should render with `.level-item .has-text-centered` when prop `centered` is set to `true`', () => {
 		expect(
-			<LevelItem centered />
+			<Level.Item centered />
 		).to.equal(
 			<div class='level-item has-text-centered'></div>
 		);

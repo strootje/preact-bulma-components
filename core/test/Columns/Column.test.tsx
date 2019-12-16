@@ -4,7 +4,7 @@ import { h } from 'preact';
 import JsxPlugin from 'preact-jsx-chai';
 import { Column } from '../../lib/Columns/Column';
 
-describe('<Column />', () => {
+describe('<Row.Column />', () => {
 	use(JsxPlugin);
 
 	it('Should render with `.column` when no props are set', () => {
