@@ -2,7 +2,7 @@ import { expect, use } from 'chai';
 import { describe, it } from 'mocha';
 import { h } from 'preact';
 import JsxPlugin from 'preact-jsx-chai';
-import { Columns } from '../../lib/Columns/Columns';
+import { Columns } from '../../lib/Columns';
 
 describe('<Columns />', () => {
 	use(JsxPlugin);

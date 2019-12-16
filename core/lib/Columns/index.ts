@@ -20,7 +20,7 @@ export const Columns = ElementBuilder<ColumnsProps>('columns', {
 		...CenteredPropBuilder(props.centered),
 		...GapPropBuilder(props.gap)
 	})
-});
+});;
 
 // Aliases
 export const Row = Columns;

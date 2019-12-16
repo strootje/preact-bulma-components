@@ -1,6 +1,6 @@
-import { ElementBuilder } from "../ElementBuilder";
-import { ModifierProps } from "../Modifiers";
-import { PropBuilder } from "../PropBuilder";
+import { ElementBuilder } from "../../ElementBuilder";
+import { ModifierProps } from "../../Modifiers";
+import { PropBuilder } from "../../PropBuilder";
 
 export interface ContainerProps extends ModifierProps {
 	fluid?: boolean;
