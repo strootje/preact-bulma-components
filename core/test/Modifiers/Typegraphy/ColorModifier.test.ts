@@ -1,29 +1,12 @@
 import { expect } from 'chai';
 import { describe, it } from 'mocha';
-import { AddColorModifierProps, ColorModifierProps } from "../../../lib/Modifiers/Typography/ColorModifier";
+import { AddColorModifierProps, ColorModifierProps } from '../../../lib/Modifiers/Typography/ColorModifier';
 
 describe('AddColorModifierProps', () => {
-	it('Should add `.is-primary` when prop `color` is set to `primary`', () => {
+	it('Should add `.has-background-black` when prop `background-color` is set to `black`', () => {
 		// Arrange
 		const props: ColorModifierProps = {
-			color: 'primary'
-		};
-
-		// Act
-		const classes = AddColorModifierProps(props);
-
-		// Assert
-		expect(classes).to.contain({
-			['is-primary']: true
-		});
-	});
-
-	it('Should add `.has-background-black` when prop `color.background` is set to `black`', () => {
-		// Arrange
-		const props: ColorModifierProps = {
-			color: {
-				background: 'black'
-			}
+			'background-color': 'black'
 		};
 
 		// Act
@@ -35,13 +18,26 @@ describe('AddColorModifierProps', () => {
 		});
 	});
 
-	it('Should add `.has-background-black .has-text-gray` when prop `color.background` is set to `black` and the prop `color.text` is set to `gray`', () => {
+	it('Should add `.has-text-info` when prop `text-color` is set to `info`', () => {
 		// Arrange
 		const props: ColorModifierProps = {
-			color: {
-				background: 'black',
-				text: 'gray'
-			}
+			'text-color': 'info'
+		};
+
+		// Act
+		const classes = AddColorModifierProps(props);
+
+		// Assert
+		expect(classes).to.contain({
+			['has-text-info']: true
+		});
+	});
+
+	it('Should add `.has-background-black .has-text-gray` when prop `background-color` is set to `black` and the prop `text-color` is set to `gray`', () => {
+		// Arrange
+		const props: ColorModifierProps = {
+			'background-color': 'black',
+			'text-color': 'gray'
 		};
 
 		// Act

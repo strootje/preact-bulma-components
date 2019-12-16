@@ -1,3 +1,4 @@
+import { PropBuilder } from '../../PropBuilder';
 import { ListOfClasses } from '../../Types/Preact';
 
 export interface SpacingModifierProps {
@@ -5,9 +6,7 @@ export interface SpacingModifierProps {
 	paddingless?: boolean;
 }
 
-export const AddSpacingModifierProps = <P extends SpacingModifierProps>(props: P): ListOfClasses => {
-	return {
-		[`is-marginless`]: !!props.marginless,
-		[`is-paddingless`]: !!props.paddingless
-	};
-};
+export const AddSpacingModifierProps = <P extends SpacingModifierProps>(props: P): ListOfClasses => ({
+	...PropBuilder(props.marginless, 'is-marginless'),
+	...PropBuilder(props.paddingless, 'is-paddingless')
+});

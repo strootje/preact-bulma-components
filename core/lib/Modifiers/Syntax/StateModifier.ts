@@ -1,3 +1,4 @@
+import { PropBuilder } from '../../PropBuilder';
 import { StateTypes } from '../../Types/Bulma';
 import { ComponentProps, ListOfAttribs, ListOfClasses } from '../../Types/Preact';
 
@@ -10,10 +11,10 @@ export interface StateModifierAttribs extends EventTarget {
 }
 
 export const AddStateModifierProps = <P extends StateModifierProps>(props: P): ListOfClasses => ({
-	[`is-outlined`]: !!props.outlined,
-	[`is-loading`]: !!props.loading
+	...PropBuilder(props.loading, 'is-loading'),
+	...PropBuilder(props.outlined, 'is-outlined')
 });
 
 export const AddStateModifierAttribs = <P extends StateModifierProps, A extends StateModifierAttribs>(props: ComponentProps<P, A>): ListOfAttribs<A> => ({
-	[`disabled`]: !!props.disabled
+	...PropBuilder(props.disabled, 'disabled')
 });

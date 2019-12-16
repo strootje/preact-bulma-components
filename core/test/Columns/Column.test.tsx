@@ -7,9 +7,9 @@ import { Column } from '../../lib/Columns/Column';
 describe('<Column />', () => {
 	use(JsxPlugin);
 
-	it('TODO: should render', () => {
+	it('Should render with `.column` when no props are set', () => {
 		expect(
-			<Column title='testing' />
+			<Column />
 		).to.equal(
 			<div class='column'></div>
 		);

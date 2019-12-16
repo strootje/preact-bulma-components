@@ -1,24 +1,13 @@
-import { ColorFields, Colors, ColorsStyled, WithBreakpoints } from '../../Types/Bulma';
+import { PropBuilder } from '../../PropBuilder';
+import { Colors } from '../../Types/Bulma';
 import { ListOfClasses } from '../../Types/Preact';
 
 export interface ColorModifierProps {
-	color?: ColorsStyled | WithBreakpoints<Colors, ColorFields>;
+	'background-color'?: Colors;
+	'text-color'?: Colors;
 }
 
-export const AddColorModifierProps = <P extends ColorModifierProps>(props: P): ListOfClasses => {
-	if (!props.color) {
-		return {};
-	}
-
-	const classes: ListOfClasses = {};
-	if (typeof props.color === 'string') {
-		classes[`is-${props.color}`] = !!props.color;
-	} else {
-		const value = props.color;
-		Object.keys(props.color).forEach((key: ColorFields) => {
-			classes[`has-${key}-${value[key]}`] = !!value[key]
-		});
-	}
-
-	return classes;
-};
+export const AddColorModifierProps = <P extends ColorModifierProps>(props: P): ListOfClasses => ({
+	...PropBuilder(props['background-color'], 'has-background'),
+	...PropBuilder(props['text-color'], 'has-text')
+});
