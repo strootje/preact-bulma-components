@@ -4,7 +4,7 @@ type AllowedHtmlElements = keyof JSX.IntrinsicElements;
 export type Props<P> = RenderableProps<P>;
 export type Attribs<A extends EventTarget> = JSX.DOMAttributes<A> & JSX.HTMLAttributes & JSX.SVGAttributes;
 export type ComponentProps<P, A extends EventTarget> = Props<P> & Attribs<A>;
-export interface Component<P, A extends EventTarget> extends FunctionalComponent<ComponentProps<P, A>> { };
+export interface Component<P, A extends EventTarget> extends FunctionalComponent<ComponentProps<P, A>> { }
 
 export interface ListOfClasses { [_: string]: boolean; }
 export type ListOfAttribs<A extends EventTarget> = { [Key in keyof Attribs<A>]?: (Attribs<A>)[Key]; }
