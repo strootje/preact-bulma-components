@@ -1,3 +1,4 @@
+import { PropBuilder } from '../../PropBuilder';
 import { ListOfClasses } from '../../Types/Preact';
 
 export interface OtherModifierProps {
@@ -12,17 +13,14 @@ export interface OtherModifierProps {
 	relative?: boolean;
 }
 
-export const AddOtherModifierProps = <P extends OtherModifierProps>(props: P): ListOfClasses => {
-	// TODO: cleanup (this always returns all values)
-	return {
-		[`is-overlay`]: !!props.overlay,
-		[`is-clipped`]: !!props.clipped,
-		[`is-radiusless`]: !!props.radiusless,
-		[`is-shadowless`]: !!props.shadowless,
-		[`is-unselectable`]: !!props.unselectable,
-		[`is-invisible`]: !!props.invisible,
-		[`is-hidden`]: !!props.hidden,
-		[`is-sr-only`]: !!props.screenreader,
-		[`is-relative`]: !!props.relative
-	};
-};
+export const AddOtherModifierProps = <P extends OtherModifierProps>(props: P): ListOfClasses => ({
+	...PropBuilder(props.clipped, 'is-clipped'),
+	...PropBuilder(props.hidden, 'is-hidden'),
+	...PropBuilder(props.invisible, 'is-invisible'),
+	...PropBuilder(props.overlay, 'is-overlay'),
+	...PropBuilder(props.radiusless, 'is-radiusless'),
+	...PropBuilder(props.relative, 'is-relative'),
+	...PropBuilder(props.screenreader, 'is-sr-only'),
+	...PropBuilder(props.shadowless, 'is-shadowless'),
+	...PropBuilder(props.unselectable, 'is-unselectable')
+});
