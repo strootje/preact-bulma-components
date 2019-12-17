@@ -1,6 +1,6 @@
-import { ElementBuilder } from "../../ElementBuilder";
+import { AttrBuilder } from "../../AttrBuilder";
+import { ComponentBuilder } from "../../ComponentBuilder";
 import { ModifierAttribs, ModifierProps } from "../../Modifiers";
-import { PropBuilder } from "../../PropBuilder";
 import { Component } from "../../Types/Preact";
 import { LevelItem, LevelItemProps } from "./Item";
 import { LevelLeft, LevelLeftProps } from "./Left";
@@ -10,9 +10,9 @@ export interface LevelProps extends ModifierProps {
 	mobile?: boolean;
 }
 
-export const Level = (ElementBuilder<LevelProps, ModifierAttribs>('level', {
+export const Level = (ComponentBuilder<LevelProps, ModifierAttribs>('level', {
 	classes: props => ({
-		...PropBuilder(props.mobile, 'is-mobile')
+		...AttrBuilder<LevelProps, ModifierAttribs>(props, 'mobile')
 	})
 }) as Component<LevelProps, ModifierAttribs> & {
 	Item: Component<LevelItemProps, ModifierAttribs>;

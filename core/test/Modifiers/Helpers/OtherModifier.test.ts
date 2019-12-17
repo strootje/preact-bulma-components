@@ -111,7 +111,7 @@ describe('AddOtherModifierProps', () => {
 	it('Should add `.is-sr-only` when prop `screenreader` is set to `true`', () => {
 		// Arrange
 		const props: OtherModifierProps = {
-			screenreader: true
+			'sr-only': true
 		};
 
 		// Act

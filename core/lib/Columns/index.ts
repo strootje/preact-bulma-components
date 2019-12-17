@@ -1,8 +1,9 @@
-import { ElementBuilder } from "../ElementBuilder";
-import { ModifierProps } from "../Modifiers";
-import { PropBuilder } from "../PropBuilder";
-import { BreakpointsThisAndLarger, WithBreakpoints } from "../Types/Bulma";
-import { ListOfClasses } from "../Types/Preact";
+import { AttrBuilder } from '../AttrBuilder';
+import { ComponentBuilder } from '../ComponentBuilder';
+import { ModifierAttribs, ModifierProps } from '../Modifiers';
+import { BreakpointsThisAndLarger, WithBreakpoints } from '../Types/Bulma';
+import { Component, ListOfClasses, Props } from '../Types/Preact';
+import { Column, ColumnProps } from './Column';
 
 export type CenteredPropValues = 'horizontal' | 'vertical' | 'both';
 export type GapPropValues = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8';
@@ -14,18 +15,22 @@ export interface ColumnsProps extends ModifierProps {
 	gap?: GapWithNogapPropValues | WithBreakpoints<GapPropValues, BreakpointsThisAndLarger>;
 }
 
-export const Columns = ElementBuilder<ColumnsProps>('columns', {
+export const Columns = (ComponentBuilder<ColumnsProps>('columns', {
 	classes: props => ({
-		...PropBuilder(props.multiline, 'is-multiline'),
-		...CenteredPropBuilder(props.centered),
-		...GapPropBuilder(props.gap)
+		...AttrBuilder<ColumnsProps>(props, 'multiline'),
+		...CenteredAttrBuilder(props.centered),
+		...GapAttrBuilder(props)
 	})
-});;
+}) as Component<ColumnsProps, ModifierAttribs> & {
+	Column: Component<ColumnProps, ModifierAttribs>;
+});
+
+Columns.Column = Column;
 
 // Aliases
 export const Row = Columns;
 
-const CenteredPropBuilder = (prop?: boolean | CenteredPropValues): ListOfClasses => {
+const CenteredAttrBuilder = (prop?: boolean | CenteredPropValues): ListOfClasses => {
 	const classes: ListOfClasses = {};
 
 	const isBoolAndTrue = (typeof prop === 'boolean') && !!prop;
@@ -41,14 +46,14 @@ const CenteredPropBuilder = (prop?: boolean | CenteredPropValues): ListOfClasses
 	return classes;
 };
 
-const GapPropBuilder = (prop?: GapWithNogapPropValues | WithBreakpoints<GapPropValues, BreakpointsThisAndLarger>): ListOfClasses => {
-	if (!prop) {
+const GapAttrBuilder = (props: Props<ColumnsProps, {}>): ListOfClasses => {
+	if (!props.gap) {
 		return {};
 	}
 
 	const classes: ListOfClasses = {
 		'is-variable': true,
-		...PropBuilder(prop)
+		...AttrBuilder<ColumnsProps>(props, 'gap')
 	};
 
 	return classes;

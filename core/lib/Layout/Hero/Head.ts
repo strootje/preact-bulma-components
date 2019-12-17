@@ -1,7 +1,7 @@
-import { ElementBuilder } from '../../ElementBuilder';
+import { ComponentBuilder } from '../../ComponentBuilder';
 import { ModifierAttribs, ModifierProps } from '../../Modifiers';
 
 export interface HeroHeadProps extends ModifierProps {
 }
 
-export const HeroHead = ElementBuilder<HeroHeadProps, ModifierAttribs>('hero-head');
+export const HeroHead = ComponentBuilder<HeroHeadProps, ModifierAttribs>('hero-head');

@@ -1,11 +1,11 @@
 import { FloatTypes } from '../../Types/Bulma';
-import { ListOfClasses } from '../../Types/Preact';
+import { ListOfClasses, Props } from '../../Types/Preact';
 
 export interface FloatModifierProps {
 	float?: FloatTypes;
 }
 
-export const AddFloatModifierProps = <P extends FloatModifierProps>(props: P): ListOfClasses => {
+export const AddFloatModifierProps = <P extends FloatModifierProps, A>(props: Props<P, A>): ListOfClasses => {
 	if (!props.float || typeof props.float != 'string') {
 		return {};
 	}

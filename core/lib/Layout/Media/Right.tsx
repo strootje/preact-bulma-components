@@ -1,7 +1,7 @@
-import { ElementBuilder } from "../../ElementBuilder";
+import { ComponentBuilder } from "../../ComponentBuilder";
 import { ModifierAttribs, ModifierProps } from "../../Modifiers";
 
 export interface MediaRightProps extends ModifierProps {
 }
 
-export const MediaRight = ElementBuilder<MediaRightProps, ModifierAttribs>('media-right');
+export const MediaRight = ComponentBuilder<MediaRightProps, ModifierAttribs>('media-right');

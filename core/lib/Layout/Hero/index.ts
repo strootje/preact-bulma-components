@@ -1,6 +1,6 @@
-import { ElementBuilder } from '../../ElementBuilder';
+import { AttrBuilder } from '../../AttrBuilder';
+import { ComponentBuilder } from '../../ComponentBuilder';
 import { ModifierAttribs, ModifierProps } from '../../Modifiers';
-import { PropBuilder } from '../../PropBuilder';
 import { Component } from '../../Types/Preact';
 import { HeroBody, HeroBodyProps } from './Body';
 import { HeroFoot, HeroFootProps } from './Foot';
@@ -13,10 +13,10 @@ export interface HeroProps extends ModifierProps {
 	'hero-size'?: HeroSizePropValues;
 }
 
-export const Hero = (ElementBuilder<HeroProps, ModifierAttribs>('hero', {
+export const Hero = (ComponentBuilder<HeroProps, ModifierAttribs>('hero', {
 	classes: props => ({
-		...PropBuilder(props.bold, 'is-bold'),
-		...PropBuilder(props['hero-size'])
+		...AttrBuilder<HeroProps, ModifierAttribs>(props, 'bold'),
+		...AttrBuilder<HeroProps, ModifierAttribs>(props, 'hero-size')
 	})
 }) as Component<HeroProps, ModifierAttribs> & {
 	Body: Component<HeroBodyProps, ModifierAttribs>;

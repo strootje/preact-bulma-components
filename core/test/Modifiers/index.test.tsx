@@ -2,10 +2,10 @@ import { expect, use } from 'chai';
 import { describe, it } from 'mocha';
 import { h } from 'preact';
 import JsxPlugin from 'preact-jsx-chai';
-import { ElementBuilder } from '../../lib/ElementBuilder';
+import { ComponentBuilder } from '../../lib/ComponentBuilder';
 import { ModifierAttribs, ModifierProps } from '../../lib/Modifiers';
 
-const TestComponent = ElementBuilder<ModifierProps, ModifierAttribs>({});
+const TestComponent = ComponentBuilder<ModifierProps, ModifierAttribs>({});
 
 describe('<TestComponent />', () => {
 	use(JsxPlugin);
@@ -44,7 +44,7 @@ describe('<TestComponent />', () => {
 
 	it('Should add `.is-large` when prop `elem-size` is set to `large`', () => {
 		expect(
-			<TestComponent elem-size="large" />
+			<TestComponent size="large" />
 		).to.equal(
 			<div class="is-large"></div>
 		)
@@ -60,7 +60,7 @@ describe('<TestComponent />', () => {
 
 	it('Should add `.is-sr-only [disabled]` when prop `screenreader` is set to `true` and attrib `disabled` is set to `true`', () => {
 		expect(
-			<TestComponent screenreader disabled />
+			<TestComponent sr-only disabled />
 		).to.equal(
 			<div class="is-sr-only" disabled></div>
 		)

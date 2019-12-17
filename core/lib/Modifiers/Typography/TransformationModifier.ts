@@ -1,11 +1,11 @@
-import { PropBuilder } from '../../PropBuilder';
+import { AttrBuilder } from '../../AttrBuilder';
 import { TextTransformations } from '../../Types/Bulma';
-import { ListOfClasses } from '../../Types/Preact';
+import { ListOfClasses, Props } from '../../Types/Preact';
 
 export interface TransformationModifierProps {
 	transform?: TextTransformations;
 }
 
-export const AddTransformationModifierProps = <P extends TransformationModifierProps>(props: P): ListOfClasses => ({
-	...PropBuilder(props.transform)
+export const AddTransformationModifierProps = <P extends TransformationModifierProps, A>(props: Props<P, A>): ListOfClasses => ({
+	...AttrBuilder<P, A>(props, 'transform')
 });

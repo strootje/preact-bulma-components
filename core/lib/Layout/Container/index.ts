@@ -1,6 +1,6 @@
-import { ElementBuilder } from "../../ElementBuilder";
-import { ModifierProps } from "../../Modifiers";
-import { PropBuilder } from "../../PropBuilder";
+import { AttrBuilder } from "../../AttrBuilder";
+import { ComponentBuilder } from "../../ComponentBuilder";
+import { ModifierAttribs, ModifierProps } from "../../Modifiers";
 
 export interface ContainerProps extends ModifierProps {
 	fluid?: boolean;
@@ -8,10 +8,10 @@ export interface ContainerProps extends ModifierProps {
 	fullhd?: boolean;
 }
 
-export const Container = ElementBuilder<ContainerProps>('container', {
+export const Container = ComponentBuilder<ContainerProps>('container', {
 	classes: props => ({
-		...PropBuilder(props.fluid, 'is-fluid'),
-		...PropBuilder(props.widescreen, 'is-widescreen'),
-		...PropBuilder(props.fullhd, 'is-fullhd')
+		...AttrBuilder<ContainerProps, ModifierAttribs>(props, 'fluid'),
+		...AttrBuilder<ContainerProps, ModifierAttribs>(props, 'widescreen'),
+		...AttrBuilder<ContainerProps, ModifierAttribs>(props, 'fullhd')
 	})
 });

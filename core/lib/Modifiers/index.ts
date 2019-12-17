@@ -1,4 +1,4 @@
-import { ComponentProps, ListOfAttribs, ListOfClasses } from "../Types/Preact";
+import { ListOfAttribs, ListOfClasses, Props } from "../Types/Preact";
 import { AddFloatModifierProps, FloatModifierProps } from "./Helpers/FloatModifier";
 import { AddOtherModifierProps, OtherModifierProps } from "./Helpers/OtherModifier";
 import { AddSpacingModifierProps, SpacingModifierProps } from "./Helpers/SpacingModifier";
@@ -35,35 +35,33 @@ export interface ModifierProps extends
 }
 
 export interface ModifierAttribs extends
-	EventTarget,
-
 	// Syntax
 	StateModifierAttribs {
 }
 
-export const AddModifierProps = <P extends ModifierProps>(props: P): ListOfClasses => ({
+export const AddModifierProps = <P extends ModifierProps, A extends ModifierAttribs>(props: Props<P, A>): ListOfClasses => ({
 	// Helpers
-	...AddFloatModifierProps<P>(props),
-	...AddOtherModifierProps<P>(props),
-	...AddSpacingModifierProps<P>(props),
+	...AddFloatModifierProps<P, A>(props),
+	...AddOtherModifierProps<P, A>(props),
+	...AddSpacingModifierProps<P, A>(props),
 
 	// Responsive
-	...AddDisplayModifierProps<P>(props),
+	...AddDisplayModifierProps<P, A>(props),
 
 	// Syntax
-	...AddSizeModifierProps<P>(props),
-	...AddStateModifierProps<P>(props),
+	...AddSizeModifierProps<P, A>(props),
+	...AddStateModifierProps<P, A>(props),
 
 	// Typography
-	...AddAlignmentModifierProps<P>(props),
-	...AddColorModifierProps<P>(props),
-	...AddFamilyModifierProps<P>(props),
-	...AddFontSizeModifierProps<P>(props),
-	...AddTransformationModifierProps<P>(props),
-	...AddWeightModifierProps<P>(props)
+	...AddAlignmentModifierProps<P, A>(props),
+	...AddColorModifierProps<P, A>(props),
+	...AddFamilyModifierProps<P, A>(props),
+	...AddFontSizeModifierProps<P, A>(props),
+	...AddTransformationModifierProps<P, A>(props),
+	...AddWeightModifierProps<P, A>(props)
 });
 
-export const AddModifierAttribs = <P extends ModifierProps, A extends ModifierAttribs>(props: ComponentProps<P, A>): ListOfAttribs<A> => ({
+export const AddModifierAttribs = <P extends ModifierProps, A extends ModifierAttribs, E extends EventTarget>(props: Props<P, A>): ListOfAttribs<A, E> => ({
 	// Syntax
-	...AddStateModifierAttribs<P, A>(props)
+	...AddStateModifierAttribs<P, A, E>(props)
 });

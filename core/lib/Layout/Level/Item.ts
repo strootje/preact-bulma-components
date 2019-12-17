@@ -1,13 +1,13 @@
-import { ElementBuilder } from "../../ElementBuilder";
+import { AttrBuilder } from "../../AttrBuilder";
+import { ComponentBuilder } from "../../ComponentBuilder";
 import { ModifierAttribs, ModifierProps } from "../../Modifiers";
-import { PropBuilder } from "../../PropBuilder";
 
 export interface LevelItemProps extends ModifierProps {
 	centered?: boolean;
 }
 
-export const LevelItem = ElementBuilder<LevelItemProps, ModifierAttribs>('level-item', {
+export const LevelItem = ComponentBuilder<LevelItemProps, ModifierAttribs>('level-item', {
 	classes: props => ({
-		...PropBuilder(props.centered, 'has-text-centered')
+		...AttrBuilder<LevelItemProps, ModifierAttribs>(props, 'centered', 'has-text')
 	})
 });

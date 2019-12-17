@@ -1,11 +1,11 @@
-import { PropBuilder } from '../../PropBuilder';
+import { AttrBuilder } from '../../AttrBuilder';
 import { SizeTypes } from '../../Types/Bulma';
-import { ListOfClasses } from '../../Types/Preact';
+import { ListOfClasses, Props } from '../../Types/Preact';
 
 export interface SizeModifierProps {
-	'elem-size'?: SizeTypes;
+	size?: SizeTypes;
 }
 
-export const AddSizeModifierProps = <P extends SizeModifierProps>(props: P): ListOfClasses => ({
-	...PropBuilder(props['elem-size'])
+export const AddSizeModifierProps = <P extends SizeModifierProps, A>(props: Props<P, A>): ListOfClasses => ({
+	...AttrBuilder<P, A>(props, 'size')
 });

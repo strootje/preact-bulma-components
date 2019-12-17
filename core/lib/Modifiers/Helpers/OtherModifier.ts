@@ -1,5 +1,5 @@
-import { PropBuilder } from '../../PropBuilder';
-import { ListOfClasses } from '../../Types/Preact';
+import { AttrBuilder } from '../../AttrBuilder';
+import { ListOfClasses, Props } from '../../Types/Preact';
 
 export interface OtherModifierProps {
 	overlay?: boolean;
@@ -9,18 +9,18 @@ export interface OtherModifierProps {
 	unselectable?: boolean;
 	invisible?: boolean;
 	hidden?: boolean;
-	screenreader?: boolean;
+	'sr-only'?: boolean;
 	relative?: boolean;
 }
 
-export const AddOtherModifierProps = <P extends OtherModifierProps>(props: P): ListOfClasses => ({
-	...PropBuilder(props.clipped, 'is-clipped'),
-	...PropBuilder(props.hidden, 'is-hidden'),
-	...PropBuilder(props.invisible, 'is-invisible'),
-	...PropBuilder(props.overlay, 'is-overlay'),
-	...PropBuilder(props.radiusless, 'is-radiusless'),
-	...PropBuilder(props.relative, 'is-relative'),
-	...PropBuilder(props.screenreader, 'is-sr-only'),
-	...PropBuilder(props.shadowless, 'is-shadowless'),
-	...PropBuilder(props.unselectable, 'is-unselectable')
+export const AddOtherModifierProps = <P extends OtherModifierProps, A>(props: Props<P, A>): ListOfClasses => ({
+	...AttrBuilder<P, A>(props, 'clipped'),
+	...AttrBuilder<P, A>(props, 'hidden'),
+	...AttrBuilder<P, A>(props, 'invisible'),
+	...AttrBuilder<P, A>(props, 'overlay'),
+	...AttrBuilder<P, A>(props, 'radiusless'),
+	...AttrBuilder<P, A>(props, 'relative'),
+	...AttrBuilder<P, A>(props, 'sr-only'),
+	...AttrBuilder<P, A>(props, 'shadowless'),
+	...AttrBuilder<P, A>(props, 'unselectable')
 });

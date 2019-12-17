@@ -6,7 +6,7 @@ describe('AddSizeModifierProps', () => {
 	it('Should add `.is-large` when prop `size` is set to `large`', () => {
 		// Arrange
 		const props: SizeModifierProps = {
-			'elem-size': 'large'
+			size: 'large'
 		};
 
 		// Act
